@@ -12,7 +12,7 @@
     
     
     
-    <title>归档 | Heln</title>
+    <title>IP路由过程分析 | Heln</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -162,145 +162,64 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">IP路由过程分析</h1>
     
-        
-        <div class="cube-archive" style="margin-top: 0;">
-            
-                
-                   
-                            <h1 class="title">2018</h1>
-                            <ul class="posts">
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-28-CTF2/">PHP大法好--Writeup</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-路由IP的过程/">IP路由过程分析</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-浮动路由配置/">浮动静态路由的配置实验</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-rip路由的配置/">rip实验的配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-ospf路由转发功能/">ospf路由转发功能</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-acl随笔/">ACL原理小结</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-22-tools-for-git/">git 基本操作姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-web-for-internet/">网络的路牌 路由器</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-google-for-internet/">用好 Goole 的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-06-tools-for-jekyll/">再见，2017！ 你好，2018！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06交换机配置/">交换机配置的打开方式</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06简单的ospf配置/">关于OSPF的简单配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-04-03-计算机网络基础之三/">计算机网络基础（三）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-03-29-计算机网络基础之二/">计算机网络基础（二）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2015-09-21-tools-for-jekyll/">写 Jekyll 博客的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-02-14-新年祝福/">18年静好！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-CTF/">once more--write up</a>
-                            </li>
-                
-            
-                    </ul>
-                        </div>
-        
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-03-25
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/路由器/">#路由器</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h1 id="IP路由过程分析"><a href="#IP路由过程分析" class="headerlink" title="IP路由过程分析"></a>IP路由过程分析</h1><hr>
+<p><img src="http://i.imgur.com/v57mT6n.png" alt="图1-1"></p>
+<p><strong>  首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口<br>fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。</strong></p>
+<p><strong> 小结： </strong></p>
+<pre><code>经过这个流程的分析我发现路由器在转发数据的过程，
+和A相连的端口是路由器的其中一个端口不是路由器的本身的网络，
+另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据,
+即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。
+从而完成了从物理网卡的转移到逻辑上的数据转移。
+</code></pre>
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/03/25/2018-01-28-CTF2/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                PHP大法好--Writeup
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/03/25/2018-01-27-浮动路由配置/">
+                浮动静态路由的配置实验
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -450,7 +369,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/CTF/">#CTF</a>
         </div>
         
@@ -460,12 +379,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/网络/">#网络</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/生活杂谈/">#生活杂谈</a>
         </div>
         
@@ -511,7 +430,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计算机网络/">#计算机网络</a>
         </div>
         
@@ -531,12 +450,12 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/生活杂谈/">#生活杂谈</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/网络/">#网络</a>
         </div>
         
@@ -566,7 +485,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/静态路由/">#静态路由</a>
         </div>
         

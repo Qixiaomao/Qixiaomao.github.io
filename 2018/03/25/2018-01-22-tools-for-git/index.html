@@ -12,7 +12,7 @@
     
     
     
-    <title>归档 | Heln</title>
+    <title>git 基本操作姿势 | Heln</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -162,145 +162,69 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">git 基本操作姿势</h1>
     
-        
-        <div class="cube-archive" style="margin-top: 0;">
-            
-                
-                   
-                            <h1 class="title">2018</h1>
-                            <ul class="posts">
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-28-CTF2/">PHP大法好--Writeup</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-路由IP的过程/">IP路由过程分析</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-浮动路由配置/">浮动静态路由的配置实验</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-rip路由的配置/">rip实验的配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-ospf路由转发功能/">ospf路由转发功能</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-acl随笔/">ACL原理小结</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-22-tools-for-git/">git 基本操作姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-web-for-internet/">网络的路牌 路由器</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-google-for-internet/">用好 Goole 的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-06-tools-for-jekyll/">再见，2017！ 你好，2018！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06交换机配置/">交换机配置的打开方式</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06简单的ospf配置/">关于OSPF的简单配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-04-03-计算机网络基础之三/">计算机网络基础（三）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-03-29-计算机网络基础之二/">计算机网络基础（二）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2015-09-21-tools-for-jekyll/">写 Jekyll 博客的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-02-14-新年祝福/">18年静好！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-CTF/">once more--write up</a>
-                            </li>
-                
-            
-                    </ul>
-                        </div>
-        
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-03-25
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/技术/">#技术</a>
+    
+    <a href="/tags/git/">#git</a>
+    
+    <a href="/tags/小结/">#小结</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h1 id="git-基本命令集合"><a href="#git-基本命令集合" class="headerlink" title="git 基本命令集合"></a><strong><em>git 基本命令集合</em></strong></h1><h3 id="Tips-为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。"><a href="#Tips-为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。" class="headerlink" title="Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。"></a>Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。</h3><h2 id="整体思路："><a href="#整体思路：" class="headerlink" title="整体思路："></a>整体思路：</h2><pre><code>1）通过git上传文章
+2）如何上传文章到blog
+3）具体的git命令操作
+</code></pre><h3 id="1）通过git上传文章"><a href="#1）通过git上传文章" class="headerlink" title="1）通过git上传文章"></a>1）<strong>通过git上传文章</strong></h3><h4 id="因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？"><a href="#因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？" class="headerlink" title="因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？"></a>因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？</h4><h3 id="2）如何上传文章到git"><a href="#2）如何上传文章到git" class="headerlink" title="2）如何上传文章到git?"></a>2）<strong>如何上传文章到git?</strong></h3><h4 id="文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—-gt-github上的服务器—-gt-静态页面（blog）展示。"><a href="#文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—-gt-github上的服务器—-gt-静态页面（blog）展示。" class="headerlink" title="文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&gt;静态页面（blog）展示。"></a>文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&gt;静态页面（blog）展示。</h4><h3 id="3）具体的git命令操作"><a href="#3）具体的git命令操作" class="headerlink" title="3）具体的git命令操作"></a>3）具体的git命令操作</h3><h4 id="3-1）先初始化本地仓库（如果路径没变可以忽略）"><a href="#3-1）先初始化本地仓库（如果路径没变可以忽略）" class="headerlink" title="3.1）先初始化本地仓库（如果路径没变可以忽略）"></a>3.1）先初始化本地仓库（如果路径没变可以忽略）</h4><pre><code>git init #这步将会在本地文件夹下产生一个.git文件夹，如图：
+</code></pre><p><img src="https://i.imgur.com/1RgrZD2.png" alt=""></p>
+<h4 id="3-2）监听文件"><a href="#3-2）监听文件" class="headerlink" title="3.2）监听文件"></a>3.2）监听文件</h4><pre><code>git add 相关文件  #e.g git add test.py(如果是批量的话可以使用通配符*.py)
+</code></pre><h4 id="3-3）commit告诉仓库更改的信息"><a href="#3-3）commit告诉仓库更改的信息" class="headerlink" title="3.3）commit告诉仓库更改的信息"></a>3.3）commit告诉仓库更改的信息</h4><pre><code>git commit -m&quot;add test.py&quot;
+</code></pre><h4 id="3-4-push文件到博客"><a href="#3-4-push文件到博客" class="headerlink" title="3.4)push文件到博客"></a>3.4)push文件到博客</h4><pre><code>git push origin master #上传的文件以master的方式上传到github
+</code></pre><p>  <strong>Tips:为了不让18天以后的自己忘记了这些命令！</strong></p>
+<h3 id="最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程"><a href="#最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程" class="headerlink" title="最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程"></a>最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程</h3><p><img src="https://i.imgur.com/3AIcNGS.png" alt=""></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/03/25/2018-01-27-acl随笔/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                ACL原理小结
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/03/25/2018-01-07-web-for-internet/">
+                网络的路牌 路由器
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -455,17 +379,17 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/jekyll/">#jekyll</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/网络/">#网络</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/生活杂谈/">#生活杂谈</a>
         </div>
         
@@ -506,7 +430,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/学习资料/">#学习资料</a>
         </div>
         
@@ -516,7 +440,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/交换机/">#交换机</a>
         </div>
         
@@ -536,7 +460,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/网络/">#网络</a>
         </div>
         
@@ -546,7 +470,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/git/">#git</a>
         </div>
         
