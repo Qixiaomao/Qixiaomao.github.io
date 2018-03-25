@@ -1,673 +1,1192 @@
 <!DOCTYPE html>
 <html>
+    <!-- title -->
+
+
+
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Heln">
-    
-    <meta name="description" content="Too young,Too naive.">
-    
-    
-    
-    
-    
-    
-    <title>归档 | Heln</title>
-    <!-- inject:style -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <!-- endinject -->
-    <style>
-        .cube-loading {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('/images/lg/loading.gif') no-repeat center center;
-            background-color: rgba(0,0,0,.7);
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title></title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
         }
-
-        .cube-loading.out {
-            display: none;
-        }
-
-        .cube-loading:before {
-            display: block;
-            content: '加载中';
-            position: relative;
-            width: 100%;
-            top: 50%;
-            right: -50%;
-            color: #fff;
-        }
-
-        @media(max-width: 768px) {
-            .cube-loading:before {
-                font-size: 1.2em;
-                transform: translate(-24px,20px);
-                -webkit-transform: translate(-24px,20px);
-                -o-transform: translate(-24px,20px);
-                -ms-transform: translate(-24px,20px);
-            }
-        }
-
-        @media(min-width: 768px) {
-            .cube-loading:before {
-
-            }
-        }
-    </style>
-    
-</head>
-<body>
-<div class="cube-body">
-    <nav id="cube-top-memu" class="cube-menu">
-    <ul class="cube-menu-collapse">
-        
-        <li>
-            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
-            <a href="/">首页</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
-            <a href="/archives">归档</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories">分类</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
-            <a href="/tags">标签</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
-            <a href="/about-me">关于我</a>
-        </li>
-        
-    </ul>
-</nav>
-<nav class="cube-side-menu" id="cube-side-menu">
-    <ul class="cube-menu-list">
-        
-        <li>
-            <a class="lrc-control">开启歌词</a>
-        </li>
-        
-        <li>
-            <a class="scroll-to-top">回到顶部</a>
-        </li>
-    </ul>
-</nav>
-    <header class="cube-header" id="cube-header">
-    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
-    
-    <div class="cube-type">
-        <span class="cube-typed-title">Jheln の blog</span>
-        <span class="cube-typed-cursor">|</span>
-    </div>
-    
-</header>
-
-    <style>
-        nav.cube-menu:before {
-            content: '';
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 44px;
-        
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
-        
-            z-index: -1;
-            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
-            background-repeat: no-repeat;
-            background-position: center -356px;
-            background-size: cover;
-            background-color: transparent;
-        }
-
-        header.cube-background.cube-header-background {
-            visibility: hidden;
-            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
-            background-position: center -400px;
-        }
-    </style>
-    <header class="cube-background cube-header-background">
-        
-        <div class="cube-type">
-            <span class="cube-typed-title">Jheln の blog</span>
-            <span class="cube-typed-cursor">|</span>
-        </div>
-        
-    </header>
-    <div class="load-header-background"></div>
-    <script>
-        (function (window) {
-
-            window.headerModule = {}
-            window.headerModule.image = {
-                width: '2000',
-                height: '1414'
-            }
-
-        })(window)
-    </script>
-    
-    <div class="cube-content">
-        <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
+        100% {
+            transform: translate3d(0, 0, 0);
         }
     }
+
 </style>
-<div class="cube-archives">
-    
+
+    <link rel="preload" href= /css/style.css?v=20180317 as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href= /css/mobile.css?v=20180317 media="(max-width: 980px)"/>
         
-        <div class="cube-archive" style="margin-top: 0;">
+    <link rel="icon" href= /assets/favicon.ico>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () { };
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>Heln's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+>
+    
+    <!-- 主页  -->
             
-                
-                   
-                            <h1 class="title">2018</h1>
-                            <ul class="posts">
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-28-CTF2/">PHP大法好--Writeup</a>
-                            </li>
-                
+    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
             
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-路由IP的过程/">IP路由过程分析</a>
-                            </li>
-                
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
             
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-浮动路由配置/">浮动静态路由的配置实验</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-rip路由的配置/">rip实验的配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-ospf路由转发功能/">ospf路由转发功能</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-acl随笔/">ACL原理小结</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-22-tools-for-git/">git 基本操作姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-web-for-internet/">网络的路牌 路由器</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-07-google-for-internet/">用好 Goole 的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-06-tools-for-jekyll/">再见，2017！ 你好，2018！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06交换机配置/">交换机配置的打开方式</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-07-06简单的ospf配置/">关于OSPF的简单配置</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-04-03-计算机网络基础之三/">计算机网络基础（三）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2017-03-29-计算机网络基础之二/">计算机网络基础（二）</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2015-09-21-tools-for-jekyll/">写 Jekyll 博客的正确姿势</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-02-14-新年祝福/">18年静好！</a>
-                            </li>
-                
-            
-                
-                   
-                            <li class="post">
-                                <a href="/2018/03/25/2018-01-27-CTF/">once more--write up</a>
-                            </li>
-                
-            
-                    </ul>
-                        </div>
+        </p>
+        <!-- 文章页meta -->
         
-    
-</div>
-        </div>
-        <div class="cube-right">
-            
-
-<div class="cube-search cube-sidebar" id="cube-search">
-    <div class="search-container">
-        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
-        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
-    </div>
-    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
-</div>
-<script>
-    (function (window) {
-        'use strict';
-        window.searchModule = {}
-        window.searchModule.JSONUrl = '/content.json'
-        window.searchModule.rootUrl = '/'
-    })(window)
-</script>
-<div class="cube-search-form">
-    <div class="cube-search-control">
-        <input type="text" placeholder="搜索" class="search-input">
-        <a class="close-button">
-            <i class="cube-icon cube-close" aria-hidden="true"></i>
-        </a>
-    </div>
-    <div class="cube-search-result"></div>
-</div>
-
-
-<div class="cube-author cube-sidebar" id="cube-author">
-    
-    
-    <span>Heln</span>
-    
-    
-    <a title="Too young,Too naive.">Too young,Too naive.</a>
-    
-    <div class="count">
-        <a class="count articles"><span>17</span>文章</a>
-        <a class="count tags"><span>20</span>标签</a>
-        <a class="count categories"><span>5</span>分类</a>
     </div>
 </div>
+        <script>
+  // load webfont-loader async, and add callback function
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+      if (postIntroTags) {
+        postIntroTags.classList.add('post-fade-in');
+      }
+      if (postIntroMeat) {
+        postIntroMeat.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  async("https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", asyncCb)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-28-CTF2/" >
+                
+                    <span>PHP大法好--Writeup</span>
+            </a>
+            <div class="abstract-content">
+                PHP大法好正确操作方式
+Writeup思路：
+
+1) 审题
+2）找到源代码
+3）代码分析
+4) 原因总结
 
 
 
-<div class="cube-music cube-sidebar" id="cube-music">
-    <div class="cube-player aplayer" id="cube-player"></div>
-</div>
-<script>
-    (function (window) {
-        window.musicModule = {}
-        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
-        window.musicModule.lrcConfig = {
-            open: '开启歌词',
-            close: '关闭歌词'
-        }
-    })(window)
-</script>
-
-
-
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>近期文章</a>
-    </div>
-    <ul class="list">
-        
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            <div class="normal">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-28-CTF2/" title="PHP大法好--Writeup">PHP大法好--Writeup</a>
-                </p>
+1）审题  题目： http://ctf5.shiyanbar.com/DUTCTF/index.php 
+  
+ 这题的提示是“注意备份文件”，有什么用呢？ 点开网页看到一行文字：
+ 
+2）找到源代码于是试着在url上加上 .txt 然后就看到一串服务器端的代码
+&lt;?php
+if(eregi(&quot;hackerDJ&quot;,$_GET[id])) {
+  echo(&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;);
+ ...
             </div>
-            
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-路由IP的过程/" title="IP路由过程分析">IP路由过程分析</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-浮动路由配置/" title="浮动静态路由的配置实验">浮动静态路由的配置实验</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>4</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-rip路由的配置/" title="rip实验的配置">rip实验的配置</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>5</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-ospf路由转发功能/" title="ospf路由转发功能">ospf路由转发功能</a>
-                </p>
-            </div>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-categories cube-sidebar" id="cube-categories">
-    <div class="title">
-        <a href="/categories">分类</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/jekyll/">#jekyll</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/网络/">#网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/生活杂谈/">#生活杂谈</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/CTF/">#CTF</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/生活杂感/">#生活杂感</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
-    <div class="title">
-        <a href="/tags">标签云</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/jekyll/">#jekyll</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/技术/">#技术</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/学习资料/">#学习资料</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计算机网络/">#计算机网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/交换机/">#交换机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/路由器/">#路由器</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/ospf/">#ospf</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/生活杂谈/">#生活杂谈</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/网络/">#网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/学术总结/">#学术总结</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/git/">#git</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/小结/">#小结</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/ctf/">#ctf</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/php代码审计/">#php代码审计</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/ACL原理/">#ACL原理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/静态路由/">#静态路由</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/rip/">#rip</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CTF/">#CTF</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/writeup/">#writeup</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/杂感/">#杂感</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-links cube-sidebar" id="cube-links">
-    <div class="title">
-        <a>个人链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
-            
-            <a href="https://github.com/Qixiaomao" target="_blank">GitHub</a>
-        </li>
-        
-        <li>
-            
-            <a href="" target="_blank"></a>
-        </li>
-        
-        <li>
-            
-            <a href="" target="_blank"></a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
-            
-            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
-    <div class="title">
-        <a>友情链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
-            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
-            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="/images/friend_links.jpg ">
-            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-    </div>
-</div>
-<footer class="cube-footer">
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
     
-© 2017 Heln
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CTF">CTF</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "writeup">writeup</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-路由IP的过程/" >
+                
+                    <span>IP路由过程分析</span>
+            </a>
+            <div class="abstract-content">
+                IP路由过程分析
 
-<br>
-Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+  首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-浮动路由配置/" >
+                
+                    <span>浮动静态路由的配置实验</span>
+            </a>
+            <div class="abstract-content">
+                浮动静态路由的配置实验##
+网络拓扑 如下：
+实验目的1.了解静态路由的配置；2.了解浮动路由的应用范围；3.进一步了解Ping和tracert的作用；4.明白开销值在其中的作用；实验步骤1.先划分不同的网段，这个拓扑中一共有6个网段；2.然后分别给PC、switch、router进行配置；3.配置完成后，进行Ping测试；4.之后，再进行端口的断线测试；实验交换机的配置命令：进入交换机的用户模式
+en
+
+进入配置模式
+config t
+
+分配vlan 10
+vlan 10
+
+退出vlan
+exit 
+
+重新进入vlan10
+interface vlan 10
+
+给vlan进行Ip分配
+...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "静态路由">静态路由</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-rip路由的配置/" >
+                
+                    <span>rip实验的配置</span>
+            </a>
+            <div class="abstract-content">
+                rip实验的配置
+网络拓扑图：
+实验材料：系统环境：win7系统
+模拟软件：PacketTracer6
+
+什么是rip? rip  如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。
+路由器关于rip的配置如下：router rip
+
+network  net [wildmask]
+上面的两个命令行，一个是开启rip模式，如果想要关闭就在r...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "rip">rip</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-ospf路由转发功能/" >
+                
+                    <span>ospf路由转发功能</span>
+            </a>
+            <div class="abstract-content">
+                三层交换机ospf的配置网络拓扑图如下：
+之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。
+路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多；
+三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；
+
+sw(config)#ip routing
+
+
+这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。
+
+
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ospf">ospf</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-acl随笔/" >
+                
+                    <span>ACL原理小结</span>
+            </a>
+            <div class="abstract-content">
+                ACL原理##
+ACL概念   Access Control List  访问控制列表
+   简言之，就是一个为了更好的控制不断扩大的网络的规则；
+   eg.四个应用：ACL、DHCP、NAT、
+   非必需触发条件：时间或事件；
+   定义报文匹配规则；条件和动作（permit or deny）
+ eg.  校园网案例 
+ACL的分类标准ACL
+
+源Ip地址
+
+端口号（指的是目的端口）eg.http的端口80或者8080
+
+ 现在存在的路由器大多数都配置了ACL
+ ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；
+ 考虑ACL放在In端口还是...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ACL原理">ACL原理</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-22-tools-for-git/" >
+                
+                    <span>git 基本操作姿势</span>
+            </a>
+            <div class="abstract-content">
+                git 基本命令集合Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。整体思路：1）通过git上传文章
+2）如何上传文章到blog
+3）具体的git命令操作
+1）通过git上传文章因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？2）如何上传文章到git?文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&g...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术">技术</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "小结">小结</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-07-web-for-internet/" >
+                
+                    <span>网络的路牌 路由器</span>
+            </a>
+            <div class="abstract-content">
+                网络间互联的工具———路由器什么是路由器？路由器就是连接网络的计算机设备。作用
+1.使网络中的设备相互连接，数据转发；
+
+
+2.路由（寻径）路由表的建立、刷新；
+
+
+3.交换：在不同网路之间转发IP分组数据；
+
+
+4.隔离广播域，指定访问规则ALC；
+
+
+5.异种网络互连（不同的链路层互连）；
+
+
+6.工作在第三层，就是网络层，依据IP来转发数据；
+
+什么是路由表？   逻辑上：路由表就是在进行数据转发时提供IP地址的一个表；   物理上：存储于路由器上的RAM，关电擦除的一种存储方式；
+路由表构成路由表是由哪些元素构成的呢？目的IP掩码下一跳优先级自学习方式
+
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术">技术</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络">网络</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "学术总结">学术总结</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-07-google-for-internet/" >
+                
+                    <span>用好 Goole 的正确姿势</span>
+            </a>
+            <div class="abstract-content">
+                【转载自simplyY】如何用好 Google 等搜索引擎？
+http://bzy.me/aff.php?aff=214
+这家ss提供商服务还是很不错的，性价比高，而且比较稳定。
+核心思想1、首先，想好你想要寻找什么。
+哪些词能够最好地描述你要寻找的信息或者概念？
+哪些词是你能够用来替换的？
+有没有那些词是可以不必包括在
+你想要搜索的更好定义你的需求之内？
+2、构建你的搜索要求。
+使用尽可能多你所需要的关键词；越多越好。
+如果皆存在可能的话，试着用适当的搜索操作
+来使你的搜索更精炼——或者，如果你愿意的话，可以使用高级搜索页面（时间、语言）。
+以及关键词一定要分隔开。3、评估一下搜索结...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术">技术</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "学习资料">学习资料</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络">网络</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-06-tools-for-jekyll/" >
+                
+                    <span>再见，2017！ 你好，2018！</span>
+            </a>
+            <div class="abstract-content">
+                
+再见，2017！ 你好，2018！   在刚刚过去的2017年里，回过头来，发现还是没有读多少本书，但是，依然还是有值得高兴的事情。在社交方面，又有了新的体会；在学习上，也有了不同的积累的方法；在心境上，对自我的认知更加深刻……
+   见证了学长们的离开，与看到后辈们的涌入，不禁想到学校毕竟只是一个说长不长，说短不短的“世外之地”，在这里见证了学生间的荣誉，还有彼此的相聚，更有彼此间的分离。突然才想起了杜甫的那句“天地一行间，忽如远行客。”，生活的节奏越来越快，让人开始渐渐模糊今天和昨日，开始忘记了初心，我们也在人生的这趟旅途越走越远，只是，在前行的道路上，我们要做的就是活在当下，随时...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "生活杂谈">生活杂谈</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/03/page/2/">NEXT &#62;</a>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:XDEDM1@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/Qixiaomao" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
 </footer>
-<!-- inject:script -->
-<script src="/js/script.js"></script>
-<!-- endinject -->
-<div class="cube-loading out"></div>
-</body>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 17 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-28-CTF2/" >PHP大法好--Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-路由IP的过程/" >IP路由过程分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-浮动路由配置/" >浮动静态路由的配置实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-rip路由的配置/" >rip实验的配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-ospf路由转发功能/" >ospf路由转发功能</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-acl随笔/" >ACL原理小结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-22-tools-for-git/" >git 基本操作姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-07-web-for-internet/" >网络的路牌 路由器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-07-google-for-internet/" >用好 Goole 的正确姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-06-tools-for-jekyll/" >再见，2017！ 你好，2018！</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-07-06交换机配置/" >交换机配置的打开方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-07-06简单的ospf配置/" >关于OSPF的简单配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-04-03-计算机网络基础之三/" >计算机网络基础（三）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-03-29-计算机网络基础之二/" >计算机网络基础（二）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2015-09-21-tools-for-jekyll/" >写 Jekyll 博客的正确姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-02-14-新年祝福/" >18年静好！</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-CTF/" >once more--write up</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="jekyll"><span class="iconfont-archer">&#xe606;</span>jekyll</span>
+    
+        <span class="sidebar-tag-name" data-tags="技术"><span class="iconfont-archer">&#xe606;</span>技术</span>
+    
+        <span class="sidebar-tag-name" data-tags="学习资料"><span class="iconfont-archer">&#xe606;</span>学习资料</span>
+    
+        <span class="sidebar-tag-name" data-tags="交换机"><span class="iconfont-archer">&#xe606;</span>交换机</span>
+    
+        <span class="sidebar-tag-name" data-tags="路由器"><span class="iconfont-archer">&#xe606;</span>路由器</span>
+    
+        <span class="sidebar-tag-name" data-tags="ospf"><span class="iconfont-archer">&#xe606;</span>ospf</span>
+    
+        <span class="sidebar-tag-name" data-tags="生活杂谈"><span class="iconfont-archer">&#xe606;</span>生活杂谈</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络"><span class="iconfont-archer">&#xe606;</span>网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="学术总结"><span class="iconfont-archer">&#xe606;</span>学术总结</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="小结"><span class="iconfont-archer">&#xe606;</span>小结</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="php代码审计"><span class="iconfont-archer">&#xe606;</span>php代码审计</span>
+    
+        <span class="sidebar-tag-name" data-tags="ACL原理"><span class="iconfont-archer">&#xe606;</span>ACL原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="rip"><span class="iconfont-archer">&#xe606;</span>rip</span>
+    
+        <span class="sidebar-tag-name" data-tags="静态路由"><span class="iconfont-archer">&#xe606;</span>静态路由</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂感"><span class="iconfont-archer">&#xe606;</span>杂感</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
+    
+        <span class="sidebar-category-name" data-categories="jekyll"><span class="iconfont-archer">&#xe60a;</span>jekyll</span>
+    
+        <span class="sidebar-category-name" data-categories="生活杂谈"><span class="iconfont-archer">&#xe60a;</span>生活杂谈</span>
+    
+        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
+    
+        <span class="sidebar-category-name" data-categories="生活杂感"><span class="iconfont-archer">&#xe60a;</span>生活杂感</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: '/',
+        author: 'Heln'
+    }
+</script>
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+    </body>
 </html>
+
+

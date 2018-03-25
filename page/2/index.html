@@ -1,935 +1,1147 @@
 <!DOCTYPE html>
 <html>
+    <!-- title -->
+
+
+
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Heln">
-    
-    <meta name="description" content="Too young,Too naive.">
-    
-    
-    
-    
-    
-    
-    <title>Heln</title>
-    <!-- inject:style -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <!-- endinject -->
-    <style>
-        .cube-loading {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('/images/lg/loading.gif') no-repeat center center;
-            background-color: rgba(0,0,0,.7);
-        }
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title></title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
 
-        .cube-loading.out {
-            display: none;
-        }
+    body {
+        margin: 0;
+    }
 
-        .cube-loading:before {
-            display: block;
-            content: '加载中';
-            position: relative;
-            width: 100%;
-            top: 50%;
-            right: -50%;
-            color: #fff;
-        }
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
 
-        @media(max-width: 768px) {
-            .cube-loading:before {
-                font-size: 1.2em;
-                transform: translate(-24px,20px);
-                -webkit-transform: translate(-24px,20px);
-                -o-transform: translate(-24px,20px);
-                -ms-transform: translate(-24px,20px);
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180317 as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href= /css/mobile.css?v=20180317 media="(max-width: 980px)"/>
+        
+    <link rel="icon" href= /assets/favicon.ico>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () { };
             }
-        }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
 
-        @media(min-width: 768px) {
-            .cube-loading:before {
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
 
+                function enableStylesheet() {
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
             }
-        }
-    </style>
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
     
 </head>
-<body>
-<div class="cube-body">
-    <nav id="cube-top-memu" class="cube-menu">
-    <ul class="cube-menu-collapse">
-        
-        <li>
-            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
-            <a href="/">首页</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
-            <a href="/archives">归档</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
-            <a href="/categories">分类</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
-            <a href="/tags">标签</a>
-        </li>
-        
-        <li>
-            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
-            <a href="/about-me">关于我</a>
-        </li>
-        
-    </ul>
-</nav>
-<nav class="cube-side-menu" id="cube-side-menu">
-    <ul class="cube-menu-list">
-        
-        <li>
-            <a class="lrc-control">开启歌词</a>
-        </li>
-        
-        <li>
-            <a class="scroll-to-top">回到顶部</a>
-        </li>
-    </ul>
-</nav>
-    <header class="cube-header" id="cube-header">
-    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+
     
-    <div class="cube-type">
-        <span class="cube-typed-title">Jheln の blog</span>
-        <span class="cube-typed-cursor">|</span>
-    </div>
+        <body class="home-body">
     
+    
+<header class="header index-header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>Heln's blog</a>
 </header>
+    <div class="wrapper">
+        <div class="site-intro" style=
 
-    <style>
-        nav.cube-menu:before {
-            content: '';
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 44px;
-        
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
-        
-            z-index: -1;
-            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
-            background-repeat: no-repeat;
-            background-position: center -356px;
-            background-size: cover;
-            background-color: transparent;
-        }
 
-        header.cube-background.cube-header-background {
-            visibility: hidden;
-            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
-            background-position: center -400px;
-        }
-    </style>
-    <header class="cube-background cube-header-background">
-        
-        <div class="cube-type">
-            <span class="cube-typed-title">Jheln の blog</span>
-            <span class="cube-typed-cursor">|</span>
-        </div>
-        
-    </header>
-    <div class="load-header-background"></div>
-    <script>
-        (function (window) {
 
-            window.headerModule = {}
-            window.headerModule.image = {
-                width: '2000',
-                height: '1414'
-            }
 
-        })(window)
-    </script>
+
+
+
+
+height:50vh;
+
+>
     
-    <div class="cube-content">
-        <div class="cube-left">
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
             
-<div class="cube-excerpt" id="cube-excerpt-交换机配置的打开方式">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2017-07-06交换机配置/">交换机配置的打开方式</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/交换机/" class="cube-excerpt-tag-link">#交换机</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
+    <div class="site-intro-img" style="background-image: url(/intro/background.png)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Heln's blog
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                Too young,too naive.
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
         
-        
-           <h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>##</p>
-<p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p>
-<h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote>
-<p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p>
-</blockquote>
-<h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote>
-<p>en //进入用户模式</p>
-</blockquote>
-<blockquote>
-<p>config t   //进入配置模式</p>
-</blockquote>
-<blockquote>
-<p>vlan 10  //配置vlan</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出VLAN模式</p>
-</blockquote>
-<blockquote>
-<p>interface fa0/0 </p>
-</blockquote>
-<blockquote>
-<p>sw mode access    //设置为access端口模式</p>
-</blockquote>
-<blockquote>
-<p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p>
-</blockquote>
-<blockquote>
-<p>exit    //退出模式</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2017-07-06交换机配置/">阅读全文</a>
-    </footer>
+    </div>
 </div>
+        <script>
+  // load webfont-loader async, and add callback function
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
 
-<div class="cube-excerpt" id="cube-excerpt-关于OSPF的简单配置">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2017-07-06简单的ospf配置/">关于OSPF的简单配置</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+      if (postIntroTags) {
+        postIntroTags.classList.add('post-fade-in');
+      }
+      if (postIntroMeat) {
+        postIntroMeat.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  async("https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", asyncCb)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2017-07-06交换机配置/" >
+                
+                    <span>交换机配置的打开方式</span>
+            </a>
+            <div class="abstract-content">
+                关于交换机配置的打开方式##
+交换机 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；
+交换机与路由器的区别
+交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；
+
+交换机与路由器配置上的区别交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。交换机的配置
+en //进入用户模式
+
+
+config t   //进入配置模式
+
+
+vlan 10  //配置...
             </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
                 
-                <a href="/tags/路由器/" class="cube-excerpt-tag-link">#路由器</a>
-                
-                <a href="/tags/ospf/" class="cube-excerpt-tag-link">#ospf</a>
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "交换机">交换机</a>
+    
+</div>
                 
             </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="关于ospf的简单配置"><a href="#关于ospf的简单配置" class="headerlink" title="关于ospf的简单配置"></a>关于ospf的简单配置</h1><p>##</p>
-<p> 网络拓扑图如下：<br><img src="http://i.imgur.com/c11YPOz.png" alt=""></p>
-<h3 id="明白什么是ospf？"><a href="#明白什么是ospf？" class="headerlink" title="明白什么是ospf？"></a>明白什么是ospf？</h3><blockquote>
-<p>ospf是Open Shortest Path First开放式最短路径优先的简称；</p>
-</blockquote>
-<blockquote>
-<p>一种链路状态协议；</p>
-</blockquote>
-<h3 id="如何配置ospf？"><a href="#如何配置ospf？" class="headerlink" title="如何配置ospf？"></a>如何配置ospf？</h3><p><em>其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是打开路由的ospf功能；</em></p>
-<h3 id="路由器配置如下"><a href="#路由器配置如下" class="headerlink" title="路由器配置如下"></a>路由器配置如下</h3><pre><code>en  //先进入用户模式
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2017-07-06简单的ospf配置/" >
+                
+                    <span>关于OSPF的简单配置</span>
+            </a>
+            <div class="abstract-content">
+                关于ospf的简单配置##
+ 网络拓扑图如下：
+明白什么是ospf？
+ospf是Open Shortest Path First开放式最短路径优先的简称；
+
+
+一种链路状态协议；
+
+如何配置ospf？其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是打开路由的ospf功能；
+路由器配置如下en  //先进入用户模式
 config t //进入配置模式
 interface gi0/0    ///进入路由端口
 ip address xxx.xxx.xxx.xxx  mask  //配置端口ip
 no shutdown  //打开端口
-exit  //退出端口
-</code></pre><h3 id="ospf的配置："><a href="#ospf的配置：" class="headerlink" title="ospf的配置："></a>ospf的配置：</h3><blockquote>
-<p>en </p>
-</blockquote>
-<blockquote>
-<p>interface loopback 1  //给路由器设置一个路由Id</p>
-</blockquote>
-<blockquote>
-<p>ip address xxx.xxx.xxx.xxx mask  //给路由器id的设置一个ip地址</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
-<blockquote>
-<p>router ospf 进程号</p>
-</blockquote>
-<blockquote>
-<p>network xxx.xxx.xxx.xxx [wildmask] area [number]</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2017-07-06简单的ospf配置/">阅读全文</a>
-    </footer>
+exi...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "路由器">路由器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ospf">ospf</a>
+    
 </div>
-
-<div class="cube-excerpt" id="cube-excerpt-计算机网络基础（三）">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2017-04-03-计算机网络基础之三/">计算机网络基础（三）</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/计算机网络/" class="cube-excerpt-tag-link">#计算机网络</a>
                 
             </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="计算机网络之三"><a href="#计算机网络之三" class="headerlink" title="计算机网络之三"></a><strong>计算机网络之三</strong></h1><hr>
-<h2 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h2><p>   <strong>之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？</strong></p>
-<p>  通过下图就可以了解到TCP/IP有的协议：<img src="http://i.imgur.com/NrFf3Cs.png" alt=""></p>
-<p>   这里分别介绍一下TCP/IP协议族含有的主要协议；<br>   首先从四层传输层TCP和UDP介绍；</p>
-<blockquote>
-<p>TCP协议：一个以建立连接为传输的协议，通过三次握手建立连接，通过四次握手结束连接，具有稳定，传输安全系数高（相对UDP而言）；下图所示：<img src="http://i.imgur.com/oETi9ci.png" alt=""></p>
-</blockquote>
-<blockquote>
-<p>UDP协议：一个不以建立连接为传输的协议，主要用于实时传输中，具有占用协议资源少的优点；如下图所示：<img src="http://i.imgur.com/QiSKJvD.png" alt=""><br>因为这里是关于网络传输所以我们只两个参数，seq:收发端的序列号识别，用于告知接收方和发送方的端口号，同时识别用的；<br>ack：用于确认收到的数据报文而设立的，同时在TCP协议还有要告知进行下一次通信的信息；<br>另一个重要的就是三层的IP协议：用于网络层的传输；如图：<img src="http://i.imgur.com/t0bFRnR.png" alt=""></p>
-</blockquote>
-<p>   介绍完了这些重要的协议，暂时就不描述报文里的各个参数了。继续介绍我们的TCP/IP协议族；</p>
-<p>   自上而下的介绍，从传输层的连接涉及到的协议来介绍：</p>
-<blockquote>
-<p>TELNET:是Internet远程登陆服务的标准协议和主要方式；</p>
-</blockquote>
-<blockquote>
-<p>FTP:是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为“文传协议”。用于Internet上的控制文件的双向传输；</p>
-</blockquote>
-<blockquote>
-<p>SMTP:SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式；</p>
-</blockquote>
-<blockquote>
-<p>另一个就从UDP无连接涉及到的协议来介绍：<br>DNS：（Domain Name System，域名系统），就是一个方便人们记住IP号的协议，比如我们记住的是<a href="http://www.baidu.com而不是那一串[14.215.177.38]IP地址；" target="_blank" rel="noopener">www.baidu.com而不是那一串[14.215.177.38]IP地址；</a></p>
-</blockquote>
-<blockquote>
-<p>TFTP:（Trivial File Transfer Protocol,简单文件传输协议）是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务;</p>
-</blockquote>
-<p>   好了上面介绍的是传输层的相关协议，现在介绍的是网络层协议了，其实网络层的协议主要的就三个；</p>
-<blockquote>
-<p>ICMP:（Internet Control Message Protocol）Internet控制报文协议,作用就是控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息;<br>ARP:ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议;<br>RARP:和上面那个协议相反，就是反地址解析协议，在现在的工程不怎么常用；</p>
-</blockquote>
-<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><blockquote>
-<p>TCP/IP协议族涉及到的协议有这些，通过图文来反复记忆这些；</p>
-</blockquote>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2017-04-03-计算机网络基础之三/" >
+                
+                    <span>计算机网络基础（三）</span>
+            </a>
+            <div class="abstract-content">
+                计算机网络之三
+TCP/IP协议族   之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？
+  通过下图就可以了解到TCP/IP有的协议：
+   这里分别介绍一下TCP/IP协议族含有的主要协议；   首先从四层传输层TCP和UDP介绍；
 
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2017-04-03-计算机网络基础之三/">阅读全文</a>
-    </footer>
+TCP协议：一个以建立连接为传输的协议，通过三次握手建立连接，通过四次握手结束连接，具有稳定，传输安全系数高（相对UDP而言）；下图所示：
+
+
+UDP协议：一个不以建立连接为传输的协议，主要用于实时传输中，具有占用协议资源...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "计算机网络">计算机网络</a>
+    
 </div>
-
-<div class="cube-excerpt" id="cube-excerpt-计算机网络基础（二）">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2017-03-29-计算机网络基础之二/">计算机网络基础（二）</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/计算机网络/" class="cube-excerpt-tag-link">#计算机网络</a>
                 
             </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="计算机网络之二"><a href="#计算机网络之二" class="headerlink" title="计算机网络之二"></a>计算机网络之二</h1><hr>
-<p>   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。<br>   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？<br>   <strong><em>OSI</em></strong>这个东东就是一个参考模型。总之关于它的来历背景都可以去问度娘，总之这个的作用就是用来解决网络之间的兼容性问题。那么具体的OSI的模型具体又是什么呢？<br>   <strong><em>OSI模型</em></strong>  就是如下这个东东。<img src="http://i.imgur.com/iy0f6eD.png" alt=""><br>   左边的就是OSI参考模型，它是一个七层的模型，分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层。其中每层都有相对应的协议，正如右边的的用到的协议框架中提到的那些HTTP,TELNET等等。现在我们来分别介绍一下各个层次的含义以及，这些对应的层次的都是怎样将一个数据传输出来的。</p>
-<p><strong>物理层</strong>  这层是面向底层传输的二进制数据，主要是面向物理硬件的传输介质比如光纤，网线等等；</p>
-<p><strong>数据链路层</strong> 这层面向的机体是交换机而言的，最主要的是识别交换机的MAC地址用；</p>
-<p><strong>网络层</strong>  这层面向的是主要硬件有路由器，分别起到路由地址的转发的作用；</p>
-<p><strong>传输层</strong>   这层的作用是收发数据用的，主要用到的两个协议TCP和UDP协议；</p>
-<p><strong>会话层</strong>   这层提供一种有效的方法，其功能是按照在应用进程之间的原则，进行数据收发，例如：选取全双工还是半双工通信；</p>
-<p><strong>表示层</strong>   这层主要是解决用户的信息的语法问题，起到对信息格式和编码起转换作用，例如一些base64以及ASCII码转换成为EBCDIC等；</p>
-<p><strong>应用层</strong>   这层是OSI模型中最高层，直接面向用户以满足不同需求的，利用网路资源，唯一向应用程序直接提供服务的层；</p>
-<p>当然这个OSI模型只是为了更好的服务于网络的各个协议而设计的，它具有的优点我就不一一介绍了。同时，在这个七层的模型，我们只重点讲解网络层和数据链路层，只在这两个层面来讨论。那么问题来了，那么多层的协议对于懒惰的程序猿而言，要实现是不是有点麻烦啊？事实回答：是的。</p>
-<p>因此程序猿们想了一个办法，其中就在各位大佬的努力下，与OSI模型对应的另一个模型就诞生了，这个是一个现实网络真正应用的模型。现在我想会不会有些晕啊。没关系我们在梳理梳理这些关系。OSI七层模型，是为了更好的管理网络协议而提出的参考模型，在网络中没有具体的应用，而与此对应的TCP/IP模型是程序猿们为了更好的实现而自己构建的模型，在网络中具体运用的模型。具有现实意义。<strong>注意，注意，注意了！</strong>这个TCP/IP模型是针对程序猿而言的。所以它简化了好多的层次。具体参考上图。</p>
-<p>那么明白了网络的各个层次，我们还是得从OSI模型来讲，讲什么呢？？</p>
-<p>讲讲数据如何是从一台PC机收发数据到另一台PC机的故事。</p>
-<p><img src="http://i.imgur.com/9Q6EC41.png" alt=""></p>
-<p>PC A 到PC B 的过程就是一个经历了层层封装的过程，首先，PC A 发了一个信息‘A君’。A君从应用层出发，然后经过传输层，这时候，A君穿上了一件外套，也就是被封装了TCP的报头，接着在向下移动，经过网络层的时候，IP大大又给他戴上了IP的报头，这时的A君中除了自己还穿上了TCP给的外套和IP的帽子，紧接着A君再向下的数据链路层，数据链路层给他穿上了裤子，这裤子包含了LLC报头和FCS的报尾部分，在数据链路层，还会给A君穿上鞋子，这鞋子带有一层MAC头和FCS的报尾，最后经过物理层的时候A君就转换成了二进制数据，这时候完成了一个自上而下的数据封装过程，最后A君就完成了一次从PC A到物理层的行走。同时，想要到达PC B，方式就和PC A 一样只是不是自上而下了，而是自下而上，最后到达了PC B。这就是A君在OSI模型里完整走的流程。</p>
-<p>  那么明白了这个模型，我们还得掌握一个TCP/IP的模型，这个模型才是我们要真正掌握的东东。</p>
-<p><img src="http://i.imgur.com/A48jccy.png" alt=""></p>
-<p>  强大的程序猿们在原来的OSI模型上又建立了一个真正的网络模型，且现在的网络传输格局都遵循这个模型里的各个协议，之后我会更详细的一一解释关于TCP/IP的协议族，当然了，关于计算机网络基础，我们主要研究的范围就是TCP/IP，当然其他也有研究的价值，只是那不在计算机网络范畴。</p>
-<p><strong>小思考&amp;小结</strong>  </p>
-<p>  这次这篇文章我们介绍了主要有三个：</p>
-<blockquote>
-<p> 1、OSI模型这个东东；回想一下OSI模型这个东西存在的目的？？</p>
-</blockquote>
-<blockquote>
-<p> 2、OSI七层模型含有哪七层？？？各个层次的作用是什么？？</p>
-</blockquote>
-<blockquote>
-<p> 3、 关于OSI模型是如何将数据封装然后传输的？？？</p>
-</blockquote>
-<blockquote>
-<p> 4、为什么会有TCP/IP模型？？？和OSI模型有什么区别？？？</p>
-</blockquote>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2017-03-29-计算机网络基础之二/">阅读全文</a>
-    </footer>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2017-03-29-计算机网络基础之二/" >
+                
+                    <span>计算机网络基础（二）</span>
+            </a>
+            <div class="abstract-content">
+                计算机网络之二
+   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？   OSI这个东东就是一个参考模型。总之关于它的来历背景都可以去问度娘，总之这个的作用就是用来解决网络之间的兼容性问题。那么具体的OSI的模型具体又是什么呢？   OSI模型  就是如下这个东东。   左边的就是OSI参考模型，它是一个七层的模型，分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层。其中每层都有相对应的协议，正如右...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "计算机网络">计算机网络</a>
+    
 </div>
+                
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2015-09-21-tools-for-jekyll/" >
+                
+                    <span>写 Jekyll 博客的正确姿势</span>
+            </a>
+            <div class="abstract-content">
+                用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客git pull下来，修改完成commit后，再push上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。
 
-<div class="cube-excerpt" id="cube-excerpt-写 Jekyll 博客的正确姿势">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2015-09-21-tools-for-jekyll/">写 Jekyll 博客的正确姿势</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
+写博客工具有两个工具，分别是jekyller、prose.io。
+Jekyllerjekyller是 Chrome 上的应用，它可以管理你的所有博客，实时markdown渲染。
+
+但是它的 UI 比较难看，而且对markdown的支持也不是很好。
+Prose.io非常好的一个工具，它的编辑器非常强大，可以上传图片、文件等，可以在_config.yml文...
             </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
                 
-                <a href="/tags/jekyll/" class="cube-excerpt-tag-link">#jekyll</a>
-                
-                <a href="/tags/技术/" class="cube-excerpt-tag-link">#技术</a>
-                
-                <a href="/tags/学习资料/" class="cube-excerpt-tag-link">#学习资料</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <p>用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客<code>git pull</code>下来，修改完成<code>commit</code>后，再<code>push</code>上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。</p>
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2015-09-21-tools-for-jekyll/">阅读全文</a>
-    </footer>
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "jekyll">jekyll</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术">技术</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "学习资料">学习资料</a>
+    
 </div>
-
-<div class="cube-excerpt" id="cube-excerpt-18年静好！">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2018-02-14-新年祝福/">18年静好！</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/杂感/" class="cube-excerpt-tag-link">#杂感</a>
                 
             </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="新年祝福"><a href="#新年祝福" class="headerlink" title="新年祝福"></a>新年祝福</h1><p>   一晃就到了象牙塔的第三年了，习惯瞎忙之后，就会忽略当下。在过去的一年里，专业上还是以基础为主要，在python的陪伴下，又走过了一年；绘画上，依然还是原地打转，当然，还是莫急，现在还是积累，对于排线的熟练度较之前有了些许进步；阅读上，还是以专业书籍为核心，过去读了<code>25</code> （有记录）；PS，SAI的熟练度相比去年又进步了；当然，新年伊始，还是有好多事情可以折腾的。<code>自我技能树</code> 还在一步步开发中……总之，现在人生宗旨是以“瞎折腾，搞事请”为主。最后，附上图板绘图一张233333。</p>
-<p><img src="E:\电脑软件\电脑美化\180201__壁纸\180214__狗狗\柒小猫.jpg" alt="柒小猫"></p>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-02-14-新年祝福/" >
+                
+                    <span>18年静好！</span>
+            </a>
+            <div class="abstract-content">
+                新年祝福   一晃就到了象牙塔的第三年了，习惯瞎忙之后，就会忽略当下。在过去的一年里，专业上还是以基础为主要，在python的陪伴下，又走过了一年；绘画上，依然还是原地打转，当然，还是莫急，现在还是积累，对于排线的熟练度较之前有了些许进步；阅读上，还是以专业书籍为核心，过去读了25 （有记录）；PS，SAI的熟练度相比去年又进步了；当然，新年伊始，还是有好多事情可以折腾的。自我技能树 还在一步步开发中……总之，现在人生宗旨是以“瞎折腾，搞事请”为主。最后，附上图板绘图一张233333。
 
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2018-02-14-新年祝福/">阅读全文</a>
-    </footer>
+
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "杂感">杂感</a>
+    
 </div>
-
-<div class="cube-excerpt" id="cube-excerpt-once more--write up">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/03/25/2018-01-27-CTF/">once more--write up</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-03-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/ctf/" class="cube-excerpt-tag-link">#ctf</a>
-                
-                <a href="/tags/php代码审计/" class="cube-excerpt-tag-link">#php代码审计</a>
                 
             </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/25/2018-01-27-CTF/" >
+                
+                    <span>once more--write up</span>
+            </a>
+            <div class="abstract-content">
+                ONCE MORE of write upwrite up:
 1&gt;题目url
 2&gt;初步检测
 3&gt;查看源代码
 4&gt;分析代码构造语句
-</code></pre><h3 id="gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php"><a href="#gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php" class="headerlink" title="&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php "></a>&gt;1 题目： <a href="http://ctf5.shiyanbar.com/web/more.php" title="(Once more)" target="_blank" rel="noopener"> http://ctf5.shiyanbar.com/web/more.php </a></h3><p>  首先，看看题目有什么提示，如图：</p>
-<p>  <img src="https://i.imgur.com/HzvVac9.png" alt="(代码审计)"> </p>
-<h3 id="gt-2-初步检测"><a href="#gt-2-初步检测" class="headerlink" title="&gt;2 初步检测"></a>&gt;2 初步检测</h3><p>  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；<br>  在password里输入了111来检测</p>
-<p>  <img src="https://i.imgur.com/xy2jela.png" alt="（代码审计2）">  </p>
-<p>  输入完之后</p>
-<p>  <img src="https://i.imgur.com/QRIvUrY.png" alt="（代码审计3）"></p>
-<h3 id="gt-3-查看源代码"><a href="#gt-3-查看源代码" class="headerlink" title="&gt;3 查看源代码"></a>&gt;3 查看源代码</h3><p>  这时候看到 <strong>view the source code</strong> 可以点开打开源码进行查看<br>  贴上源代码：</p>
-<pre><code>&lt;?php
- if (isset ($_GET[&apos;password&apos;])) {
- if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
- {
-     echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;;
- }
- else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999)
- {
-     if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE)
-     {
-         die(&apos;Flag: &apos; . $flag);
-     }
-     else
-     {
-         echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;);
-     }
- }
- else
- {
-     echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
- }
-}
-?&gt;
-</code></pre><h3 id="gt-4-分析代码构造语句"><a href="#gt-4-分析代码构造语句" class="headerlink" title="&gt;4 分析代码构造语句"></a>&gt;4 分析代码构造语句</h3><p>   首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造，<br>   3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？</p>
-<p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
-<p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/03/25/2018-01-27-CTF/">阅读全文</a>
-    </footer>
-</div>
-
-
-
-<ul class="cube-pagination cube-pagination-6">
+&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php   首先，看看题目有什么提示，如图：
+   
+&gt;2 初步检测  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；  在password里输入了111来检测
     
-    <li class="cube-pagination-prev">
-        <a href="/">« 上一页</a>
-    </li>
-    
-    
-        
-            
-            <li class="cube-pagination-index">
-                <a href="/">1</a>
-            </li>
-            
-        
-            
-            <li class="cube-pagination-index disabled">
-                <span>2</span>
-            </li>
-            
-        
-    
-
-    
-    <li class="cube-pagination-next disabled">
-        <span>下一页 »</span>
-    </li>
-    
-</ul>
-
-<!--其他组件后续添加-->
-        </div>
-        <div class="cube-right">
-            
-
-<div class="cube-search cube-sidebar" id="cube-search">
-    <div class="search-container">
-        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
-        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
-    </div>
-    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
-</div>
-<script>
-    (function (window) {
-        'use strict';
-        window.searchModule = {}
-        window.searchModule.JSONUrl = '/content.json'
-        window.searchModule.rootUrl = '/'
-    })(window)
-</script>
-<div class="cube-search-form">
-    <div class="cube-search-control">
-        <input type="text" placeholder="搜索" class="search-input">
-        <a class="close-button">
-            <i class="cube-icon cube-close" aria-hidden="true"></i>
-        </a>
-    </div>
-    <div class="cube-search-result"></div>
-</div>
-
-
-<div class="cube-author cube-sidebar" id="cube-author">
-    
-    
-    <span>Heln</span>
-    
-    
-    <a title="Too young,Too naive.">Too young,Too naive.</a>
-    
-    <div class="count">
-        <a class="count articles"><span>17</span>文章</a>
-        <a class="count tags"><span>20</span>标签</a>
-        <a class="count categories"><span>5</span>分类</a>
-    </div>
-</div>
-
-
-
-<div class="cube-music cube-sidebar" id="cube-music">
-    <div class="cube-player aplayer" id="cube-player"></div>
-</div>
-<script>
-    (function (window) {
-        window.musicModule = {}
-        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
-        window.musicModule.lrcConfig = {
-            open: '开启歌词',
-            close: '关闭歌词'
-        }
-    })(window)
-</script>
-
-
-
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>近期文章</a>
-    </div>
-    <ul class="list">
-        
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            <div class="normal">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-28-CTF2/" title="PHP大法好--Writeup">PHP大法好--Writeup</a>
-                </p>
+  输入完之后
+  
+&gt;3 查看源代码  这时候看到 view the source code 可以点开打开源码进行查看  贴上...
             </div>
-            
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-路由IP的过程/" title="IP路由过程分析">IP路由过程分析</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-浮动路由配置/" title="浮动静态路由的配置实验">浮动静态路由的配置实验</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>4</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-rip路由的配置/" title="rip实验的配置">rip实验的配置</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>5</span>
-                </p>
-                <p class="title">
-                    <a href="/2018/03/25/2018-01-27-ospf路由转发功能/" title="ospf路由转发功能">ospf路由转发功能</a>
-                </p>
-            </div>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-categories cube-sidebar" id="cube-categories">
-    <div class="title">
-        <a href="/categories">分类</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/categories/jekyll/">#jekyll</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/网络/">#网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/生活杂谈/">#生活杂谈</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/CTF/">#CTF</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/categories/生活杂感/">#生活杂感</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
-    <div class="title">
-        <a href="/tags">标签云</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/jekyll/">#jekyll</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/技术/">#技术</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/学习资料/">#学习资料</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计算机网络/">#计算机网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/交换机/">#交换机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/路由器/">#路由器</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/ospf/">#ospf</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/生活杂谈/">#生活杂谈</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/网络/">#网络</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/学术总结/">#学术总结</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/git/">#git</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/小结/">#小结</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/ctf/">#ctf</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/php代码审计/">#php代码审计</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/ACL原理/">#ACL原理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/静态路由/">#静态路由</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/rip/">#rip</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CTF/">#CTF</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/writeup/">#writeup</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/杂感/">#杂感</a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="cube-links cube-sidebar" id="cube-links">
-    <div class="title">
-        <a>个人链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
-            
-            <a href="https://github.com/Qixiaomao" target="_blank">GitHub</a>
-        </li>
-        
-        <li>
-            
-            <a href="" target="_blank"></a>
-        </li>
-        
-        <li>
-            
-            <a href="" target="_blank"></a>
-        </li>
-        
-        <li>
-            
-            
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
-            
-            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
-    <div class="title">
-        <a>友情链接</a>
-    </div>
-    <ul class="list">
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
-            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
-            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="/images/friend_links.jpg ">
-            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-    </div>
-</div>
-<footer class="cube-footer">
+            <div class="abstract-post-meta">
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/25</span>
+                </div>
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
     
-© 2017 Heln
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php代码审计">php代码审计</a>
+    
+</div>
+                
+            </div>
+        </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" src= /avatar/ME2.jpg >
+    <div class="profile-name">Heln</div>
+    
+    <div class="profile-signature">
+        Too young,too naive.
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:XDEDM1@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/Qixiaomao" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-<br>
-Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //www.baidu.com target="_black">friendA</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //www.google.com target="_black">friendB</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:XDEDM1@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/Qixiaomao" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
 </footer>
-<!-- inject:script -->
-<script src="/js/script.js"></script>
-<!-- endinject -->
-<div class="cube-loading out"></div>
-</body>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 17 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-28-CTF2/" >PHP大法好--Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-路由IP的过程/" >IP路由过程分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-浮动路由配置/" >浮动静态路由的配置实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-rip路由的配置/" >rip实验的配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-ospf路由转发功能/" >ospf路由转发功能</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-acl随笔/" >ACL原理小结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-22-tools-for-git/" >git 基本操作姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-07-web-for-internet/" >网络的路牌 路由器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-07-google-for-internet/" >用好 Goole 的正确姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-06-tools-for-jekyll/" >再见，2017！ 你好，2018！</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-07-06交换机配置/" >交换机配置的打开方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-07-06简单的ospf配置/" >关于OSPF的简单配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-04-03-计算机网络基础之三/" >计算机网络基础（三）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2017-03-29-计算机网络基础之二/" >计算机网络基础（二）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2015-09-21-tools-for-jekyll/" >写 Jekyll 博客的正确姿势</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-02-14-新年祝福/" >18年静好！</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2018/03/25/2018-01-27-CTF/" >once more--write up</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="计算机网络"><span class="iconfont-archer">&#xe606;</span>计算机网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="jekyll"><span class="iconfont-archer">&#xe606;</span>jekyll</span>
+    
+        <span class="sidebar-tag-name" data-tags="技术"><span class="iconfont-archer">&#xe606;</span>技术</span>
+    
+        <span class="sidebar-tag-name" data-tags="学习资料"><span class="iconfont-archer">&#xe606;</span>学习资料</span>
+    
+        <span class="sidebar-tag-name" data-tags="交换机"><span class="iconfont-archer">&#xe606;</span>交换机</span>
+    
+        <span class="sidebar-tag-name" data-tags="路由器"><span class="iconfont-archer">&#xe606;</span>路由器</span>
+    
+        <span class="sidebar-tag-name" data-tags="ospf"><span class="iconfont-archer">&#xe606;</span>ospf</span>
+    
+        <span class="sidebar-tag-name" data-tags="生活杂谈"><span class="iconfont-archer">&#xe606;</span>生活杂谈</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络"><span class="iconfont-archer">&#xe606;</span>网络</span>
+    
+        <span class="sidebar-tag-name" data-tags="学术总结"><span class="iconfont-archer">&#xe606;</span>学术总结</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="小结"><span class="iconfont-archer">&#xe606;</span>小结</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="php代码审计"><span class="iconfont-archer">&#xe606;</span>php代码审计</span>
+    
+        <span class="sidebar-tag-name" data-tags="ACL原理"><span class="iconfont-archer">&#xe606;</span>ACL原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="rip"><span class="iconfont-archer">&#xe606;</span>rip</span>
+    
+        <span class="sidebar-tag-name" data-tags="静态路由"><span class="iconfont-archer">&#xe606;</span>静态路由</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="杂感"><span class="iconfont-archer">&#xe606;</span>杂感</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
+    
+        <span class="sidebar-category-name" data-categories="jekyll"><span class="iconfont-archer">&#xe60a;</span>jekyll</span>
+    
+        <span class="sidebar-category-name" data-categories="生活杂谈"><span class="iconfont-archer">&#xe60a;</span>生活杂谈</span>
+    
+        <span class="sidebar-category-name" data-categories="CTF"><span class="iconfont-archer">&#xe60a;</span>CTF</span>
+    
+        <span class="sidebar-category-name" data-categories="生活杂感"><span class="iconfont-archer">&#xe60a;</span>生活杂感</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: '/',
+        author: 'Heln'
+    }
+</script>
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+    </body>
 </html>
+
+
