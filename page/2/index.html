@@ -355,37 +355,20 @@
       
         
           
-            <h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>##</p>
-<p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p>
-<h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote>
-<p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p>
-</blockquote>
-<h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote>
-<p>en //进入用户模式</p>
-</blockquote>
-<blockquote>
-<p>config t   //进入配置模式</p>
-</blockquote>
-<blockquote>
-<p>vlan 10  //配置vlan</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出VLAN模式</p>
-</blockquote>
-<blockquote>
-<p>interface fa0/0 </p>
-</blockquote>
-<blockquote>
-<p>sw mode access    //设置为access端口模式</p>
-</blockquote>
-<blockquote>
-<p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p>
-</blockquote>
-<blockquote>
-<p>exit    //退出模式</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>
-          
+          关于交换机配置的打开方式##
+交换机 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；
+交换机与路由器的区别
+交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；
+
+交换机与路由器配置
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2017-07-06交换机配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -525,44 +508,23 @@
       
         
           
-            <h1 id="关于ospf的简单配置"><a href="#关于ospf的简单配置" class="headerlink" title="关于ospf的简单配置"></a>关于ospf的简单配置</h1><p>##</p>
-<p> 网络拓扑图如下：<br><img src="http://i.imgur.com/c11YPOz.png" alt=""></p>
-<h3 id="明白什么是ospf？"><a href="#明白什么是ospf？" class="headerlink" title="明白什么是ospf？"></a>明白什么是ospf？</h3><blockquote>
-<p>ospf是Open Shortest Path First开放式最短路径优先的简称；</p>
-</blockquote>
-<blockquote>
-<p>一种链路状态协议；</p>
-</blockquote>
-<h3 id="如何配置ospf？"><a href="#如何配置ospf？" class="headerlink" title="如何配置ospf？"></a>如何配置ospf？</h3><p><em>其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是打开路由的ospf功能；</em></p>
-<h3 id="路由器配置如下"><a href="#路由器配置如下" class="headerlink" title="路由器配置如下"></a>路由器配置如下</h3><pre><code>en  //先进入用户模式
-config t //进入配置模式
-interface gi0/0    ///进入路由端口
-ip address xxx.xxx.xxx.xxx  mask  //配置端口ip
-no shutdown  //打开端口
-exit  //退出端口
-</code></pre><h3 id="ospf的配置："><a href="#ospf的配置：" class="headerlink" title="ospf的配置："></a>ospf的配置：</h3><blockquote>
-<p>en </p>
-</blockquote>
-<blockquote>
-<p>interface loopback 1  //给路由器设置一个路由Id</p>
-</blockquote>
-<blockquote>
-<p>ip address xxx.xxx.xxx.xxx mask  //给路由器id的设置一个ip地址</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
-<blockquote>
-<p>router ospf 进程号</p>
-</blockquote>
-<blockquote>
-<p>network xxx.xxx.xxx.xxx [wildmask] area [number]</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
+          关于ospf的简单配置##
+ 网络拓扑图如下：
+明白什么是ospf？
+ospf是Open Shortest Path First开放式最短路径优先的简称；
 
-          
+
+一种链路状态协议；
+
+如何配置ospf？其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2017-07-06简单的ospf配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -702,42 +664,18 @@ exit  //退出端口
       
         
           
-            <h1 id="计算机网络之三"><a href="#计算机网络之三" class="headerlink" title="计算机网络之三"></a><strong>计算机网络之三</strong></h1><hr>
-<h2 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h2><p>   <strong>之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？</strong></p>
-<p>  通过下图就可以了解到TCP/IP有的协议：<img src="http://i.imgur.com/NrFf3Cs.png" alt=""></p>
-<p>   这里分别介绍一下TCP/IP协议族含有的主要协议；<br>   首先从四层传输层TCP和UDP介绍；</p>
-<blockquote>
-<p>TCP协议：一个以建立连接为传输的协议，通过三次握手建立连接，通过四次握手结束连接，具有稳定，传输安全系数高（相对UDP而言）；下图所示：<img src="http://i.imgur.com/oETi9ci.png" alt=""></p>
-</blockquote>
-<blockquote>
-<p>UDP协议：一个不以建立连接为传输的协议，主要用于实时传输中，具有占用协议资源少的优点；如下图所示：<img src="http://i.imgur.com/QiSKJvD.png" alt=""><br>因为这里是关于网络传输所以我们只两个参数，seq:收发端的序列号识别，用于告知接收方和发送方的端口号，同时识别用的；<br>ack：用于确认收到的数据报文而设立的，同时在TCP协议还有要告知进行下一次通信的信息；<br>另一个重要的就是三层的IP协议：用于网络层的传输；如图：<img src="http://i.imgur.com/t0bFRnR.png" alt=""></p>
-</blockquote>
-<p>   介绍完了这些重要的协议，暂时就不描述报文里的各个参数了。继续介绍我们的TCP/IP协议族；</p>
-<p>   自上而下的介绍，从传输层的连接涉及到的协议来介绍：</p>
-<blockquote>
-<p>TELNET:是Internet远程登陆服务的标准协议和主要方式；</p>
-</blockquote>
-<blockquote>
-<p>FTP:是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为“文传协议”。用于Internet上的控制文件的双向传输；</p>
-</blockquote>
-<blockquote>
-<p>SMTP:SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式；</p>
-</blockquote>
-<blockquote>
-<p>另一个就从UDP无连接涉及到的协议来介绍：<br>DNS：（Domain Name System，域名系统），就是一个方便人们记住IP号的协议，比如我们记住的是<a href="http://www.baidu.com而不是那一串[14.215.177.38]IP地址；" target="_blank" rel="noopener">www.baidu.com而不是那一串[14.215.177.38]IP地址；</a></p>
-</blockquote>
-<blockquote>
-<p>TFTP:（Trivial File Transfer Protocol,简单文件传输协议）是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务;</p>
-</blockquote>
-<p>   好了上面介绍的是传输层的相关协议，现在介绍的是网络层协议了，其实网络层的协议主要的就三个；</p>
-<blockquote>
-<p>ICMP:（Internet Control Message Protocol）Internet控制报文协议,作用就是控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息;<br>ARP:ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议;<br>RARP:和上面那个协议相反，就是反地址解析协议，在现在的工程不怎么常用；</p>
-</blockquote>
-<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><blockquote>
-<p>TCP/IP协议族涉及到的协议有这些，通过图文来反复记忆这些；</p>
-</blockquote>
-
-          
+          计算机网络之三
+TCP/IP协议族   之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？
+  通过下图就可以了解到TCP/IP有的协议：
+   这里分别介绍一下TCP/
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2017-04-03-计算机网络基础之三/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -877,40 +815,16 @@ exit  //退出端口
       
         
           
-            <h1 id="计算机网络之二"><a href="#计算机网络之二" class="headerlink" title="计算机网络之二"></a>计算机网络之二</h1><hr>
-<p>   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。<br>   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？<br>   <strong><em>OSI</em></strong>这个东东就是一个参考模型。总之关于它的来历背景都可以去问度娘，总之这个的作用就是用来解决网络之间的兼容性问题。那么具体的OSI的模型具体又是什么呢？<br>   <strong><em>OSI模型</em></strong>  就是如下这个东东。<img src="http://i.imgur.com/iy0f6eD.png" alt=""><br>   左边的就是OSI参考模型，它是一个七层的模型，分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层。其中每层都有相对应的协议，正如右边的的用到的协议框架中提到的那些HTTP,TELNET等等。现在我们来分别介绍一下各个层次的含义以及，这些对应的层次的都是怎样将一个数据传输出来的。</p>
-<p><strong>物理层</strong>  这层是面向底层传输的二进制数据，主要是面向物理硬件的传输介质比如光纤，网线等等；</p>
-<p><strong>数据链路层</strong> 这层面向的机体是交换机而言的，最主要的是识别交换机的MAC地址用；</p>
-<p><strong>网络层</strong>  这层面向的是主要硬件有路由器，分别起到路由地址的转发的作用；</p>
-<p><strong>传输层</strong>   这层的作用是收发数据用的，主要用到的两个协议TCP和UDP协议；</p>
-<p><strong>会话层</strong>   这层提供一种有效的方法，其功能是按照在应用进程之间的原则，进行数据收发，例如：选取全双工还是半双工通信；</p>
-<p><strong>表示层</strong>   这层主要是解决用户的信息的语法问题，起到对信息格式和编码起转换作用，例如一些base64以及ASCII码转换成为EBCDIC等；</p>
-<p><strong>应用层</strong>   这层是OSI模型中最高层，直接面向用户以满足不同需求的，利用网路资源，唯一向应用程序直接提供服务的层；</p>
-<p>当然这个OSI模型只是为了更好的服务于网络的各个协议而设计的，它具有的优点我就不一一介绍了。同时，在这个七层的模型，我们只重点讲解网络层和数据链路层，只在这两个层面来讨论。那么问题来了，那么多层的协议对于懒惰的程序猿而言，要实现是不是有点麻烦啊？事实回答：是的。</p>
-<p>因此程序猿们想了一个办法，其中就在各位大佬的努力下，与OSI模型对应的另一个模型就诞生了，这个是一个现实网络真正应用的模型。现在我想会不会有些晕啊。没关系我们在梳理梳理这些关系。OSI七层模型，是为了更好的管理网络协议而提出的参考模型，在网络中没有具体的应用，而与此对应的TCP/IP模型是程序猿们为了更好的实现而自己构建的模型，在网络中具体运用的模型。具有现实意义。<strong>注意，注意，注意了！</strong>这个TCP/IP模型是针对程序猿而言的。所以它简化了好多的层次。具体参考上图。</p>
-<p>那么明白了网络的各个层次，我们还是得从OSI模型来讲，讲什么呢？？</p>
-<p>讲讲数据如何是从一台PC机收发数据到另一台PC机的故事。</p>
-<p><img src="http://i.imgur.com/9Q6EC41.png" alt=""></p>
-<p>PC A 到PC B 的过程就是一个经历了层层封装的过程，首先，PC A 发了一个信息‘A君’。A君从应用层出发，然后经过传输层，这时候，A君穿上了一件外套，也就是被封装了TCP的报头，接着在向下移动，经过网络层的时候，IP大大又给他戴上了IP的报头，这时的A君中除了自己还穿上了TCP给的外套和IP的帽子，紧接着A君再向下的数据链路层，数据链路层给他穿上了裤子，这裤子包含了LLC报头和FCS的报尾部分，在数据链路层，还会给A君穿上鞋子，这鞋子带有一层MAC头和FCS的报尾，最后经过物理层的时候A君就转换成了二进制数据，这时候完成了一个自上而下的数据封装过程，最后A君就完成了一次从PC A到物理层的行走。同时，想要到达PC B，方式就和PC A 一样只是不是自上而下了，而是自下而上，最后到达了PC B。这就是A君在OSI模型里完整走的流程。</p>
-<p>  那么明白了这个模型，我们还得掌握一个TCP/IP的模型，这个模型才是我们要真正掌握的东东。</p>
-<p><img src="http://i.imgur.com/A48jccy.png" alt=""></p>
-<p>  强大的程序猿们在原来的OSI模型上又建立了一个真正的网络模型，且现在的网络传输格局都遵循这个模型里的各个协议，之后我会更详细的一一解释关于TCP/IP的协议族，当然了，关于计算机网络基础，我们主要研究的范围就是TCP/IP，当然其他也有研究的价值，只是那不在计算机网络范畴。</p>
-<p><strong>小思考&amp;小结</strong>  </p>
-<p>  这次这篇文章我们介绍了主要有三个：</p>
-<blockquote>
-<p> 1、OSI模型这个东东；回想一下OSI模型这个东西存在的目的？？</p>
-</blockquote>
-<blockquote>
-<p> 2、OSI七层模型含有哪七层？？？各个层次的作用是什么？？</p>
-</blockquote>
-<blockquote>
-<p> 3、 关于OSI模型是如何将数据封装然后传输的？？？</p>
-</blockquote>
-<blockquote>
-<p> 4、为什么会有TCP/IP模型？？？和OSI模型有什么区别？？？</p>
-</blockquote>
-
-          
+          计算机网络之二
+   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？   OSI这个东东就是一个参考模型。总之关于它的来历
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2017-03-29-计算机网络基础之二/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1052,7 +966,7 @@ exit  //退出端口
           <p>用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客<code>git pull</code>下来，修改完成<code>commit</code>后，再<code>push</code>上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/2015-09-21-tools-for-jekyll/#meer" rel="contents">
+            <a class="btn" href="/2018/03/25/2015-09-21-tools-for-jekyll/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1196,10 +1110,15 @@ exit  //退出端口
       
         
           
-            <h1 id="新年祝福"><a href="#新年祝福" class="headerlink" title="新年祝福"></a>新年祝福</h1><p>   一晃就到了象牙塔的第三年了，习惯瞎忙之后，就会忽略当下。在过去的一年里，专业上还是以基础为主要，在python的陪伴下，又走过了一年；绘画上，依然还是原地打转，当然，还是莫急，现在还是积累，对于排线的熟练度较之前有了些许进步；阅读上，还是以专业书籍为核心，过去读了<code>25</code> （有记录）；PS，SAI的熟练度相比去年又进步了；当然，新年伊始，还是有好多事情可以折腾的。<code>自我技能树</code> 还在一步步开发中……总之，现在人生宗旨是以“瞎折腾，搞事请”为主。最后，附上图板绘图一张233333。</p>
-<p><img src="E:\电脑软件\电脑美化\180201__壁纸\180214__狗狗\柒小猫.jpg" alt="柒小猫"></p>
-
-          
+          新年祝福   一晃就到了象牙塔的第三年了，习惯瞎忙之后，就会忽略当下。在过去的一年里，专业上还是以基础为主要，在python的陪伴下，又走过了一年；绘画上，依然还是原地打转，当然，还是莫急，现在还是积累，对于排线的熟练度较之前有了些许进步；阅读上，还是以专业书籍为核心，过去读了25 （有记录）；PS
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2018-02-14-新年祝福/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1339,46 +1258,22 @@ exit  //退出端口
       
         
           
-            <h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
+          ONCE MORE of write upwrite up:
 1&gt;题目url
 2&gt;初步检测
 3&gt;查看源代码
 4&gt;分析代码构造语句
-</code></pre><h3 id="gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php"><a href="#gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php" class="headerlink" title="&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php "></a>&gt;1 题目： <a href="http://ctf5.shiyanbar.com/web/more.php" title="(Once more)" target="_blank" rel="noopener"> http://ctf5.shiyanbar.com/web/more.php </a></h3><p>  首先，看看题目有什么提示，如图：</p>
-<p>  <img src="https://i.imgur.com/HzvVac9.png" alt="(代码审计)"> </p>
-<h3 id="gt-2-初步检测"><a href="#gt-2-初步检测" class="headerlink" title="&gt;2 初步检测"></a>&gt;2 初步检测</h3><p>  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；<br>  在password里输入了111来检测</p>
-<p>  <img src="https://i.imgur.com/xy2jela.png" alt="（代码审计2）">  </p>
-<p>  输入完之后</p>
-<p>  <img src="https://i.imgur.com/QRIvUrY.png" alt="（代码审计3）"></p>
-<h3 id="gt-3-查看源代码"><a href="#gt-3-查看源代码" class="headerlink" title="&gt;3 查看源代码"></a>&gt;3 查看源代码</h3><p>  这时候看到 <strong>view the source code</strong> 可以点开打开源码进行查看<br>  贴上源代码：</p>
-<pre><code>&lt;?php
- if (isset ($_GET[&apos;password&apos;])) {
- if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
- {
-     echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;;
- }
- else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999)
- {
-     if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE)
-     {
-         die(&apos;Flag: &apos; . $flag);
-     }
-     else
-     {
-         echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;);
-     }
- }
- else
- {
-     echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
- }
-}
-?&gt;
-</code></pre><h3 id="gt-4-分析代码构造语句"><a href="#gt-4-分析代码构造语句" class="headerlink" title="&gt;4 分析代码构造语句"></a>&gt;4 分析代码构造语句</h3><p>   首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造，<br>   3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？</p>
-<p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
-<p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
+&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php   首先，看看题目有什么提示，如图：
+   
 
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/25/2018-01-27-CTF/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
