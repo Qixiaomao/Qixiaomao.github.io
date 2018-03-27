@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +12,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +32,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +40,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/images/ME2.ico?v=5.1.4">
@@ -68,7 +60,7 @@
 
 
 
-  <meta name="keywords" content="路由器,ospf," />
+  <meta name="keywords" content="&#x8DEF;&#x7531;&#x5668;,ospf,">
 
 
 
@@ -79,19 +71,19 @@
 
 
 
-<meta name="description" content="三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；  sw(con">
-<meta name="keywords" content="路由器,ospf">
+<meta name="description" content="&amp;#x4E09;&amp;#x5C42;&amp;#x4EA4;&amp;#x6362;&amp;#x673A;ospf&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x7F51;&amp;#x7EDC;&amp;#x62D3;&amp;#x6251;&amp;#x56FE;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; &amp;#x4E4B;&amp;#x524D;&amp;#x63D0;&amp;#x5230;&amp;#x8FC7;&amp;#x5173;&amp;#x4E8E;ospf&amp;#xFF0C">
+<meta name="keywords" content="&#x8DEF;&#x7531;&#x5668;,ospf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ospf路由转发功能">
-<meta property="og:url" content="http://yoursite.com/2018/03/25/2018-01-27-ospf路由转发功能/index.html">
-<meta property="og:site_name" content="JHeln&#39;blog">
-<meta property="og:description" content="三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；  sw(con">
+<meta property="og:title" content="ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;">
+<meta property="og:url" content="http://yoursite.com/2018/03/25/2018-01-27-ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;/index.html">
+<meta property="og:site_name" content="JHeln&apos;blog">
+<meta property="og:description" content="&amp;#x4E09;&amp;#x5C42;&amp;#x4EA4;&amp;#x6362;&amp;#x673A;ospf&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x7F51;&amp;#x7EDC;&amp;#x62D3;&amp;#x6251;&amp;#x56FE;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; &amp;#x4E4B;&amp;#x524D;&amp;#x63D0;&amp;#x5230;&amp;#x8FC7;&amp;#x5173;&amp;#x4E8E;ospf&amp;#xFF0C">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i.imgur.com/xLXCgEU.png">
 <meta property="og:updated_time" content="2018-01-27T04:41:30.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ospf路由转发功能">
-<meta name="twitter:description" content="三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；  sw(con">
+<meta name="twitter:title" content="ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;">
+<meta name="twitter:description" content="&amp;#x4E09;&amp;#x5C42;&amp;#x4EA4;&amp;#x6362;&amp;#x673A;ospf&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x7F51;&amp;#x7EDC;&amp;#x62D3;&amp;#x6251;&amp;#x56FE;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; &amp;#x4E4B;&amp;#x524D;&amp;#x63D0;&amp;#x5230;&amp;#x8FC7;&amp;#x5173;&amp;#x4E8E;ospf&amp;#xFF0C">
 <meta name="twitter:image" content="http://i.imgur.com/xLXCgEU.png">
 
 
@@ -122,13 +114,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/25/2018-01-27-ospf路由转发功能/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/25/2018-01-27-ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;/">
 
 
 
 
 
-  <title>ospf路由转发功能 | JHeln'blog</title>
+  <title>ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD; | JHeln&apos;blog</title>
   
 
 
@@ -140,7 +132,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -149,16 +141,16 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">JHeln'blog</span>
+        <span class="site-title">JHeln&apos;blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -186,9 +178,9 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            首页
+            &#x9996;&#x9875;
           </a>
         </li>
       
@@ -196,9 +188,9 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            关于
+            &#x5173;&#x4E8E;
           </a>
         </li>
       
@@ -206,9 +198,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
-            标签
+            &#x6807;&#x7B7E;
           </a>
         </li>
       
@@ -216,9 +208,9 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
-            分类
+            &#x5206;&#x7C7B;
           </a>
         </li>
       
@@ -226,9 +218,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
             
-            归档
+            &#x5F52;&#x6863;
           </a>
         </li>
       
@@ -260,21 +252,21 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/2018-01-27-ospf路由转发功能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/2018-01-27-ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/ME2.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln&apos;blog">
     </span>
 
     
@@ -282,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ospf路由转发功能</h1>
+          <h1 class="post-title" itemprop="name headline">ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;</h1>
         
 
         <div class="post-meta">
@@ -292,9 +284,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">&#x53D1;&#x8868;&#x4E8E;</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T22:25:14+08:00">
+              <time title="&#x521B;&#x5EFA;&#x4E8E;" itemprop="dateCreated datePublished" datetime="2018-03-25T22:25:14+08:00">
                 2018-03-25
               </time>
             
@@ -305,7 +297,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -313,12 +305,12 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">&#x5206;&#x7C7B;&#x4E8E;</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/&#x7F51;&#x7EDC;/" itemprop="url" rel="index">
+                    <span itemprop="name">&#x7F51;&#x7EDC;</span>
                   </a>
                 </span>
 
@@ -354,17 +346,17 @@
       
 
       
-        <h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p>
-<p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p>
-<h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p>
-<h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p>
+        <h1 id="&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;"><a href="#&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;"></a>&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;</h1><h3 id="&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;"><a href="#&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;" class="headerlink" title="&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;"></a>&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p>
+<p>&#x4E4B;&#x524D;&#x63D0;&#x5230;&#x8FC7;&#x5173;&#x4E8E;ospf&#xFF0C;&#x662F;&#x5728;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x914D;&#xFF0C;&#x8FD9;&#x6B21;&#x7684;&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x91CC;&#x5305;&#x542B;&#x6709;&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#xFF0C;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x7B2C;&#x4E09;&#x5C42;&#x7684;&#x4EA4;&#x6362;&#x673A;&#xFF0C;&#x5177;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#xFF1B;&#x6240;&#x4EE5;&#x672C;&#x6B21;&#x7684;&#x914D;&#x7F6E;&#x5173;&#x952E;&#x5C31;&#x5728;&#x4E8E;&#x6253;&#x5F00;&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;"><a href="#&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;"></a>&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;</h3><p>&#x53C2;&#x8003;&#x4E4B;&#x524D;&#x7684;&#x7B80;&#x5355;&#x7684;ospf&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5728;&#x8DEF;&#x7531;&#x4E0A;&#x7684;&#x914D;&#x7F6E;&#x5DEE;&#x4E0D;&#x591A;&#xFF1B;</p>
+<h3 id="&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;"><a href="#&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;"></a>&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;</h3><p>&#x5173;&#x4E8E;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;&#x5230;&#x65F6;&#x5019;&#x4F1A;&#x91CD;&#x65B0;&#x5199;&#x4E2A;&#x914D;&#x7F6E;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x8FC7;&#x591A;&#x7684;&#x9610;&#x8FF0;&#xFF1B;</p>
 <blockquote>
 <p>sw(config)#ip routing</p>
 </blockquote>
 <blockquote>
-<p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p>
+<p>&#x8FD9;&#x884C;&#x547D;&#x4EE4;&#x662F;&#x5728;&#x544A;&#x8BC9;&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x6253;&#x5F00;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#xFF0C;&#x91CD;&#x70B9;&#x5C31;&#x662F;&#x8FD9;&#x53E5;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x7684;&#x914D;&#x7F6E;&#x4E86;&#x3002;</p>
 </blockquote>
-
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"haruto","bottom":-30});</script>
       
     </div>
     
@@ -378,9 +370,9 @@
     
     <div>
        
-           ﻿<div>
+           &#xFEFF;<div>
     
-         <div style="text-align:center;color: #ccc;font-size:14px;">------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+         <div style="text-align:center;color: #ccc;font-size:14px;">------------&#x672C;&#x6587;&#x7ED3;&#x675F;<i class="fa fa-paw"></i>&#x611F;&#x8C22;&#x60A8;&#x7684;&#x9605;&#x8BFB;-------------</div>
     
 </div>
        
@@ -390,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/路由器/" rel="tag"><i class="fa fa-tag"></i> 路由器</a>
+            <a href="/tags/&#x8DEF;&#x7531;&#x5668;/" rel="tag"><i class="fa fa-tag"></i> &#x8DEF;&#x7531;&#x5668;</a>
           
             <a href="/tags/ospf/" rel="tag"><i class="fa fa-tag"></i> ospf</a>
           
@@ -405,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/2018-01-27-acl随笔/" rel="next" title="ACL原理小结">
-                <i class="fa fa-chevron-left"></i> ACL原理小结
+              <a href="/2018/03/25/2018-01-27-acl&#x968F;&#x7B14;/" rel="next" title="ACL&#x539F;&#x7406;&#x5C0F;&#x7ED3;">
+                <i class="fa fa-chevron-left"></i> ACL&#x539F;&#x7406;&#x5C0F;&#x7ED3;
               </a>
             
           </div>
@@ -415,8 +407,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/25/2018-01-27-rip路由的配置/" rel="prev" title="rip实验的配置">
-                rip实验的配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/25/2018-01-27-rip&#x8DEF;&#x7531;&#x7684;&#x914D;&#x7F6E;/" rel="prev" title="rip&#x5B9E;&#x9A8C;&#x7684;&#x914D;&#x7F6E;">
+                rip&#x5B9E;&#x9A8C;&#x7684;&#x914D;&#x7F6E; <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -438,20 +430,20 @@
       
         <!-- JiaThis Button BEGIN -->
 <div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
+<span class="jiathis_txt">&#x5206;&#x4EAB;&#x5230;&#xFF1A;</span>
+<a class="jiathis_button_fav">&#x6536;&#x85CF;&#x5939;</a>
+<a class="jiathis_button_copy">&#x590D;&#x5236;&#x7F51;&#x5740;</a>
+<a class="jiathis_button_email">&#x90AE;&#x4EF6;</a>
+<a class="jiathis_button_weixin">&#x5FAE;&#x4FE1;</a>
+<a class="jiathis_button_qzone">QQ&#x7A7A;&#x95F4;</a>
+<a class="jiathis_button_tqq">&#x817E;&#x8BAF;&#x5FAE;&#x535A;</a>
+<a class="jiathis_button_douban">&#x8C46;&#x74E3;</a>
+<a class="jiathis_button_share">&#x4E00;&#x952E;&#x5206;&#x4EAB;</a>
 
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">&#x66F4;&#x591A;</a>
 <a class="jiathis_counter_style"></a>
 </div>
-<script type="text/javascript" >
+<script type="text/javascript">
 var jiathis_config={
   data_track_clickback:true,
   summary:"",
@@ -497,24 +489,22 @@ var jiathis_config={
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            &#x6587;&#x7AE0;&#x76EE;&#x5F55;
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            &#x7AD9;&#x70B9;&#x6982;&#x89C8;
           </li>
         </ul>
       
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/uploads/ME2.png"
-                alt="JHeln" />
+              <img class="site-author-image" itemprop="image" src="/uploads/ME2.png" alt="JHeln">
             
               <p class="site-author-name" itemprop="name">JHeln</p>
-              <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
+              <p class="site-description motion-element" itemprop="description">&#x4E0D;&#x4EE5;&#x65E0;&#x4EBA;&#x800C;&#x4E0D;&#x82B3;&#xFF0C;&#x4E0D;&#x56E0;&#x8272;&#x9999;&#x800C;&#x81EA;&#x70AB;&#xFF0C;&#x541B;&#x5B50;&#x5F53;&#x5982;&#x5170;~</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -525,7 +515,7 @@ var jiathis_config={
                 <a href="/archives/">
               
                   <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">&#x65E5;&#x5FD7;</span>
                 </a>
               </div>
             
@@ -536,7 +526,7 @@ var jiathis_config={
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">&#x5206;&#x7C7B;</span>
                 
               </div>
             
@@ -547,7 +537,7 @@ var jiathis_config={
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">&#x6807;&#x7B7E;</span>
                 
               </div>
             
@@ -586,8 +576,8 @@ var jiathis_config={
           
           
 
-          ﻿<div id="days"></div>
-</script>
+          &#xFEFF;<div id="days"></div>
+
 <script language="javascript">
 function show_date_time(){
 window.setTimeout("show_date_time()", 1000);
@@ -627,7 +617,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三层交换机ospf的配置"><span class="nav-number">1.</span> <span class="nav-text">三层交换机ospf的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络拓扑图如下："><span class="nav-number">1.0.1.</span> <span class="nav-text">网络拓扑图如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器上的配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">路由器上的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三层交换机的配置"><span class="nav-number">1.0.3.</span> <span class="nav-text">三层交换机的配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;"><span class="nav-number">1.</span> <span class="nav-text">&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;ospf&#x7684;&#x914D;&#x7F6E;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;"><span class="nav-number">1.0.1.</span> <span class="nav-text">&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;"><span class="nav-number">1.0.2.</span> <span class="nav-text">&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;"><span class="nav-number">1.0.3.</span> <span class="nav-text">&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x914D;&#x7F6E;</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -647,9 +637,9 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        &#xFEFF;<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&#xA9; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -661,10 +651,10 @@ show_date_time();
 
   <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站来踩数:<span id="busuanzi_value_site_uv"></span>
+  &#x672C;&#x7AD9;&#x6765;&#x8E29;&#x6570;:<span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">&#x7531; <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> &#x5F3A;&#x529B;&#x9A71;&#x52A8;</div>
 
 
 
@@ -672,7 +662,7 @@ show_date_time();
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">&#x4E3B;&#x9898; &#x2014; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -853,6 +843,7 @@ show_date_time();
 <script type="text/javascript" src="/js/src/fireworks.js"></script>
   <!-- ҳ����С���� -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+ undefined
 
-</body>
-</html>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"haruto","bottom":-30});</script></body></html>
