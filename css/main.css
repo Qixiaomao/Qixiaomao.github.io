@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4aff7c;
+  background: #01ffe0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2863,8 +2863,8 @@ img:hover {
   text-decoration: none;
 }
 * {
-  cursor: url("http://p6akdr6oo.bkt.clouddn.com/cat.ico"), auto !important;
+  cursor: url("http://p6akdr6oo.bkt.clouddn.com/cat1.ico"), auto !important;
 }
 :active {
-  cursor: url("http://p6akdr6oo.bkt.clouddn.com/cat.ico.ico"), auto !important;
+  cursor: url("http://p6akdr6oo.bkt.clouddn.com/cat4.ico"), auto !important;
 }
