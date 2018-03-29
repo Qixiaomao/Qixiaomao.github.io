@@ -1,7 +1,15 @@
-<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head>
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -12,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -32,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -40,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/images/ME2.ico?v=5.1.4">
@@ -60,34 +68,34 @@
 
 
 
-  <meta name="keywords" content="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;,OSI&#x6A21;&#x578B;,">
+  <meta name="keywords" content="计算机网络,OSI模型," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="JHeln&apos;blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="JHeln'blog" type="application/atom+xml" />
 
 
 
 
 
 
-<meta name="description" content="&amp;#x8DDD;&amp;#x79BB;&amp;#x4E0A;&amp;#x6B21;&amp;#x6211;&amp;#x8C08;&amp;#x5230;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7F51;&amp;#x7EDC;&amp;#x57FA;&amp;#x7840;&amp;#x4E4B;&amp;#x4E00;&amp;#xFF0C;&amp;#x8C8C;&amp;#x4F3C;&amp;#x4E5F;&amp;#x8FC7;&amp;#x4E86;&amp;#x597D;&amp;#x4E45;">
-<meta name="keywords" content="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;,OSI&#x6A21;&#x578B;">
+<meta name="description" content="距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~">
+<meta name="keywords" content="计算机网络,OSI模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09;">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/2017-03-29-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E8C;/index.html">
-<meta property="og:site_name" content="JHeln&apos;blog">
-<meta property="og:description" content="&amp;#x8DDD;&amp;#x79BB;&amp;#x4E0A;&amp;#x6B21;&amp;#x6211;&amp;#x8C08;&amp;#x5230;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7F51;&amp;#x7EDC;&amp;#x57FA;&amp;#x7840;&amp;#x4E4B;&amp;#x4E00;&amp;#xFF0C;&amp;#x8C8C;&amp;#x4F3C;&amp;#x4E5F;&amp;#x8FC7;&amp;#x4E86;&amp;#x597D;&amp;#x4E45;">
+<meta property="og:title" content="计算机网络基础（二）">
+<meta property="og:url" content="www.jheln.ink/2017/03/29/2017-03-29-计算机网络基础之二/index.html">
+<meta property="og:site_name" content="JHeln&#39;blog">
+<meta property="og:description" content="距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i.imgur.com/iy0f6eD.png">
 <meta property="og:image" content="http://i.imgur.com/9Q6EC41.png">
 <meta property="og:image" content="http://i.imgur.com/A48jccy.png">
 <meta property="og:updated_time" content="2018-03-29T00:17:42.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09;">
-<meta name="twitter:description" content="&amp;#x8DDD;&amp;#x79BB;&amp;#x4E0A;&amp;#x6B21;&amp;#x6211;&amp;#x8C08;&amp;#x5230;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7F51;&amp;#x7EDC;&amp;#x57FA;&amp;#x7840;&amp;#x4E4B;&amp;#x4E00;&amp;#xFF0C;&amp;#x8C8C;&amp;#x4F3C;&amp;#x4E5F;&amp;#x8FC7;&amp;#x4E86;&amp;#x597D;&amp;#x4E45;">
+<meta name="twitter:title" content="计算机网络基础（二）">
+<meta name="twitter:description" content="距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~">
 <meta name="twitter:image" content="http://i.imgur.com/iy0f6eD.png">
 
 
@@ -104,7 +112,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -133,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/29/2017-03-29-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E8C;/">
+  <link rel="canonical" href="www.jheln.ink/2017/03/29/2017-03-29-计算机网络基础之二/"/>
 
 
 
 
 
-  <title>&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09; | JHeln&apos;blog</title>
+  <title>计算机网络基础（二） | JHeln'blog</title>
   
 
 
@@ -151,7 +159,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -160,16 +168,16 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">JHeln&apos;blog</span>
+        <span class="site-title">JHeln'blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -197,9 +205,9 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            &#x9996;&#x9875;
+            Startseite
           </a>
         </li>
       
@@ -207,9 +215,9 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            &#x5173;&#x4E8E;
+            Über
           </a>
         </li>
       
@@ -217,9 +225,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            &#x6807;&#x7B7E;
+            Tags
           </a>
         </li>
       
@@ -227,9 +235,9 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            &#x5206;&#x7C7B;
+            Kategorien
           </a>
         </li>
       
@@ -237,9 +245,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            &#x5F52;&#x6863;
+            Archiv
           </a>
         </li>
       
@@ -271,21 +279,21 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/2017-03-29-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E8C;/">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2017/03/29/2017-03-29-计算机网络基础之二/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/ME2.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln&apos;blog">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
     </span>
 
     
@@ -293,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09;</h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络基础（二）</h1>
         
 
         <div class="post-meta">
@@ -303,9 +311,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">&#x53D1;&#x8868;&#x4E8E;</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="&#x521B;&#x5EFA;&#x4E8E;" itemprop="dateCreated datePublished" datetime="2017-03-29T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T00:00:00+08:00">
                 2017-03-29
               </time>
             
@@ -316,7 +324,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -324,12 +332,12 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">&#x5206;&#x7C7B;&#x4E8E;</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/&#x7F51;&#x7EDC;/" itemprop="url" rel="index">
-                    <span itemprop="name">&#x7F51;&#x7EDC;</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
                   </a>
                 </span>
 
@@ -349,6 +357,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1,580
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
 
           
 
@@ -365,41 +404,41 @@
       
 
       
-        <p>&#x8DDD;&#x79BB;&#x4E0A;&#x6B21;&#x6211;&#x8C08;&#x5230;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E00;&#xFF0C;&#x8C8C;&#x4F3C;&#x4E5F;&#x8FC7;&#x4E86;&#x597D;&#x4E45;&#xFF0C;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x5B58;&#x5728;&#x4E8E;&#x8111;&#x5B50;&#x91CC;&#x597D;&#x591A;&#x7684;&#x4E1C;&#x897F;&#x7684;&#x6211;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6574;&#x7406;&#x3002;&#x4EE5;&#x514D;&#x4EE5;&#x540E;&#x7684;&#x81EA;&#x5DF1;&#x5FD8;&#x8BB0;&#x4E86;~</p>
+        <p>距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~</p>
 <a id="more"></a>
-<h1 id="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;"><a href="#&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;" class="headerlink" title="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;"></a>&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;</h1><hr>
-<p>   &#x8DDD;&#x79BB;&#x4E0A;&#x6B21;&#x6211;&#x8C08;&#x5230;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E00;&#xFF0C;&#x8C8C;&#x4F3C;&#x4E5F;&#x8FC7;&#x4E86;&#x597D;&#x4E45;&#xFF0C;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x5B58;&#x5728;&#x4E8E;&#x8111;&#x5B50;&#x91CC;&#x597D;&#x591A;&#x7684;&#x4E1C;&#x897F;&#x7684;&#x6211;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6574;&#x7406;&#x3002;&#x5F53;&#x7136;&#x5E9F;&#x8BDD;&#x5C11;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x4E0A;&#x5E72;&#x8D27;&#x4E86;&#x3002;<br>   &#x8FD9;&#x6B21;&#x5E26;&#x6765;&#x7684;&#x4E1C;&#x897F;&#x5C31;&#x662F;&#x5173;&#x4E8E;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x5206;&#x5C42;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x9996;&#x5148;&#x8981;&#x660E;&#x767D;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4EC0;&#x4E48;&#x662F;OSI&#xFF1F;&#xFF1F;&#xFF1F;<br>   <strong><em>OSI</em></strong>&#x8FD9;&#x4E2A;&#x4E1C;&#x4E1C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x6A21;&#x578B;&#x3002;&#x603B;&#x4E4B;&#x5173;&#x4E8E;&#x5B83;&#x7684;&#x6765;&#x5386;&#x80CC;&#x666F;&#x90FD;&#x53EF;&#x4EE5;&#x53BB;&#x95EE;&#x5EA6;&#x5A18;&#xFF0C;&#x603B;&#x4E4B;&#x8FD9;&#x4E2A;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x7528;&#x6765;&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x4E4B;&#x95F4;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x3002;&#x90A3;&#x4E48;&#x5177;&#x4F53;&#x7684;OSI&#x7684;&#x6A21;&#x578B;&#x5177;&#x4F53;&#x53C8;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;<br>   <strong><em>OSI&#x6A21;&#x578B;</em></strong>  &#x5C31;&#x662F;&#x5982;&#x4E0B;&#x8FD9;&#x4E2A;&#x4E1C;&#x4E1C;&#x3002;<img src="http://i.imgur.com/iy0f6eD.png" alt=""><br>   &#x5DE6;&#x8FB9;&#x7684;&#x5C31;&#x662F;OSI&#x53C2;&#x8003;&#x6A21;&#x578B;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x4E03;&#x5C42;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x7269;&#x7406;&#x5C42;&#xFF0C;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF0C;&#x7F51;&#x7EDC;&#x5C42;&#xFF0C;&#x4F20;&#x8F93;&#x5C42;&#xFF0C;&#x4F1A;&#x8BDD;&#x5C42;&#xFF0C;&#x8868;&#x793A;&#x5C42;&#xFF0C;&#x5E94;&#x7528;&#x5C42;&#x3002;&#x5176;&#x4E2D;&#x6BCF;&#x5C42;&#x90FD;&#x6709;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x6B63;&#x5982;&#x53F3;&#x8FB9;&#x7684;&#x7684;&#x7528;&#x5230;&#x7684;&#x534F;&#x8BAE;&#x6846;&#x67B6;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x90A3;&#x4E9B;HTTP,TELNET&#x7B49;&#x7B49;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x5206;&#x522B;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5404;&#x4E2A;&#x5C42;&#x6B21;&#x7684;&#x542B;&#x4E49;&#x4EE5;&#x53CA;&#xFF0C;&#x8FD9;&#x4E9B;&#x5BF9;&#x5E94;&#x7684;&#x5C42;&#x6B21;&#x7684;&#x90FD;&#x662F;&#x600E;&#x6837;&#x5C06;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x51FA;&#x6765;&#x7684;&#x3002;</p>
-<p><strong>&#x7269;&#x7406;&#x5C42;</strong>  &#x8FD9;&#x5C42;&#x662F;&#x9762;&#x5411;&#x5E95;&#x5C42;&#x4F20;&#x8F93;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9762;&#x5411;&#x7269;&#x7406;&#x786C;&#x4EF6;&#x7684;&#x4F20;&#x8F93;&#x4ECB;&#x8D28;&#x6BD4;&#x5982;&#x5149;&#x7EA4;&#xFF0C;&#x7F51;&#x7EBF;&#x7B49;&#x7B49;&#xFF1B;</p>
-<p><strong>&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;</strong> &#x8FD9;&#x5C42;&#x9762;&#x5411;&#x7684;&#x673A;&#x4F53;&#x662F;&#x4EA4;&#x6362;&#x673A;&#x800C;&#x8A00;&#x7684;&#xFF0C;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x662F;&#x8BC6;&#x522B;&#x4EA4;&#x6362;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#x7528;&#xFF1B;</p>
-<p><strong>&#x7F51;&#x7EDC;&#x5C42;</strong>  &#x8FD9;&#x5C42;&#x9762;&#x5411;&#x7684;&#x662F;&#x4E3B;&#x8981;&#x786C;&#x4EF6;&#x6709;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x5206;&#x522B;&#x8D77;&#x5230;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x7684;&#x8F6C;&#x53D1;&#x7684;&#x4F5C;&#x7528;&#xFF1B;</p>
-<p><strong>&#x4F20;&#x8F93;&#x5C42;</strong>   &#x8FD9;&#x5C42;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x6536;&#x53D1;&#x6570;&#x636E;&#x7528;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x5230;&#x7684;&#x4E24;&#x4E2A;&#x534F;&#x8BAE;TCP&#x548C;UDP&#x534F;&#x8BAE;&#xFF1B;</p>
-<p><strong>&#x4F1A;&#x8BDD;&#x5C42;</strong>   &#x8FD9;&#x5C42;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x529F;&#x80FD;&#x662F;&#x6309;&#x7167;&#x5728;&#x5E94;&#x7528;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x6536;&#x53D1;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x9009;&#x53D6;&#x5168;&#x53CC;&#x5DE5;&#x8FD8;&#x662F;&#x534A;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF1B;</p>
-<p><strong>&#x8868;&#x793A;&#x5C42;</strong>   &#x8FD9;&#x5C42;&#x4E3B;&#x8981;&#x662F;&#x89E3;&#x51B3;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#x7684;&#x8BED;&#x6CD5;&#x95EE;&#x9898;&#xFF0C;&#x8D77;&#x5230;&#x5BF9;&#x4FE1;&#x606F;&#x683C;&#x5F0F;&#x548C;&#x7F16;&#x7801;&#x8D77;&#x8F6C;&#x6362;&#x4F5C;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E9B;base64&#x4EE5;&#x53CA;ASCII&#x7801;&#x8F6C;&#x6362;&#x6210;&#x4E3A;EBCDIC&#x7B49;&#xFF1B;</p>
-<p><strong>&#x5E94;&#x7528;&#x5C42;</strong>   &#x8FD9;&#x5C42;&#x662F;OSI&#x6A21;&#x578B;&#x4E2D;&#x6700;&#x9AD8;&#x5C42;&#xFF0C;&#x76F4;&#x63A5;&#x9762;&#x5411;&#x7528;&#x6237;&#x4EE5;&#x6EE1;&#x8DB3;&#x4E0D;&#x540C;&#x9700;&#x6C42;&#x7684;&#xFF0C;&#x5229;&#x7528;&#x7F51;&#x8DEF;&#x8D44;&#x6E90;&#xFF0C;&#x552F;&#x4E00;&#x5411;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x76F4;&#x63A5;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x5C42;&#xFF1B;</p>
-<p>&#x5F53;&#x7136;&#x8FD9;&#x4E2A;OSI&#x6A21;&#x578B;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x670D;&#x52A1;&#x4E8E;&#x7F51;&#x7EDC;&#x7684;&#x5404;&#x4E2A;&#x534F;&#x8BAE;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x5B83;&#x5177;&#x6709;&#x7684;&#x4F18;&#x70B9;&#x6211;&#x5C31;&#x4E0D;&#x4E00;&#x4E00;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4E03;&#x5C42;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x91CD;&#x70B9;&#x8BB2;&#x89E3;&#x7F51;&#x7EDC;&#x5C42;&#x548C;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF0C;&#x53EA;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x5C42;&#x9762;&#x6765;&#x8BA8;&#x8BBA;&#x3002;&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x591A;&#x5C42;&#x7684;&#x534F;&#x8BAE;&#x5BF9;&#x4E8E;&#x61D2;&#x60F0;&#x7684;&#x7A0B;&#x5E8F;&#x733F;&#x800C;&#x8A00;&#xFF0C;&#x8981;&#x5B9E;&#x73B0;&#x662F;&#x4E0D;&#x662F;&#x6709;&#x70B9;&#x9EBB;&#x70E6;&#x554A;&#xFF1F;&#x4E8B;&#x5B9E;&#x56DE;&#x7B54;&#xFF1A;&#x662F;&#x7684;&#x3002;</p>
-<p>&#x56E0;&#x6B64;&#x7A0B;&#x5E8F;&#x733F;&#x4EEC;&#x60F3;&#x4E86;&#x4E00;&#x4E2A;&#x529E;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x5C31;&#x5728;&#x5404;&#x4F4D;&#x5927;&#x4F6C;&#x7684;&#x52AA;&#x529B;&#x4E0B;&#xFF0C;&#x4E0E;OSI&#x6A21;&#x578B;&#x5BF9;&#x5E94;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5C31;&#x8BDE;&#x751F;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x4E00;&#x4E2A;&#x73B0;&#x5B9E;&#x7F51;&#x7EDC;&#x771F;&#x6B63;&#x5E94;&#x7528;&#x7684;&#x6A21;&#x578B;&#x3002;&#x73B0;&#x5728;&#x6211;&#x60F3;&#x4F1A;&#x4E0D;&#x4F1A;&#x6709;&#x4E9B;&#x6655;&#x554A;&#x3002;&#x6CA1;&#x5173;&#x7CFB;&#x6211;&#x4EEC;&#x5728;&#x68B3;&#x7406;&#x68B3;&#x7406;&#x8FD9;&#x4E9B;&#x5173;&#x7CFB;&#x3002;OSI&#x4E03;&#x5C42;&#x6A21;&#x578B;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x7BA1;&#x7406;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x800C;&#x63D0;&#x51FA;&#x7684;&#x53C2;&#x8003;&#x6A21;&#x578B;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x6CA1;&#x6709;&#x5177;&#x4F53;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x800C;&#x4E0E;&#x6B64;&#x5BF9;&#x5E94;&#x7684;TCP/IP&#x6A21;&#x578B;&#x662F;&#x7A0B;&#x5E8F;&#x733F;&#x4EEC;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#x800C;&#x81EA;&#x5DF1;&#x6784;&#x5EFA;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x5177;&#x4F53;&#x8FD0;&#x7528;&#x7684;&#x6A21;&#x578B;&#x3002;&#x5177;&#x6709;&#x73B0;&#x5B9E;&#x610F;&#x4E49;&#x3002;<strong>&#x6CE8;&#x610F;&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;&#x6CE8;&#x610F;&#x4E86;&#xFF01;</strong>&#x8FD9;&#x4E2A;TCP/IP&#x6A21;&#x578B;&#x662F;&#x9488;&#x5BF9;&#x7A0B;&#x5E8F;&#x733F;&#x800C;&#x8A00;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5B83;&#x7B80;&#x5316;&#x4E86;&#x597D;&#x591A;&#x7684;&#x5C42;&#x6B21;&#x3002;&#x5177;&#x4F53;&#x53C2;&#x8003;&#x4E0A;&#x56FE;&#x3002;</p>
-<p>&#x90A3;&#x4E48;&#x660E;&#x767D;&#x4E86;&#x7F51;&#x7EDC;&#x7684;&#x5404;&#x4E2A;&#x5C42;&#x6B21;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x5F97;&#x4ECE;OSI&#x6A21;&#x578B;&#x6765;&#x8BB2;&#xFF0C;&#x8BB2;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#xFF1F;</p>
-<p>&#x8BB2;&#x8BB2;&#x6570;&#x636E;&#x5982;&#x4F55;&#x662F;&#x4ECE;&#x4E00;&#x53F0;PC&#x673A;&#x6536;&#x53D1;&#x6570;&#x636E;&#x5230;&#x53E6;&#x4E00;&#x53F0;PC&#x673A;&#x7684;&#x6545;&#x4E8B;&#x3002;</p>
+<h1 id="计算机网络之二"><a href="#计算机网络之二" class="headerlink" title="计算机网络之二"></a>计算机网络之二</h1><hr>
+<p>   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。<br>   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？<br>   <strong><em>OSI</em></strong>这个东东就是一个参考模型。总之关于它的来历背景都可以去问度娘，总之这个的作用就是用来解决网络之间的兼容性问题。那么具体的OSI的模型具体又是什么呢？<br>   <strong><em>OSI模型</em></strong>  就是如下这个东东。<img src="http://i.imgur.com/iy0f6eD.png" alt=""><br>   左边的就是OSI参考模型，它是一个七层的模型，分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层。其中每层都有相对应的协议，正如右边的的用到的协议框架中提到的那些HTTP,TELNET等等。现在我们来分别介绍一下各个层次的含义以及，这些对应的层次的都是怎样将一个数据传输出来的。</p>
+<p><strong>物理层</strong>  这层是面向底层传输的二进制数据，主要是面向物理硬件的传输介质比如光纤，网线等等；</p>
+<p><strong>数据链路层</strong> 这层面向的机体是交换机而言的，最主要的是识别交换机的MAC地址用；</p>
+<p><strong>网络层</strong>  这层面向的是主要硬件有路由器，分别起到路由地址的转发的作用；</p>
+<p><strong>传输层</strong>   这层的作用是收发数据用的，主要用到的两个协议TCP和UDP协议；</p>
+<p><strong>会话层</strong>   这层提供一种有效的方法，其功能是按照在应用进程之间的原则，进行数据收发，例如：选取全双工还是半双工通信；</p>
+<p><strong>表示层</strong>   这层主要是解决用户的信息的语法问题，起到对信息格式和编码起转换作用，例如一些base64以及ASCII码转换成为EBCDIC等；</p>
+<p><strong>应用层</strong>   这层是OSI模型中最高层，直接面向用户以满足不同需求的，利用网路资源，唯一向应用程序直接提供服务的层；</p>
+<p>当然这个OSI模型只是为了更好的服务于网络的各个协议而设计的，它具有的优点我就不一一介绍了。同时，在这个七层的模型，我们只重点讲解网络层和数据链路层，只在这两个层面来讨论。那么问题来了，那么多层的协议对于懒惰的程序猿而言，要实现是不是有点麻烦啊？事实回答：是的。</p>
+<p>因此程序猿们想了一个办法，其中就在各位大佬的努力下，与OSI模型对应的另一个模型就诞生了，这个是一个现实网络真正应用的模型。现在我想会不会有些晕啊。没关系我们在梳理梳理这些关系。OSI七层模型，是为了更好的管理网络协议而提出的参考模型，在网络中没有具体的应用，而与此对应的TCP/IP模型是程序猿们为了更好的实现而自己构建的模型，在网络中具体运用的模型。具有现实意义。<strong>注意，注意，注意了！</strong>这个TCP/IP模型是针对程序猿而言的。所以它简化了好多的层次。具体参考上图。</p>
+<p>那么明白了网络的各个层次，我们还是得从OSI模型来讲，讲什么呢？？</p>
+<p>讲讲数据如何是从一台PC机收发数据到另一台PC机的故事。</p>
 <p><img src="http://i.imgur.com/9Q6EC41.png" alt=""></p>
-<p>PC A &#x5230;PC B &#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7ECF;&#x5386;&#x4E86;&#x5C42;&#x5C42;&#x5C01;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x9996;&#x5148;&#xFF0C;PC A &#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;&#x2018;A&#x541B;&#x2019;&#x3002;A&#x541B;&#x4ECE;&#x5E94;&#x7528;&#x5C42;&#x51FA;&#x53D1;&#xFF0C;&#x7136;&#x540E;&#x7ECF;&#x8FC7;&#x4F20;&#x8F93;&#x5C42;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;A&#x541B;&#x7A7F;&#x4E0A;&#x4E86;&#x4E00;&#x4EF6;&#x5916;&#x5957;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x88AB;&#x5C01;&#x88C5;&#x4E86;TCP&#x7684;&#x62A5;&#x5934;&#xFF0C;&#x63A5;&#x7740;&#x5728;&#x5411;&#x4E0B;&#x79FB;&#x52A8;&#xFF0C;&#x7ECF;&#x8FC7;&#x7F51;&#x7EDC;&#x5C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;IP&#x5927;&#x5927;&#x53C8;&#x7ED9;&#x4ED6;&#x6234;&#x4E0A;&#x4E86;IP&#x7684;&#x62A5;&#x5934;&#xFF0C;&#x8FD9;&#x65F6;&#x7684;A&#x541B;&#x4E2D;&#x9664;&#x4E86;&#x81EA;&#x5DF1;&#x8FD8;&#x7A7F;&#x4E0A;&#x4E86;TCP&#x7ED9;&#x7684;&#x5916;&#x5957;&#x548C;IP&#x7684;&#x5E3D;&#x5B50;&#xFF0C;&#x7D27;&#x63A5;&#x7740;A&#x541B;&#x518D;&#x5411;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF0C;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7ED9;&#x4ED6;&#x7A7F;&#x4E0A;&#x4E86;&#x88E4;&#x5B50;&#xFF0C;&#x8FD9;&#x88E4;&#x5B50;&#x5305;&#x542B;&#x4E86;LLC&#x62A5;&#x5934;&#x548C;FCS&#x7684;&#x62A5;&#x5C3E;&#x90E8;&#x5206;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#xFF0C;&#x8FD8;&#x4F1A;&#x7ED9;A&#x541B;&#x7A7F;&#x4E0A;&#x978B;&#x5B50;&#xFF0C;&#x8FD9;&#x978B;&#x5B50;&#x5E26;&#x6709;&#x4E00;&#x5C42;MAC&#x5934;&#x548C;FCS&#x7684;&#x62A5;&#x5C3E;&#xFF0C;&#x6700;&#x540E;&#x7ECF;&#x8FC7;&#x7269;&#x7406;&#x5C42;&#x7684;&#x65F6;&#x5019;A&#x541B;&#x5C31;&#x8F6C;&#x6362;&#x6210;&#x4E86;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x5C01;&#x88C5;&#x8FC7;&#x7A0B;&#xFF0C;&#x6700;&#x540E;A&#x541B;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x6B21;&#x4ECE;PC A&#x5230;&#x7269;&#x7406;&#x5C42;&#x7684;&#x884C;&#x8D70;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x60F3;&#x8981;&#x5230;&#x8FBE;PC B&#xFF0C;&#x65B9;&#x5F0F;&#x5C31;&#x548C;PC A &#x4E00;&#x6837;&#x53EA;&#x662F;&#x4E0D;&#x662F;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x4E86;&#xFF0C;&#x800C;&#x662F;&#x81EA;&#x4E0B;&#x800C;&#x4E0A;&#xFF0C;&#x6700;&#x540E;&#x5230;&#x8FBE;&#x4E86;PC B&#x3002;&#x8FD9;&#x5C31;&#x662F;A&#x541B;&#x5728;OSI&#x6A21;&#x578B;&#x91CC;&#x5B8C;&#x6574;&#x8D70;&#x7684;&#x6D41;&#x7A0B;&#x3002;</p>
-<p>  &#x90A3;&#x4E48;&#x660E;&#x767D;&#x4E86;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x5F97;&#x638C;&#x63E1;&#x4E00;&#x4E2A;TCP/IP&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x624D;&#x662F;&#x6211;&#x4EEC;&#x8981;&#x771F;&#x6B63;&#x638C;&#x63E1;&#x7684;&#x4E1C;&#x4E1C;&#x3002;</p>
+<p>PC A 到PC B 的过程就是一个经历了层层封装的过程，首先，PC A 发了一个信息‘A君’。A君从应用层出发，然后经过传输层，这时候，A君穿上了一件外套，也就是被封装了TCP的报头，接着在向下移动，经过网络层的时候，IP大大又给他戴上了IP的报头，这时的A君中除了自己还穿上了TCP给的外套和IP的帽子，紧接着A君再向下的数据链路层，数据链路层给他穿上了裤子，这裤子包含了LLC报头和FCS的报尾部分，在数据链路层，还会给A君穿上鞋子，这鞋子带有一层MAC头和FCS的报尾，最后经过物理层的时候A君就转换成了二进制数据，这时候完成了一个自上而下的数据封装过程，最后A君就完成了一次从PC A到物理层的行走。同时，想要到达PC B，方式就和PC A 一样只是不是自上而下了，而是自下而上，最后到达了PC B。这就是A君在OSI模型里完整走的流程。</p>
+<p>  那么明白了这个模型，我们还得掌握一个TCP/IP的模型，这个模型才是我们要真正掌握的东东。</p>
 <p><img src="http://i.imgur.com/A48jccy.png" alt=""></p>
-<p>  &#x5F3A;&#x5927;&#x7684;&#x7A0B;&#x5E8F;&#x733F;&#x4EEC;&#x5728;&#x539F;&#x6765;&#x7684;OSI&#x6A21;&#x578B;&#x4E0A;&#x53C8;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF0C;&#x4E14;&#x73B0;&#x5728;&#x7684;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x683C;&#x5C40;&#x90FD;&#x9075;&#x5FAA;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x91CC;&#x7684;&#x5404;&#x4E2A;&#x534F;&#x8BAE;&#xFF0C;&#x4E4B;&#x540E;&#x6211;&#x4F1A;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4E00;&#x4E00;&#x89E3;&#x91CA;&#x5173;&#x4E8E;TCP/IP&#x7684;&#x534F;&#x8BAE;&#x65CF;&#xFF0C;&#x5F53;&#x7136;&#x4E86;&#xFF0C;&#x5173;&#x4E8E;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF0C;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x7814;&#x7A76;&#x7684;&#x8303;&#x56F4;&#x5C31;&#x662F;TCP/IP&#xFF0C;&#x5F53;&#x7136;&#x5176;&#x4ED6;&#x4E5F;&#x6709;&#x7814;&#x7A76;&#x7684;&#x4EF7;&#x503C;&#xFF0C;&#x53EA;&#x662F;&#x90A3;&#x4E0D;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x8303;&#x7574;&#x3002;</p>
-<p><strong>&#x5C0F;&#x601D;&#x8003;&amp;&#x5C0F;&#x7ED3;</strong>  </p>
-<p>  &#x8FD9;&#x6B21;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6211;&#x4EEC;&#x4ECB;&#x7ECD;&#x4E86;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;</p>
+<p>  强大的程序猿们在原来的OSI模型上又建立了一个真正的网络模型，且现在的网络传输格局都遵循这个模型里的各个协议，之后我会更详细的一一解释关于TCP/IP的协议族，当然了，关于计算机网络基础，我们主要研究的范围就是TCP/IP，当然其他也有研究的价值，只是那不在计算机网络范畴。</p>
+<p><strong>小思考&amp;小结</strong>  </p>
+<p>  这次这篇文章我们介绍了主要有三个：</p>
 <blockquote>
-<p> 1&#x3001;OSI&#x6A21;&#x578B;&#x8FD9;&#x4E2A;&#x4E1C;&#x4E1C;&#xFF1B;&#x56DE;&#x60F3;&#x4E00;&#x4E0B;OSI&#x6A21;&#x578B;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x7684;&#xFF1F;&#xFF1F;</p>
+<p> 1、OSI模型这个东东；回想一下OSI模型这个东西存在的目的？？</p>
 </blockquote>
 <blockquote>
-<p> 2&#x3001;OSI&#x4E03;&#x5C42;&#x6A21;&#x578B;&#x542B;&#x6709;&#x54EA;&#x4E03;&#x5C42;&#xFF1F;&#xFF1F;&#xFF1F;&#x5404;&#x4E2A;&#x5C42;&#x6B21;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#xFF1F;</p>
+<p> 2、OSI七层模型含有哪七层？？？各个层次的作用是什么？？</p>
 </blockquote>
 <blockquote>
-<p> 3&#x3001; &#x5173;&#x4E8E;OSI&#x6A21;&#x578B;&#x662F;&#x5982;&#x4F55;&#x5C06;&#x6570;&#x636E;&#x5C01;&#x88C5;&#x7136;&#x540E;&#x4F20;&#x8F93;&#x7684;&#xFF1F;&#xFF1F;&#xFF1F;</p>
+<p> 3、 关于OSI模型是如何将数据封装然后传输的？？？</p>
 </blockquote>
 <blockquote>
-<p> 4&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;TCP/IP&#x6A21;&#x578B;&#xFF1F;&#xFF1F;&#xFF1F;&#x548C;OSI&#x6A21;&#x578B;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;&#xFF1F;&#xFF1F;</p>
+<p> 4、为什么会有TCP/IP模型？？？和OSI模型有什么区别？？？</p>
 </blockquote>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
       
     </div>
     
@@ -413,30 +452,23 @@
     
     <div>
        
-           &#xFEFF;<div>
+           ﻿<div>
     
-         <div style="text-align:center;color: #ccc;font-size:14px;">------------&#x672C;&#x6587;&#x7ED3;&#x675F;<i class="fa fa-paw"></i>&#x611F;&#x8C22;&#x60A8;&#x7684;&#x9605;&#x8BFB;-------------</div>
+         <div style="text-align:center;color: #ccc;font-size:14px;">------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
     
 </div>
        
     </div>
     
-    <div>
-	    <p id="div-border-left-red">
-	   <b>&#x672C;&#x6587;&#x57FA;&#x4E8E;<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> &#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; 4.0 </a>&#x56FD;&#x9645;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;&#x53D1;&#x5E03;</b><br>
-	    <span>
-	    <b>&#x672C;&#x6587;&#x5730;&#x5740;</b><a href="/2017/03/29/2017-03-29-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E8C;/" title="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09;">http://yoursite.com/2017/03/29/2017-03-29-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E8C;/</a><br><b>&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF0C;&#x8C22;&#x8C22;&#xFF01;</b>
-	    </span>
-	    </p>
-</div>
+   
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;/" rel="tag"><i class="fa fa-tag"></i> &#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;</a>
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           
-            <a href="/tags/OSI&#x6A21;&#x578B;/" rel="tag"><i class="fa fa-tag"></i> OSI&#x6A21;&#x578B;</a>
+            <a href="/tags/OSI模型/" rel="tag"><i class="fa fa-tag"></i> OSI模型</a>
           
         </div>
       
@@ -449,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/03/2018-01-07-web-for-internet/" rel="next" title="&#x7F51;&#x7EDC;&#x7684;&#x8DEF;&#x724C; &#x8DEF;&#x7531;&#x5668;">
-                <i class="fa fa-chevron-left"></i> &#x7F51;&#x7EDC;&#x7684;&#x8DEF;&#x724C; &#x8DEF;&#x7531;&#x5668;
+              <a href="/2016/02/03/2018-01-07-web-for-internet/" rel="next" title="网络的路牌 路由器">
+                <i class="fa fa-chevron-left"></i> 网络的路牌 路由器
               </a>
             
           </div>
@@ -459,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/03/2017-04-03-&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#x4E4B;&#x4E09;/" rel="prev" title="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E09;&#xFF09;">
-                &#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x57FA;&#x7840;&#xFF08;&#x4E09;&#xFF09; <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/03/2017-04-03-计算机网络基础之三/" rel="prev" title="计算机网络基础（三）">
+                计算机网络基础（三） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,7 +505,7 @@
   </div>
   
   
-        <span class="post-category">
+        <span class="post-category" >
         </span>
       
 
@@ -490,20 +522,20 @@
       
         <!-- JiaThis Button BEGIN -->
 <div class="jiathis_style">
-<span class="jiathis_txt">&#x5206;&#x4EAB;&#x5230;&#xFF1A;</span>
-<a class="jiathis_button_fav">&#x6536;&#x85CF;&#x5939;</a>
-<a class="jiathis_button_copy">&#x590D;&#x5236;&#x7F51;&#x5740;</a>
-<a class="jiathis_button_email">&#x90AE;&#x4EF6;</a>
-<a class="jiathis_button_weixin">&#x5FAE;&#x4FE1;</a>
-<a class="jiathis_button_qzone">QQ&#x7A7A;&#x95F4;</a>
-<a class="jiathis_button_tqq">&#x817E;&#x8BAF;&#x5FAE;&#x535A;</a>
-<a class="jiathis_button_douban">&#x8C46;&#x74E3;</a>
-<a class="jiathis_button_share">&#x4E00;&#x952E;&#x5206;&#x4EAB;</a>
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
 
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">&#x66F4;&#x591A;</a>
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
 <a class="jiathis_counter_style"></a>
 </div>
-<script type="text/javascript">
+<script type="text/javascript" >
 var jiathis_config={
   data_track_clickback:true,
   summary:"",
@@ -549,22 +581,24 @@ var jiathis_config={
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            &#x6587;&#x7AE0;&#x76EE;&#x5F55;
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            &#x7AD9;&#x70B9;&#x6982;&#x89C8;
+            Übersicht
           </li>
         </ul>
       
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/uploads/ME2.png" alt="JHeln">
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/ME2.png"
+                alt="JHeln" />
             
               <p class="site-author-name" itemprop="name">JHeln</p>
-              <p class="site-description motion-element" itemprop="description">&#x4E0D;&#x4EE5;&#x65E0;&#x4EBA;&#x800C;&#x4E0D;&#x82B3;&#xFF0C;&#x4E0D;&#x56E0;&#x8272;&#x9999;&#x800C;&#x81EA;&#x70AB;&#xFF0C;&#x541B;&#x5B50;&#x5F53;&#x5982;&#x5170;~</p>
+              <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -575,7 +609,7 @@ var jiathis_config={
                 <a href="/archives/">
               
                   <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">&#x65E5;&#x5FD7;</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -586,7 +620,7 @@ var jiathis_config={
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">&#x5206;&#x7C7B;</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -597,7 +631,7 @@ var jiathis_config={
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">23</span>
-                  <span class="site-state-item-name">&#x6807;&#x7B7E;</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -643,8 +677,8 @@ var jiathis_config={
           
           
 
-          &#xFEFF;<div id="days"></div>
-
+          ﻿<div id="days"></div>
+</script>
 <script language="javascript">
 function show_date_time(){
 window.setTimeout("show_date_time()", 1000);
@@ -684,7 +718,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;"><span class="nav-number">1.</span> <span class="nav-text">&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;&#x4E4B;&#x4E8C;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络之二"><span class="nav-number">1.</span> <span class="nav-text">计算机网络之二</span></a></li></ol></div>
             
 
           </div>
@@ -704,9 +738,9 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        &#xFEFF;<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&#xA9; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -718,10 +752,10 @@ show_date_time();
 
   <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  &#x672C;&#x7AD9;&#x6765;&#x8E29;&#x6570;:<span id="busuanzi_value_site_uv"></span>
+  本站来踩数:<span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
-  <div class="powered-by">&#x7531; <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> &#x5F3A;&#x529B;&#x9A71;&#x52A8;</div>
+<!-- <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -729,7 +763,8 @@ show_date_time();
 
 
 
-  <div class="theme-info">&#x4E3B;&#x9898; &#x2014; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+-->
 
 
 
@@ -756,7 +791,7 @@ show_date_time();
     
 
   </div>
-  <!-- ������ undefined-->
+  <!-- ������ -->
   
   
 
@@ -908,13 +943,11 @@ show_date_time();
 <canvas class="fireworks" style="postion:fixed;left: 0;z-index: 1;pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  <!-- ҳ����С���� 
+  <!-- ҳ����С���� -->
 <script type="text/javascript" src="/js/src/love.js"></script>
-  -->
-   <!-- ������ undefined-->
+  
+   <!-- ������ -->
    <!--��ըЧ��-->
   
-   
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>
+</body>
+</html>
