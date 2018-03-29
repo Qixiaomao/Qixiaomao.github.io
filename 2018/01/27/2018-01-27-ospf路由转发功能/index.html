@@ -66,6 +66,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="JHeln&apos;blog" type="application/atom+xml">
+
 
 
 
@@ -111,6 +113,21 @@
     }
   };
 </script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #ff009e; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #ff009e;    /*�ϱ߿���ɫ*/
+        border-left-color: #ff009e;    /*��߿���ɫ*/
+    }
+</style>
 
 
 
@@ -358,7 +375,7 @@
 <blockquote>
 <p>&#x8FD9;&#x884C;&#x547D;&#x4EE4;&#x662F;&#x5728;&#x544A;&#x8BC9;&#x4E09;&#x5C42;&#x4EA4;&#x6362;&#x673A;&#x6253;&#x5F00;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#xFF0C;&#x91CD;&#x70B9;&#x5C31;&#x662F;&#x8FD9;&#x53E5;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#x56FE;&#x7684;&#x914D;&#x7F6E;&#x4E86;&#x3002;</p>
 </blockquote>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"hijiki","bottom":-30,"position":"left","mobileShow":false});</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
       
     </div>
     
@@ -379,6 +396,15 @@
 </div>
        
     </div>
+    
+    <div>
+	    <p id="div-border-left-red">
+	   <b>&#x672C;&#x6587;&#x57FA;&#x4E8E;<a target="_blank" title="Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" href="http://creativecommons.org/licenses/by-sa/4.0/"> &#x77E5;&#x8BC6;&#x5171;&#x4EAB;&#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; 4.0 </a>&#x56FD;&#x9645;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;&#x53D1;&#x5E03;</b><br>
+	    <span>
+	    <b>&#x672C;&#x6587;&#x5730;&#x5740;</b><a href="/2018/01/27/2018-01-27-ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;/" title="ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;">http://yoursite.com/2018/01/27/2018-01-27-ospf&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;/</a><br><b>&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF0C;&#x8C22;&#x8C22;&#xFF01;</b>
+	    </span>
+	    </p>
+</div>
 
     <footer class="post-footer">
       
@@ -421,6 +447,14 @@
       
     </footer>
   </div>
+  
+  
+        <span class="post-category">
+        </span>
+      
+
+ 
+  
   
   
   
@@ -526,10 +560,10 @@ var jiathis_config={
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">&#x5206;&#x7C7B;</span>
-                
+                </a>
               </div>
             
 
@@ -537,15 +571,22 @@ var jiathis_config={
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">&#x6807;&#x7B7E;</span>
-                
+                </a>
               </div>
             
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -849,11 +890,7 @@ show_date_time();
    <!-- ������ undefined-->
    <!--��ըЧ��-->
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
    
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"hijiki","bottom":-30,"position":"left","mobileShow":false});</script></body></html>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>

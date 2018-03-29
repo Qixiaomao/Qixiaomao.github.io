@@ -66,6 +66,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="JHeln&apos;blog" type="application/atom+xml">
+
 
 
 
@@ -107,6 +109,21 @@
     }
   };
 </script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #ff009e; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #ff009e;    /*�ϱ߿���ɫ*/
+        border-left-color: #ff009e;    /*��߿���ɫ*/
+    }
+</style>
 
 
 
@@ -340,10 +357,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">&#x5206;&#x7C7B;</span>
-                
+                </a>
               </div>
             
 
@@ -351,15 +368,22 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">&#x6807;&#x7B7E;</span>
-                
+                </a>
               </div>
             
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -643,11 +667,7 @@ show_date_time();
    <!-- ������ undefined-->
    <!--��ըЧ��-->
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
    
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"hijiki","bottom":-30,"position":"left","mobileShow":false});</script></body></html>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>
