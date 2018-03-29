@@ -1876,7 +1876,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e2cb40;
+  background: #0effff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2729,11 +2729,11 @@ embed {
   background: transparent;
 }
 .headband {
-  height: 1.5px;
+  height: 1px;
   background-image: linear-gradient(90deg, #f79533 0%, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
 }
 .header {
-  line-height: 1.5;
+  line-height: 2;
 }
 .header-inner {
   padding-top: 0px;
@@ -2750,6 +2750,7 @@ embed {
 }
 .header {
   background: url("http://ojoba1c98.bkt.clouddn.com/img/header/header_background.jpg");
+  height: 230px;
 }
 .brand {
   background-color: rgba(255,255,255,0);
@@ -2774,11 +2775,14 @@ embed {
   border-bottom-style: solid;
   border-bottom-color: #a166ab;
 }
+.brand {
+  background: transparent;
+}
 .menu {
   text-align: center;
   margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
   background-color: rgba(255,255,255,0.75);
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.15);
 }
