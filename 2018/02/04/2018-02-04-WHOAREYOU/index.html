@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/images/ME2.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ME2.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ME2.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF,编码," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JHeln'blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="对于第一次做线上题的一个小结。">
+<meta name="keywords" content="CTF,编码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Who are you? writeup">
+<meta property="og:url" content="www.jheln.ink/2018/02/04/2018-02-04-WHOAREYOU/index.html">
+<meta property="og:site_name" content="JHeln&#39;blog">
+<meta property="og:description" content="对于第一次做线上题的一个小结。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p6akdr6oo.bkt.clouddn.com/1-1.png">
+<meta property="og:image" content="http://p6akdr6oo.bkt.clouddn.com/1-2.png">
+<meta property="og:image" content="http://p6akdr6oo.bkt.clouddn.com/1-3.png">
+<meta property="og:updated_time" content="2018-03-29T00:32:34.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Who are you? writeup">
+<meta name="twitter:description" content="对于第一次做线上题的一个小结。">
+<meta name="twitter:image" content="http://p6akdr6oo.bkt.clouddn.com/1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #ff009e; /*��������ɫ*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*��Ӱ��ɫ*/
+    }
+    .pace .pace-activity {
+        border-top-color: #ff009e;    /*�ϱ߿���ɫ*/
+        border-left-color: #ff009e;    /*��߿���ɫ*/
+    }
+</style>
+
+
+
+  <link rel="canonical" href="www.jheln.ink/2018/02/04/2018-02-04-WHOAREYOU/"/>
+
+
+
+
+
+  <title>Who are you? writeup | JHeln'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JHeln'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/02/04/2018-02-04-WHOAREYOU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Who are you? writeup</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-04T00:00:00+08:00">
+                2018-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  766
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+          
+          
+
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于第一次做线上题的一个小结。</p>
+<a id="more"></a>
+<h1 id="WHO-ARE-YOU-–writeup"><a href="#WHO-ARE-YOU-–writeup" class="headerlink" title="WHO ARE YOU?–writeup"></a>WHO ARE YOU?–writeup</h1><p>TIPS:广东强网杯线上题</p>
+<p>总结知识点：BASE64,ROT13（部分知识源自维基百科）</p>
+<h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><blockquote>
+<ul>
+<li>什么是Base64?</li>
+<li>Base64编码原理</li>
+<li>其用途</li>
+</ul>
+</blockquote>
+<ul>
+<li>什么是Base64?<ul>
+<li><strong>Base64</strong>是一种基于64个可打印字符来表示<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6" target="_blank" rel="noopener">二进制数据</a>的表示方法。（源于维基百科）</li>
+<li>说白了就是一种用64个字符表示二进制数据的方法。</li>
+</ul>
+</li>
+<li><p>Base编码原理</p>
+<p>由于 2^6^ = 64,也就是说每6个位元为一个单元，对应某个可以打印字符。3个字节有24个位元，对应4个Base64单元，也就是可以打印4个字符。通过使用包括<a href="https://zh.wikipedia.org/wiki/%E6%8B%89%E4%B8%81%E5%AD%97%E6%AF%8D" target="_blank" rel="noopener">字母</a><code>A-Z</code>、<code>a-z</code>、<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97" target="_blank" rel="noopener">数字</a><code>0-9</code>，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。若原数据的长度为3的倍数且剩下一个输入数据则最后加两个<code>=</code> ；若元数据长度只剩下一个输入数据，则加一个<code>=</code>。</p>
+</li>
+<li><p>用途</p>
+<ul>
+<li>本次题目结合主要利用在HTTP头部报文里，当然也有应用于邮件等。</li>
+<li>url运用这个编码传输长数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="ROT13"><a href="#ROT13" class="headerlink" title="ROT13"></a>ROT13</h3><blockquote>
+<ul>
+<li>ROT13是什么？</li>
+<li>原理</li>
+</ul>
+</blockquote>
+<ul>
+<li>ROT13是什么？<ul>
+<li><strong>ROT13</strong>（<strong>迴轉13位</strong>，<strong>rotate by 13 places</strong>，有時中間加了個<a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E5%AD%97%E7%AC%A6" target="_blank" rel="noopener">连字符</a>稱作<strong>ROT-13</strong>）是一種簡易的<a href="https://zh.wikipedia.org/wiki/%E6%9B%BF%E6%8D%A2%E5%BC%8F%E5%AF%86%E7%A0%81" target="_blank" rel="noopener">替換式密碼</a>。</li>
+<li>ROT13 也是過去在<a href="https://zh.wikipedia.org/wiki/%E5%8F%A4%E7%BD%97%E9%A9%AC" target="_blank" rel="noopener">古羅馬</a>開發的<a href="https://zh.wikipedia.org/wiki/%E5%87%B1%E6%92%92%E5%AF%86%E7%A2%BC" target="_blank" rel="noopener">凱撒加密</a>的一種變體。(源于维基百科)</li>
+</ul>
+</li>
+<li>原理描述<ul>
+<li>对任何字元x：$ROT$~13~($ROT$~13~($x$)) = $ROT $ ~26~ $(x)$ = $x$ .</li>
+<li>套用ROT13到一段文字上僅僅只需要檢查字元字母順序並取代它在13位之後的對應<a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E6%AF%8D%E7%B3%BB%E7%B5%B1" target="_blank" rel="noopener">字母</a>，有需要超過時則重新繞回26英文字母開頭即可<a href="https://zh.wikipedia.org/wiki/ROT13#cite_note-schneier-2" target="_blank" rel="noopener">[2]</a>。 <code>A</code>換成<code>N</code>、<code>B</code>換成<code>O</code>、依此類推到<code>M</code>換成<code>Z</code>，然後序列反轉：<code>N</code>換成<code>A</code>、<code>O</code>換成<code>B</code>、最後<code>Z</code>換成<code>M</code>。只有這些出現在<a href="https://zh.wikipedia.org/wiki/%E8%8B%B1%E6%96%87%E5%AD%97%E6%AF%8D" target="_blank" rel="noopener">英文字母</a>裡頭的字元受影響；<a href="https://zh.wikipedia.org/wiki/%E6%95%B8%E5%AD%97" target="_blank" rel="noopener">數字</a>、<a href="https://zh.wikipedia.org/wiki/%E7%AC%A6%E5%8F%B7" target="_blank" rel="noopener">符號</a>、<a href="https://zh.wikipedia.org/w/index.php?title=%E7%A9%BA%E7%99%BD%E5%AD%97%E5%85%83&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">空白字元</a>以及所有其他字元都不變。因為只有在英文字母表裡頭只有26個，並且26 = 2 × 13，ROT13函數是它自己的<a href="https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%87%BD%E6%95%B8" target="_blank" rel="noopener">逆反</a>：<a href="https://zh.wikipedia.org/wiki/ROT13#cite_note-schneier-2" target="_blank" rel="noopener">[2]</a> </li>
+</ul>
+</li>
+</ul>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>知道了上面的知识，再来看这题：<a href="http://106.75.72.168:2222/" target="_blank" rel="noopener">WHO ARE YOU</a> </p>
+<p>点进去发现：</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-1.png" alt="1-1"></p>
+<p>这时候再来看看源码，发现并没有神马提示。按照我这个小白的理解，前端没提示，多半是后台，那么考虑服务端了。于是用BP截取数据包。</p>
+<p>诺~看http头</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-2.png" alt="1-2"></p>
+<p>看到这行Cookie，觉得这里大有文章，于是就试了试将role的值进行了BASE64解码。得到了这个<code>f:5:&quot;thrfg&quot;;</code> 这个什么意思啊？也是思路停了好久，才知道这玩意可能是ROT13，好吧，线上解码</p>
+<p><code>s:5:&quot;guest&quot;;</code> 得到了这个。那么试试改成<code>admin</code> ;再逆转编码，这时候就得到了<code>f:5:&quot;nqzvag&quot;;</code></p>
+<p>再BASE64编码一次更改cookie值就可以得到源码提示了。</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-3.png" alt="1-3"></p>
+<p><strong>构造Payload</strong></p>
+<p>filename=1.php&amp;data[]=’123’</p>
+<p>之后就得到flag文件了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+       
+           ﻿<div>
+    
+         <div style="text-align:center;color: #ccc;font-size:14px;">------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+    </div>
+    
+   
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+          
+            <a href="/tags/编码/" rel="tag"><i class="fa fa-tag"></i> 编码</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/28/2018-01-28-CTF2/" rel="next" title="PHP大法好--Writeup">
+                <i class="fa fa-chevron-left"></i> PHP大法好--Writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/14/2018-02-14-新年祝福/" rel="prev" title="18年静好！">
+                18年静好！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+        <span class="post-category" >
+        </span>
+      
+
+ 
+  
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/ME2.png"
+                alt="JHeln" />
+            
+              <p class="site-author-name" itemprop="name">JHeln</p>
+              <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
+          </div>
+
+          
+<!--my custom code begin-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+<script type="text/javascript">
+  $("#sidebar").hover(function(){
+    $("#mydivshow").velocity('stop').velocity({opacity: 1});
+  },function(){
+    $("#mydivshow").velocity('stop').velocity({opacity: 0});
+  });
+</script>
+<div id="mydivshow" class="mydivshow">
+<!--my custom code end-->
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Qixiaomao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/ka-mi-sang-ma/activities" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-book"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/7xiaomao" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-links"></i>
+                大佬链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my.oschina.net/ryaneLee/blog/638440" title="Ryane" target="_blank">Ryane</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09" title="Reuixiy" target="_blank">Reuixiy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shenzekun.cn" title="shenzekun" target="_blank">shenzekun</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          ﻿<div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("03/25/2018 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+        </div>
+        
+        <!--my custom code begin-->
+        </div>
+        <!--my custom code end-->
+        
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WHO-ARE-YOU-–writeup"><span class="nav-number">1.</span> <span class="nav-text">WHO ARE YOU?–writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00"><span class="nav-number">1.1.</span> <span class="nav-text">0x00</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Base64"><span class="nav-number">1.1.1.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROT13"><span class="nav-number">1.1.2.</span> <span class="nav-text">ROT13</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01"><span class="nav-number">1.2.</span> <span class="nav-text">0x01</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+  
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JHeln</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站来访数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+  <!-- ������ -->
+  
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  <!-- �����Ч -->
+<canvas class="fireworks" style="postion:fixed;left: 0;z-index: 1;pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+  <!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+  
+   <!-- ������ -->
+   <!--��ըЧ��-->
+  
+</body>
+</html>
