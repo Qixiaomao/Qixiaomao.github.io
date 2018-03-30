@@ -1913,7 +1913,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a411ff;
+  background: #ffc3ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2817,9 +2817,10 @@ body {
   padding: 0px;
 }
 .site-title {
-  font-size: 60px;
+  font-size: 28px;
   font-weight: bold;
   color: #fff;
+  font-family: 'Comic Sans MS', sans-serif;
   line-height: 80px;
   letter-spacing: 3px;
 }
