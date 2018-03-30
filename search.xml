@@ -166,29 +166,6 @@
     </entry>
     
     <entry>
-      <title>ACL原理小结</title>
-      <link href="/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/"/>
-      <url>/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/</url>
-      <content type="html"><![CDATA[<p>对于ACL原理的一个小结。</p><a id="more"></a><h1 id="ACL原理"><a href="#ACL原理" class="headerlink" title="ACL原理"></a>ACL原理</h1><h3 id="ACL概念"><a href="#ACL概念" class="headerlink" title="ACL概念"></a>ACL概念</h3><p>   <strong>Access Control List</strong>  访问控制列表</p><p>   简言之，就是一个为了更好的控制不断扩大的网络的规则；</p><p>   eg.四个应用：ACL、DHCP、NAT、</p><p>   非必需触发条件：时间或事件；</p><p>   定义报文匹配规则；条件和动作（permit or deny）</p><p><strong> eg.  校园网案例 </strong></p><h4 id="ACL的分类"><a href="#ACL的分类" class="headerlink" title="ACL的分类"></a>ACL的分类</h4><p>标准ACL</p><blockquote><p><strong>源Ip地址</strong></p></blockquote><p>端口号（指的是目的端口）eg.http的端口80或者8080</p><p><img src="http://i.imgur.com/0RYMlCd.png" alt=""></p><p> <strong>现在存在的路由器大多数都配置了ACL</strong></p><p> <strong>ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；</strong></p><p> <strong>考虑ACL放在In端口还是out端口；</strong></p><p> <strong>ACL里还有个默认的规则，拒绝所有的端口进入。</strong></p><p> <strong>扩展ACL尽量靠近源IP地址</strong></p>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 路由器 </tag>
-            
-            <tag> ACL原理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>ospf路由转发功能</title>
       <link href="/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/"/>
       <url>/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/</url>
@@ -206,6 +183,29 @@
             <tag> 路由器 </tag>
             
             <tag> ospf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ACL原理小结</title>
+      <link href="/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/"/>
+      <url>/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/</url>
+      <content type="html"><![CDATA[<p>对于ACL原理的一个小结。</p><a id="more"></a><h1 id="ACL原理"><a href="#ACL原理" class="headerlink" title="ACL原理"></a>ACL原理</h1><h3 id="ACL概念"><a href="#ACL概念" class="headerlink" title="ACL概念"></a>ACL概念</h3><p>   <strong>Access Control List</strong>  访问控制列表</p><p>   简言之，就是一个为了更好的控制不断扩大的网络的规则；</p><p>   eg.四个应用：ACL、DHCP、NAT、</p><p>   非必需触发条件：时间或事件；</p><p>   定义报文匹配规则；条件和动作（permit or deny）</p><p><strong> eg.  校园网案例 </strong></p><h4 id="ACL的分类"><a href="#ACL的分类" class="headerlink" title="ACL的分类"></a>ACL的分类</h4><p>标准ACL</p><blockquote><p><strong>源Ip地址</strong></p></blockquote><p>端口号（指的是目的端口）eg.http的端口80或者8080</p><p><img src="http://i.imgur.com/0RYMlCd.png" alt=""></p><p> <strong>现在存在的路由器大多数都配置了ACL</strong></p><p> <strong>ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；</strong></p><p> <strong>考虑ACL放在In端口还是out端口；</strong></p><p> <strong>ACL里还有个默认的规则，拒绝所有的端口进入。</strong></p><p> <strong>扩展ACL尽量靠近源IP地址</strong></p>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+            <tag> ACL原理 </tag>
             
         </tags>
       
