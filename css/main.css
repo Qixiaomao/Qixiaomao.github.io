@@ -1876,7 +1876,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff22e4;
+  background: #3b7cb9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2751,9 +2751,6 @@ embed {
 .header {
   background: url("http://ojoba1c98.bkt.clouddn.com/img/header/header_background.jpg");
   height: 230px;
-}
-.body {
-  background-image: url("image/bg.png");
 }
 .brand {
   background-color: rgba(255,255,255,0);
