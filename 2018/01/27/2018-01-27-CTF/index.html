@@ -272,152 +272,24 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-CTF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">ONCE MORE的正确打开姿势</h1>
-        
+	<h1 class="post-title" itemprop="name headline">ONCE MORE的正确打开姿势</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  677
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
+      <div class="post-body">
+        
+        
+          <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
 <a id="more"></a>
 <h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
 1&gt;题目url
@@ -458,114 +330,15 @@
 <p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
 <p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
 
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-    <div>
-       
-           ﻿<div>
-    
-         <div style="text-align:center;color: #ccc;font-size:14px;">------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-       
-    </div>
-    
-   
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/writeup/" rel="tag"><i class="fa fa-tag"></i> writeup</a>
-          
-            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/01/27/2018-01-27-rip路由的配置/" rel="next" title="rip实验的配置">
-                <i class="fa fa-chevron-left"></i> rip实验的配置
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/27/2018-01-27-acl随笔/" rel="prev" title="ACL原理小结">
-                ACL原理小结 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
-    </div>
   </div>
 
 
