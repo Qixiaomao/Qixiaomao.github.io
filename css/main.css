@@ -1913,7 +1913,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3dabff;
+  background: #a411ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2790,7 +2790,7 @@ embed {
   height: 230px;
 }
 body {
-  background: url("http://p6akdr6oo.bkt.clouddn.com/e.jpg");
+  background: url("http://p6akdr6oo.bkt.clouddn.com/header5.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -2857,7 +2857,7 @@ body {
   background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
 }
 #sidebar {
-  background: url("http://p6akdr6oo.bkt.clouddn.com/site1.jpg");
+  background: url("http://p6akdr6oo.bkt.clouddn.com/bk.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2865,7 +2865,7 @@ body {
 #sidebar p,
 #sidebar span,
 #sidebar a {
-  color: #87daff;
+  color: #4f7e96;
 }
 #mydivshow {
   opacity: 0;
