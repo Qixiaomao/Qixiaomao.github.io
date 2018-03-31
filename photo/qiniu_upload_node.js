@@ -1,6 +1,6 @@
 const fs = require("fs");
 // 相册相对路径
-const path = "./source/photos/output/";
+const path = "./photos/";
 
 var qiniu = require("qiniu");
 

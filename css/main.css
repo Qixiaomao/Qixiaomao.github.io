@@ -1913,7 +1913,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ecffc8;
+  background: #9e65e7;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3042,6 +3042,29 @@ img.img-topic {
 #lv-container {
   border-radius: 10px;
   background: rgba(255,255,255,0.5) none repeat scroll;
+}
+.ImageGrid {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
+}
+.card {
+  width: 160px;
+  height: 260px;
+  overflow: hidden;
+}
+.ImageInCard {
+  height: 185px;
+}
+.ImageInCard img {
+  height: 100%;
+  width: auto;
+  padding: 0 0 0 0;
+}
+.TextInCard {
+  height: 75;
+  background-color: #fff;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
