@@ -17,9 +17,9 @@
       
         <tags>
             
-            <tag> 杂感 </tag>
-            
             <tag> 思考 </tag>
+            
+            <tag> 杂感 </tag>
             
         </tags>
       
@@ -88,9 +88,32 @@
       
         <tags>
             
+            <tag> 代码审计 </tag>
+            
             <tag> writeup </tag>
             
-            <tag> 代码审计 </tag>
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ospf路由转发功能</title>
+      <link href="/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/"/>
+      <url>/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/</url>
+      <content type="html"><![CDATA[<p>三层交换机的ospf的简单配置。</p><a id="more"></a><h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p><p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p><h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p><h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p><blockquote><p>sw(config)#ip routing</p></blockquote><blockquote><p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+            <tag> ospf </tag>
             
         </tags>
       
@@ -113,9 +136,9 @@
       
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> PHP </tag>
             
         </tags>
       
@@ -166,52 +189,6 @@
     </entry>
     
     <entry>
-      <title>rip实验的配置</title>
-      <link href="/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-      <url>/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>rip实验的简单配置。</p><a id="more"></a><h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr><h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p><h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统模拟软件：PacketTracer6</code></pre><hr><h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p><h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router ripnetwork  net [wildmask]</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote><p>本次rip的实验中ping通了。</p></blockquote>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 路由器 </tag>
-            
-            <tag> rip </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>ospf路由转发功能</title>
-      <link href="/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/"/>
-      <url>/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/</url>
-      <content type="html"><![CDATA[<p>三层交换机的ospf的简单配置。</p><a id="more"></a><h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p><p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p><h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p><h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p><blockquote><p>sw(config)#ip routing</p></blockquote><blockquote><p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p></blockquote>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 路由器 </tag>
-            
-            <tag> ospf </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>ACL原理小结</title>
       <link href="/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/"/>
       <url>/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/</url>
@@ -229,6 +206,29 @@
             <tag> 路由器 </tag>
             
             <tag> ACL原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>rip实验的配置</title>
+      <link href="/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+      <url>/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>rip实验的简单配置。</p><a id="more"></a><h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr><h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p><h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统模拟软件：PacketTracer6</code></pre><hr><h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p><h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router ripnetwork  net [wildmask]</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote><p>本次rip的实验中ping通了。</p></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+            <tag> rip </tag>
             
         </tags>
       
@@ -306,6 +306,27 @@
     </entry>
     
     <entry>
+      <title>交换机配置的打开方式</title>
+      <link href="/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/"/>
+      <url>/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>本次就简单谈谈交换机配置~</p><a id="more"></a><h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>#</p><p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p><h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote><p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p></blockquote><h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote><p>en //进入用户模式</p></blockquote><blockquote><p>config t   //进入配置模式</p></blockquote><blockquote><p>vlan 10  //配置vlan</p></blockquote><blockquote><p>exit  //退出VLAN模式</p></blockquote><blockquote><p>interface fa0/0 </p></blockquote><blockquote><p>sw mode access    //设置为access端口模式</p></blockquote><blockquote><p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p></blockquote><blockquote><p>exit    //退出模式</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 交换机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>关于OSPF的简单配置</title>
       <link href="/2017/07/06/2017-07-06%E7%AE%80%E5%8D%95%E7%9A%84ospf%E9%85%8D%E7%BD%AE/"/>
       <url>/2017/07/06/2017-07-06%E7%AE%80%E5%8D%95%E7%9A%84ospf%E9%85%8D%E7%BD%AE/</url>
@@ -323,27 +344,6 @@
             <tag> 路由器 </tag>
             
             <tag> ospf </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>交换机配置的打开方式</title>
-      <link href="/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/"/>
-      <url>/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>本次就简单谈谈交换机配置~</p><a id="more"></a><h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>#</p><p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p><h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote><p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p></blockquote><h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote><p>en //进入用户模式</p></blockquote><blockquote><p>config t   //进入配置模式</p></blockquote><blockquote><p>vlan 10  //配置vlan</p></blockquote><blockquote><p>exit  //退出VLAN模式</p></blockquote><blockquote><p>interface fa0/0 </p></blockquote><blockquote><p>sw mode access    //设置为access端口模式</p></blockquote><blockquote><p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p></blockquote><blockquote><p>exit    //退出模式</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 交换机 </tag>
             
         </tags>
       
