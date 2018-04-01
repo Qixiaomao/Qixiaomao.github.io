@@ -8,8 +8,8 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>杂感</tag>
         <tag>思考</tag>
+        <tag>杂感</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +45,8 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>writeup</tag>
         <tag>代码审计</tag>
+        <tag>writeup</tag>
       </tags>
   </entry>
   <entry>
@@ -58,8 +58,20 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>PHP</tag>
         <tag>writeup</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rip实验的配置]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+        <tag>rip</tag>
       </tags>
   </entry>
   <entry>
@@ -110,18 +122,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[rip实验的配置]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-        <tag>rip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[git 基本操作姿势]]></title>
     <url>%2F2018%2F01%2F22%2F2018-01-22-tools-for-git%2F</url>
     <content type="text"><![CDATA[人的习惯养成大概需要三周（也就是21天），而在习惯之前，我们需要做的就是反复操作，让身体记住；因此才有这些小结的文章。 git 基本命令集合Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。整体思路：1）通过git上传文章 2）如何上传文章到blog 3）具体的git命令操作 1）通过git上传文章因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？2）如何上传文章到git?文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&gt;静态页面（blog）展示。3）具体的git命令操作3.1）先初始化本地仓库（如果路径没变可以忽略）git init #这步将会在本地文件夹下产生一个.git文件夹，如图： 3.2）监听文件git add 相关文件 #e.g git add test.py(如果是批量的话可以使用通配符*.py) 3.3）commit告诉仓库更改的信息git commit -m&quot;add test.py&quot; 3.4)push文件到博客git push origin master #上传的文件以master的方式上传到github Tips:为了不让18天以后的自己忘记了这些命令！ 最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程]]></content>
@@ -129,8 +129,8 @@
         <category>网络</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>技术</tag>
+        <tag>git</tag>
         <tag>小结</tag>
       </tags>
   </entry>
@@ -143,8 +143,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>网络</tag>
         <tag>学习资料</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
