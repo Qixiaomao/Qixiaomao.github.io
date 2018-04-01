@@ -116,8 +116,8 @@
           var data = res.list[j].arr;
           var liTmpl = "";
           for (var i = 0, len = data.link.length; i < len; i++) {
-            var minSrc = 'https://github.com/Qixiaomao/blog_album/tree/master/min_photos/' + data.link[i];
-            var src = 'https://github.com/Qixiaomao/blog_album/tree/master/photos/' + data.link[i];
+            var minSrc = 'https://raw.github.com/Qixiaomao/blog_album/tree/master/min_photos/' + data.link[i];
+            var src = 'https://raw.github.com/Qixiaomao/blog_album/tree/master/photos/' + data.link[i];
             var type = data.type[i];
             var target = src + (type === 'video' ? '.mp4' : '.jpg');
             src += '';
