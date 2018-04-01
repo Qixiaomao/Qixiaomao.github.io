@@ -50,16 +50,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
-    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
+    <title><![CDATA[ACL原理小结]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-acl%E9%9A%8F%E7%AC%94%2F</url>
+    <content type="text"><![CDATA[对于ACL原理的一个小结。 ACL原理ACL概念 Access Control List 访问控制列表 简言之，就是一个为了更好的控制不断扩大的网络的规则； eg.四个应用：ACL、DHCP、NAT、 非必需触发条件：时间或事件； 定义报文匹配规则；条件和动作（permit or deny） eg. 校园网案例 ACL的分类标准ACL 源Ip地址 端口号（指的是目的端口）eg.http的端口80或者8080 现在存在的路由器大多数都配置了ACL ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝； 考虑ACL放在In端口还是out端口； ACL里还有个默认的规则，拒绝所有的端口进入。 扩展ACL尽量靠近源IP地址]]></content>
       <categories>
-        <category>CTF</category>
-        <category>PHP</category>
+        <category>网络</category>
       </categories>
       <tags>
-        <tag>PHP</tag>
-        <tag>writeup</tag>
+        <tag>路由器</tag>
+        <tag>ACL原理</tag>
       </tags>
   </entry>
   <entry>
@@ -98,6 +97,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
+    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
+      <categories>
+        <category>CTF</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ospf路由转发功能]]></title>
     <url>%2F2018%2F01%2F27%2F2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD%2F</url>
     <content type="text"><![CDATA[三层交换机的ospf的简单配置。 三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述； sw(config)#ip routing 这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。]]></content>
@@ -107,18 +119,6 @@
       <tags>
         <tag>路由器</tag>
         <tag>ospf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[ACL原理小结]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-acl%E9%9A%8F%E7%AC%94%2F</url>
-    <content type="text"><![CDATA[对于ACL原理的一个小结。 ACL原理ACL概念 Access Control List 访问控制列表 简言之，就是一个为了更好的控制不断扩大的网络的规则； eg.四个应用：ACL、DHCP、NAT、 非必需触发条件：时间或事件； 定义报文匹配规则；条件和动作（permit or deny） eg. 校园网案例 ACL的分类标准ACL 源Ip地址 端口号（指的是目的端口）eg.http的端口80或者8080 现在存在的路由器大多数都配置了ACL ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝； 考虑ACL放在In端口还是out端口； ACL里还有个默认的规则，拒绝所有的端口进入。 扩展ACL尽量靠近源IP地址]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-        <tag>ACL原理</tag>
       </tags>
   </entry>
   <entry>
