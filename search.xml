@@ -17,9 +17,9 @@
       
         <tags>
             
-            <tag> 思考 </tag>
-            
             <tag> 杂感 </tag>
+            
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -88,19 +88,19 @@
       
         <tags>
             
-            <tag> 代码审计 </tag>
-            
             <tag> writeup </tag>
+            
+            <tag> 代码审计 </tag>
             
         </tags>
       
     </entry>
     
     <entry>
-      <title>ospf路由转发功能</title>
-      <link href="/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/"/>
-      <url>/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/</url>
-      <content type="html"><![CDATA[<p>三层交换机的ospf的简单配置。</p><a id="more"></a><h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p><p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p><h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p><h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p><blockquote><p>sw(config)#ip routing</p></blockquote><blockquote><p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p></blockquote>]]></content>
+      <title>IP路由过程分析</title>
+      <link href="/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
+      <url>/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>IP路由过程的简单分析。</p><a id="more"></a><h1 id="IP路由过程分析"><a href="#IP路由过程分析" class="headerlink" title="IP路由过程分析"></a>IP路由过程分析</h1><hr><p><img src="http://i.imgur.com/v57mT6n.png" alt="图1-1"></p><p><strong>  首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口<br>fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。</strong></p><p><strong> 小结： </strong></p><pre><code>经过这个流程的分析我发现路由器在转发数据的过程，和A相连的端口是路由器的其中一个端口不是路由器的本身的网络，另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据,即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。从而完成了从物理网卡的转移到逻辑上的数据转移。</code></pre>]]></content>
       
       <categories>
           
@@ -112,8 +112,6 @@
         <tags>
             
             <tag> 路由器 </tag>
-            
-            <tag> ospf </tag>
             
         </tags>
       
@@ -136,30 +134,9 @@
       
         <tags>
             
-            <tag> writeup </tag>
-            
             <tag> PHP </tag>
             
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>IP路由过程分析</title>
-      <link href="/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
-      <url>/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<p>IP路由过程的简单分析。</p><a id="more"></a><h1 id="IP路由过程分析"><a href="#IP路由过程分析" class="headerlink" title="IP路由过程分析"></a>IP路由过程分析</h1><hr><p><img src="http://i.imgur.com/v57mT6n.png" alt="图1-1"></p><p><strong>  首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口<br>fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。</strong></p><p><strong> 小结： </strong></p><pre><code>经过这个流程的分析我发现路由器在转发数据的过程，和A相连的端口是路由器的其中一个端口不是路由器的本身的网络，另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据,即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。从而完成了从物理网卡的转移到逻辑上的数据转移。</code></pre>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 路由器 </tag>
+            <tag> writeup </tag>
             
         </tags>
       
@@ -189,10 +166,10 @@
     </entry>
     
     <entry>
-      <title>ACL原理小结</title>
-      <link href="/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/"/>
-      <url>/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/</url>
-      <content type="html"><![CDATA[<p>对于ACL原理的一个小结。</p><a id="more"></a><h1 id="ACL原理"><a href="#ACL原理" class="headerlink" title="ACL原理"></a>ACL原理</h1><h3 id="ACL概念"><a href="#ACL概念" class="headerlink" title="ACL概念"></a>ACL概念</h3><p>   <strong>Access Control List</strong>  访问控制列表</p><p>   简言之，就是一个为了更好的控制不断扩大的网络的规则；</p><p>   eg.四个应用：ACL、DHCP、NAT、</p><p>   非必需触发条件：时间或事件；</p><p>   定义报文匹配规则；条件和动作（permit or deny）</p><p><strong> eg.  校园网案例 </strong></p><h4 id="ACL的分类"><a href="#ACL的分类" class="headerlink" title="ACL的分类"></a>ACL的分类</h4><p>标准ACL</p><blockquote><p><strong>源Ip地址</strong></p></blockquote><p>端口号（指的是目的端口）eg.http的端口80或者8080</p><p><img src="http://i.imgur.com/0RYMlCd.png" alt=""></p><p> <strong>现在存在的路由器大多数都配置了ACL</strong></p><p> <strong>ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；</strong></p><p> <strong>考虑ACL放在In端口还是out端口；</strong></p><p> <strong>ACL里还有个默认的规则，拒绝所有的端口进入。</strong></p><p> <strong>扩展ACL尽量靠近源IP地址</strong></p>]]></content>
+      <title>ospf路由转发功能</title>
+      <link href="/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/"/>
+      <url>/2018/01/27/2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD/</url>
+      <content type="html"><![CDATA[<p>三层交换机的ospf的简单配置。</p><a id="more"></a><h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p><p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p><h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p><h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p><blockquote><p>sw(config)#ip routing</p></blockquote><blockquote><p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p></blockquote>]]></content>
       
       <categories>
           
@@ -205,7 +182,7 @@
             
             <tag> 路由器 </tag>
             
-            <tag> ACL原理 </tag>
+            <tag> ospf </tag>
             
         </tags>
       
@@ -229,6 +206,29 @@
             <tag> 路由器 </tag>
             
             <tag> rip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ACL原理小结</title>
+      <link href="/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/"/>
+      <url>/2018/01/27/2018-01-27-acl%E9%9A%8F%E7%AC%94/</url>
+      <content type="html"><![CDATA[<p>对于ACL原理的一个小结。</p><a id="more"></a><h1 id="ACL原理"><a href="#ACL原理" class="headerlink" title="ACL原理"></a>ACL原理</h1><h3 id="ACL概念"><a href="#ACL概念" class="headerlink" title="ACL概念"></a>ACL概念</h3><p>   <strong>Access Control List</strong>  访问控制列表</p><p>   简言之，就是一个为了更好的控制不断扩大的网络的规则；</p><p>   eg.四个应用：ACL、DHCP、NAT、</p><p>   非必需触发条件：时间或事件；</p><p>   定义报文匹配规则；条件和动作（permit or deny）</p><p><strong> eg.  校园网案例 </strong></p><h4 id="ACL的分类"><a href="#ACL的分类" class="headerlink" title="ACL的分类"></a>ACL的分类</h4><p>标准ACL</p><blockquote><p><strong>源Ip地址</strong></p></blockquote><p>端口号（指的是目的端口）eg.http的端口80或者8080</p><p><img src="http://i.imgur.com/0RYMlCd.png" alt=""></p><p> <strong>现在存在的路由器大多数都配置了ACL</strong></p><p> <strong>ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；</strong></p><p> <strong>考虑ACL放在In端口还是out端口；</strong></p><p> <strong>ACL里还有个默认的规则，拒绝所有的端口进入。</strong></p><p> <strong>扩展ACL尽量靠近源IP地址</strong></p>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+            <tag> ACL原理 </tag>
             
         </tags>
       
@@ -306,27 +306,6 @@
     </entry>
     
     <entry>
-      <title>交换机配置的打开方式</title>
-      <link href="/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/"/>
-      <url>/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>本次就简单谈谈交换机配置~</p><a id="more"></a><h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>#</p><p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p><h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote><p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p></blockquote><h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote><p>en //进入用户模式</p></blockquote><blockquote><p>config t   //进入配置模式</p></blockquote><blockquote><p>vlan 10  //配置vlan</p></blockquote><blockquote><p>exit  //退出VLAN模式</p></blockquote><blockquote><p>interface fa0/0 </p></blockquote><blockquote><p>sw mode access    //设置为access端口模式</p></blockquote><blockquote><p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p></blockquote><blockquote><p>exit    //退出模式</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 交换机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>关于OSPF的简单配置</title>
       <link href="/2017/07/06/2017-07-06%E7%AE%80%E5%8D%95%E7%9A%84ospf%E9%85%8D%E7%BD%AE/"/>
       <url>/2017/07/06/2017-07-06%E7%AE%80%E5%8D%95%E7%9A%84ospf%E9%85%8D%E7%BD%AE/</url>
@@ -344,6 +323,27 @@
             <tag> 路由器 </tag>
             
             <tag> ospf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>交换机配置的打开方式</title>
+      <link href="/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/"/>
+      <url>/2017/07/06/2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>本次就简单谈谈交换机配置~</p><a id="more"></a><h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>#</p><p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p><h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote><p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p></blockquote><h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote><p>en //进入用户模式</p></blockquote><blockquote><p>config t   //进入配置模式</p></blockquote><blockquote><p>vlan 10  //配置vlan</p></blockquote><blockquote><p>exit  //退出VLAN模式</p></blockquote><blockquote><p>interface fa0/0 </p></blockquote><blockquote><p>sw mode access    //设置为access端口模式</p></blockquote><blockquote><p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p></blockquote><blockquote><p>exit    //退出模式</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 交换机 </tag>
             
         </tags>
       
