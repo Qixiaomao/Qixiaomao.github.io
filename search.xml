@@ -8,8 +8,8 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>思考</tag>
         <tag>杂感</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +45,8 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>代码审计</tag>
         <tag>writeup</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -58,20 +58,8 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>writeup</tag>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[rip实验的配置]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-        <tag>rip</tag>
+        <tag>writeup</tag>
       </tags>
   </entry>
   <entry>
@@ -98,15 +86,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ACL原理小结]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-acl%E9%9A%8F%E7%AC%94%2F</url>
-    <content type="text"><![CDATA[对于ACL原理的一个小结。 ACL原理ACL概念 Access Control List 访问控制列表 简言之，就是一个为了更好的控制不断扩大的网络的规则； eg.四个应用：ACL、DHCP、NAT、 非必需触发条件：时间或事件； 定义报文匹配规则；条件和动作（permit or deny） eg. 校园网案例 ACL的分类标准ACL 源Ip地址 端口号（指的是目的端口）eg.http的端口80或者8080 现在存在的路由器大多数都配置了ACL ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝； 考虑ACL放在In端口还是out端口； ACL里还有个默认的规则，拒绝所有的端口进入。 扩展ACL尽量靠近源IP地址]]></content>
+    <title><![CDATA[rip实验的配置]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
-        <tag>ACL原理</tag>
+        <tag>rip</tag>
       </tags>
   </entry>
   <entry>
@@ -119,6 +107,18 @@
       <tags>
         <tag>路由器</tag>
         <tag>ospf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ACL原理小结]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-acl%E9%9A%8F%E7%AC%94%2F</url>
+    <content type="text"><![CDATA[对于ACL原理的一个小结。 ACL原理ACL概念 Access Control List 访问控制列表 简言之，就是一个为了更好的控制不断扩大的网络的规则； eg.四个应用：ACL、DHCP、NAT、 非必需触发条件：时间或事件； 定义报文匹配规则；条件和动作（permit or deny） eg. 校园网案例 ACL的分类标准ACL 源Ip地址 端口号（指的是目的端口）eg.http的端口80或者8080 现在存在的路由器大多数都配置了ACL ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝； 考虑ACL放在In端口还是out端口； ACL里还有个默认的规则，拒绝所有的端口进入。 扩展ACL尽量靠近源IP地址]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+        <tag>ACL原理</tag>
       </tags>
   </entry>
   <entry>
