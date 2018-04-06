@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-浮动路由配置/">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-ospf路由转发功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
@@ -317,7 +317,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-浮动路由配置/" itemprop="url">浮动静态路由的配置实验</a></h1>
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-ospf路由转发功能/" itemprop="url">ospf路由转发功能</a></h1>
         
 
         <div class="post-meta">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  557
+                  227
                 </span>
               
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -424,62 +424,19 @@
       
         
           
-            <p>对于该静态路由的一个配置记录~</p>
-<a id="more"></a>
-<h1 id="浮动静态路由的配置实验"><a href="#浮动静态路由的配置实验" class="headerlink" title="浮动静态路由的配置实验"></a>浮动静态路由的配置实验</h1><h3 id="网络拓扑-如下："><a href="#网络拓扑-如下：" class="headerlink" title="网络拓扑 如下："></a>网络拓扑 如下：</h3><p><img src="http://i.imgur.com/57xVZ6g.png" alt=""></p>
-<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="1-了解静态路由的配置；"><a href="#1-了解静态路由的配置；" class="headerlink" title="1.了解静态路由的配置；"></a>1.了解静态路由的配置；</h3><h3 id="2-了解浮动路由的应用范围；"><a href="#2-了解浮动路由的应用范围；" class="headerlink" title="2.了解浮动路由的应用范围；"></a>2.了解浮动路由的应用范围；</h3><h3 id="3-进一步了解Ping和tracert的作用；"><a href="#3-进一步了解Ping和tracert的作用；" class="headerlink" title="3.进一步了解Ping和tracert的作用；"></a>3.进一步了解Ping和tracert的作用；</h3><h3 id="4-明白开销值在其中的作用；"><a href="#4-明白开销值在其中的作用；" class="headerlink" title="4.明白开销值在其中的作用；"></a>4.明白开销值在其中的作用；</h3><h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h3><h4 id="1-先划分不同的网段，这个拓扑中一共有6个网段；"><a href="#1-先划分不同的网段，这个拓扑中一共有6个网段；" class="headerlink" title="1.先划分不同的网段，这个拓扑中一共有6个网段；"></a>1.先划分不同的网段，这个拓扑中一共有6个网段；</h4><h4 id="2-然后分别给PC、switch、router进行配置；"><a href="#2-然后分别给PC、switch、router进行配置；" class="headerlink" title="2.然后分别给PC、switch、router进行配置；"></a>2.然后分别给PC、switch、router进行配置；</h4><h4 id="3-配置完成后，进行Ping测试；"><a href="#3-配置完成后，进行Ping测试；" class="headerlink" title="3.配置完成后，进行Ping测试；"></a>3.配置完成后，进行Ping测试；</h4><h4 id="4-之后，再进行端口的断线测试；"><a href="#4-之后，再进行端口的断线测试；" class="headerlink" title="4.之后，再进行端口的断线测试；"></a>4.之后，再进行端口的断线测试；</h4><h3 id="实验交换机的配置命令："><a href="#实验交换机的配置命令：" class="headerlink" title="实验交换机的配置命令："></a>实验交换机的配置命令：</h3><h5 id="进入交换机的用户模式"><a href="#进入交换机的用户模式" class="headerlink" title="进入交换机的用户模式"></a>进入交换机的用户模式</h5><blockquote>
-<p>en</p>
-</blockquote>
-<h5 id="进入配置模式"><a href="#进入配置模式" class="headerlink" title="进入配置模式"></a>进入配置模式</h5><blockquote>
-<p>config t</p>
-</blockquote>
-<h5 id="分配vlan-10"><a href="#分配vlan-10" class="headerlink" title="分配vlan 10"></a>分配vlan 10</h5><blockquote>
-<p>vlan 10</p>
-</blockquote>
-<h5 id="退出vlan"><a href="#退出vlan" class="headerlink" title="退出vlan"></a>退出vlan</h5><blockquote>
-<p>exit </p>
-</blockquote>
-<h5 id="重新进入vlan10"><a href="#重新进入vlan10" class="headerlink" title="重新进入vlan10"></a>重新进入vlan10</h5><blockquote>
-<p>interface vlan 10</p>
-</blockquote>
-<h5 id="给vlan进行Ip分配"><a href="#给vlan进行Ip分配" class="headerlink" title="给vlan进行Ip分配"></a>给vlan进行Ip分配</h5><blockquote>
-<p>ip address xxx.xxx.xxx(给vlan10配置Ip)</p>
-</blockquote>
-<h4 id="交换机端口设置的命令："><a href="#交换机端口设置的命令：" class="headerlink" title="交换机端口设置的命令："></a>交换机端口设置的命令：</h4><pre><code>en
+          三层交换机的ospf的简单配置。
 
-config t 
-
-int fa0/0
-
-sw mode access 
-
-sw access vlan 10
-
-no shutdown
-
-exit
-</code></pre><h4 id="路由器的配置命令："><a href="#路由器的配置命令：" class="headerlink" title="路由器的配置命令："></a>路由器的配置命令：</h4><pre><code>en
-
-config t
-
- int gi0/0
-
- ip address xxx.xxx.xxx
-
- no shutdown
-
-
- exit(退出该端口)
-</code></pre><p>​    </p>
-<h4 id="静态路由的配置"><a href="#静态路由的配置" class="headerlink" title="静态路由的配置"></a>静态路由的配置</h4><pre><code>ip route  [source port]  [mask]  [netgatway] [开销值]
-</code></pre><h3 id="测试环节"><a href="#测试环节" class="headerlink" title="测试环节"></a>测试环节</h3><h4 id="ping测试"><a href="#ping测试" class="headerlink" title="ping测试"></a>ping测试</h4><p><img src="http://i.imgur.com/O3oxScH.png" alt=""></p>
-<h4 id="tracert测试"><a href="#tracert测试" class="headerlink" title="tracert测试"></a>tracert测试</h4><p><img src="http://i.imgur.com/gBZ92Qv.png" alt=""></p>
-<h4 id="断线测试"><a href="#断线测试" class="headerlink" title="断线测试"></a>断线测试</h4><h5 id="就是使黄线部分的端口断开，然后测试能不能PIng通"><a href="#就是使黄线部分的端口断开，然后测试能不能PIng通" class="headerlink" title="就是使黄线部分的端口断开，然后测试能不能PIng通"></a>就是使黄线部分的端口断开，然后测试能不能PIng通</h5><h5 id="在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，"><a href="#在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，" class="headerlink" title="在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，"></a>在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，</h5><h5 id="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"><a href="#因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。" class="headerlink" title="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"></a>因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。</h5><p><img src="http://i.imgur.com/zmRkv4S.png" alt=""></p>
-<h4 id="配置过程遇到的问题"><a href="#配置过程遇到的问题" class="headerlink" title="配置过程遇到的问题"></a>配置过程遇到的问题</h4><blockquote>
-<p>1  配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。</p>
-</blockquote>
-
-          
+三层交换机ospf的配置网络拓扑图如下：
+之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。
+路由器上的配置参考之前的简单的os
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/27/2018-01-27-ospf路由转发功能/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -659,20 +616,18 @@ config t
       
         
           
-            <p>人的习惯养成大概需要三周（也就是21天），而在习惯之前，我们需要做的就是反复操作，让身体记住；因此才有这些小结的文章。</p>
-<a id="more"></a>
-<h1 id="git-基本命令集合"><a href="#git-基本命令集合" class="headerlink" title="git 基本命令集合"></a><strong><em>git 基本命令集合</em></strong></h1><h3 id="Tips-为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。"><a href="#Tips-为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。" class="headerlink" title="Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。"></a>Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。</h3><h2 id="整体思路："><a href="#整体思路：" class="headerlink" title="整体思路："></a>整体思路：</h2><pre><code>1）通过git上传文章
-2）如何上传文章到blog
-3）具体的git命令操作
-</code></pre><h3 id="1）通过git上传文章"><a href="#1）通过git上传文章" class="headerlink" title="1）通过git上传文章"></a>1）<strong>通过git上传文章</strong></h3><h4 id="因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？"><a href="#因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？" class="headerlink" title="因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？"></a>因为现在在githu上玩博客，因此，对于我现在的来说通过git上传文章很有必要，当然还有其他的例子，不过个人觉得现阶段为止这是我最舒服的方式；那么如何通过git上传文章呢？</h4><h3 id="2）如何上传文章到git"><a href="#2）如何上传文章到git" class="headerlink" title="2）如何上传文章到git?"></a>2）<strong>如何上传文章到git?</strong></h3><h4 id="文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—-gt-github上的服务器—-gt-静态页面（blog）展示。"><a href="#文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—-gt-github上的服务器—-gt-静态页面（blog）展示。" class="headerlink" title="文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&gt;静态页面（blog）展示。"></a>文章通过git上传到blog的方式，其实就是相当于把文章托管到github下的服务器，简单理解过程为：本地文章（电脑文章）—&gt;github上的服务器—&gt;静态页面（blog）展示。</h4><h3 id="3）具体的git命令操作"><a href="#3）具体的git命令操作" class="headerlink" title="3）具体的git命令操作"></a>3）具体的git命令操作</h3><h4 id="3-1）先初始化本地仓库（如果路径没变可以忽略）"><a href="#3-1）先初始化本地仓库（如果路径没变可以忽略）" class="headerlink" title="3.1）先初始化本地仓库（如果路径没变可以忽略）"></a>3.1）先初始化本地仓库（如果路径没变可以忽略）</h4><pre><code>git init #这步将会在本地文件夹下产生一个.git文件夹，如图：
-</code></pre><p><img src="https://i.imgur.com/1RgrZD2.png" alt=""></p>
-<h4 id="3-2）监听文件"><a href="#3-2）监听文件" class="headerlink" title="3.2）监听文件"></a>3.2）监听文件</h4><pre><code>git add 相关文件  #e.g git add test.py(如果是批量的话可以使用通配符*.py)
-</code></pre><h4 id="3-3）commit告诉仓库更改的信息"><a href="#3-3）commit告诉仓库更改的信息" class="headerlink" title="3.3）commit告诉仓库更改的信息"></a>3.3）commit告诉仓库更改的信息</h4><pre><code>git commit -m&quot;add test.py&quot;
-</code></pre><h4 id="3-4-push文件到博客"><a href="#3-4-push文件到博客" class="headerlink" title="3.4)push文件到博客"></a>3.4)push文件到博客</h4><pre><code>git push origin master #上传的文件以master的方式上传到github
-</code></pre><p>  <strong>Tips:为了不让18天以后的自己忘记了这些命令！</strong></p>
-<h3 id="最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程"><a href="#最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程" class="headerlink" title="最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程"></a>最后再push一张很早以前总结的命令流程图，具体的git命令可以bing或者google相关教程</h3><p><img src="https://i.imgur.com/3AIcNGS.png" alt=""></p>
+          人的习惯养成大概需要三周（也就是21天），而在习惯之前，我们需要做的就是反复操作，让身体记住；因此才有这些小结的文章。
 
-          
+git 基本命令集合Tips:为了不让18天后的自己忘记这些操作，因此，我才觉得有必要写点什么，以避免未来的自己忘记这些东西。整体思路：1）通过git上传文章
+2）如何上传文章到
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/2018-01-22-tools-for-git/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -852,40 +807,19 @@ config t
       
         
           
-            <p>这个网络的时代，需要我们会使用搜索引擎，想要有更好的学术和技术查找体验，Google无疑是一个不错的选择，那么如何操作会使我们事半功倍呢？</p>
-<a id="more"></a>
-<p>【转载自simplyY】如何用好 Google 等搜索引擎？</p>
-<p><a href="http://bzy.me/aff.php?aff=214" title="该链接" target="_blank" rel="noopener">http://bzy.me/aff.php?aff=214</a></p>
-<pre><code>这家ss提供商服务还是很不错的，性价比高，而且比较稳定。
-</code></pre><p>核心思想<br>1、首先，想好你想要寻找什么。</p>
-<pre><code>哪些词能够最好地描述你要寻找的信息或者概念？
-哪些词是你能够用来替换的？
-有没有那些词是可以不必包括在
-你想要搜索的更好定义你的需求之内？
-</code></pre><p>2、构建你的搜索要求。</p>
-<pre><code>使用尽可能多你所需要的关键词；越多越好。
-如果皆存在可能的话，试着用适当的搜索操作
-来使你的搜索更精炼——或者，如果你愿意的话，可以使用高级搜索页面（时间、语言）。
-</code></pre><p>以及关键词一定要分隔开。<br>3、评估一下搜索结果页面上的匹配程度。</p>
-<p>如果一开始的结果与你想要的不一致，再精炼你的搜索要求并重新搜索——或转向更合适的搜索站点再进行搜索。<br>4、选择你想要查看的匹配的页面</p>
-<pre><code>通过网页标题
-url
-还有正文，一般而言，被显示出来的正文往往是，
-你想找的答案最近的地方，如果你看到了，
-请毫不犹豫的复制关键词，
-进入网页后用 ctrl + f or cmd + f 关键词。
-</code></pre><p>基本命令：</p>
-<p>注意： 所有高效命令中的冒号是英文的冒号，且后面紧跟参数<br>1、双引号</p>
-<p>把搜索词放在双引号中，代表完全匹配搜索<br>2、减号</p>
-<p>减号代表搜索不包含减号后面的词的页面。使用这个指令时减号前面必须是空格，减号后面没有空格，紧跟着需要排除的词。 例如：搜索 -引擎 返回的则是包含“搜索”这个词，却不包含“引擎”这个词的结果<br>3、星号(需记忆)</p>
-<p>星号<em>是常用的通配符，也可以用在搜索中。百度不支持</em>号搜索指令。 比如在Google 中搜索：搜索<em>擎 其中的</em>号代表任何文字。<br>高效命令<br>4、inurl(需记忆)</p>
-<p>inurl:xx 指令用于搜索查询词出现在url 中的页面。bd和Google 都支持inurl 指令。inurl 指令支持中文和英文。<br>6、intitle</p>
-<p>intitle:xx 指令返回的是页面title 中包含关键词的页面。<br>7、allintitle</p>
-<p>allintitle:搜索返回的是页面标题中包含多组关键词的文件。 例如 ：allintitle:SEO 搜索引擎优化 就相当于：intitle:SEO intitle:搜索引擎优化<br>9、filetype(需记忆)</p>
-<p>用于搜索特定文件格式。 比如搜索filetype:pdf SEO 返回的就是包含SEO 这个关键词的所有pdf 文件。用于找资料，ppt？pdf？word？等。<br>10、site</p>
-<p>site:是SEO 最熟悉的高级搜索指令，用来搜索某个域名下的所有文件。 举例，对于坑爹的知乎搜索的替代搜索功能方案，使用谷歌，关键词 + site:zhihu.com（必须是完整域名） 即可精确搜索所有知乎答案。 这个很常用</p>
+          这个网络的时代，需要我们会使用搜索引擎，想要有更好的学术和技术查找体验，Google无疑是一个不错的选择，那么如何操作会使我们事半功倍呢？
 
-          
+【转载自simplyY】如何用好 Google 等搜索引擎？
+http://bzy.me/aff.php?aff=214
+这家ss提供商服务还是很不错的，性价
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/07/2018-01-07-google-for-internet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1065,226 +999,17 @@ url
       
         
           
-            <p>在刚刚过去的2017年里，回过头来，发现还是没有读多少本书，但是，依然还是有值得高兴的事情。正如杜甫所言“天地一行间，忽如远行客。”，在与人相处的过程中，明白了，人生不过是相遇、分离的过程……我在其中明白了，“莫思身外无穷事，且尽身前无限怀。</p>
-<a id="more"></a>
-<h2 id="再见，2017！-你好，2018！"><a href="#再见，2017！-你好，2018！" class="headerlink" title="再见，2017！ 你好，2018！"></a><strong>再见，2017！ 你好，2018！</strong></h2><p>   在刚刚过去的2017年里，回过头来，发现还是没有读多少本书，但是，依然还是有值得高兴的事情。在社交方面，又有了新的体会；在学习上，也有了不同的积累的方法；在心境上，对自我的认知更加深刻……</p>
-<p>   见证了学长们的离开，与看到后辈们的涌入，不禁想到学校毕竟只是一个说长不长，说短不短的“世外之地”，在这里见证了学生间的荣誉，还有彼此的相聚，更有彼此间的分离。突然才想起了杜甫的那句“天地一行间，忽如远行客。”，生活的节奏越来越快，让人开始渐渐模糊今天和昨日，开始忘记了初心，我们也在人生的这趟旅途越走越远，只是，在前行的道路上，我们要做的就是活在当下，随时做好与别人分别的准备那样的活着，兴许这样才是最好的告别方式，就像《少年派的奇幻漂流》里，男主人公最后与那只老虎分别的场景一样，我们不确定那只老虎是不是他本人的另一个自我，但是我能从中体会到的就是，与那只老虎从斗争到最后的相处，再到分别。这些不仅仅是自我的相处，也是与人相处的模式，我也再次体会到了，有些时候不好好的和对方说再见，以后是没有机会再说这样的心情。所以，人生需要的就是杜甫那样的心态，保持平衡的心态。只有这样才不会失去本心。</p>
-<p>   同时，在去年，计算机方面也有好好的玩了一把Python爬虫，虽然我知道这个玩意我只是开始入门，但是我想今年继续这么开始下去；同时，心境上，更加注重对当下的态度，就是始终持着在当下保持平衡的心态，凡事不急，一步一步慢慢开始！人生还长，同时就通过这个新搭建的博客来开始自我的探索，技术、生活的分享之旅！希望对自己是一个新的开始，最后也要明白，贵在坚持！!</p>
-<p>   <img src="https://i.imgur.com/2y3a7E9.jpg" alt=""></p>
+          在刚刚过去的2017年里，回过头来，发现还是没有读多少本书，但是，依然还是有值得高兴的事情。正如杜甫所言“天地一行间，忽如远行客。”，在与人相处的过程中，明白了，人生不过是相遇、分离的过程……我在其中明白了，“莫思身外无穷事，且尽身前无限怀。
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-    
-<div>    
- 
- 
-</div>
-    
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2017/07/06/2017-07-06交换机配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/06/2017-07-06交换机配置/" itemprop="url">交换机配置的打开方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T00:00:00+08:00">
-                2017-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  334
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本次就简单谈谈交换机配置~</p>
-<a id="more"></a>
-<h1 id="关于交换机配置的打开方式"><a href="#关于交换机配置的打开方式" class="headerlink" title="关于交换机配置的打开方式"></a>关于交换机配置的打开方式</h1><p>#</p>
-<p><strong>交换机</strong> 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；</p>
-<h3 id="交换机与路由器的区别"><a href="#交换机与路由器的区别" class="headerlink" title="交换机与路由器的区别"></a>交换机与路由器的区别</h3><blockquote>
-<p>交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发；</p>
-</blockquote>
-<h3 id="交换机与路由器配置上的区别"><a href="#交换机与路由器配置上的区别" class="headerlink" title="交换机与路由器配置上的区别"></a>交换机与路由器配置上的区别</h3><h5 id="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"><a href="#交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。" class="headerlink" title="交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。"></a>交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。</h5><h3 id="交换机的配置"><a href="#交换机的配置" class="headerlink" title="交换机的配置"></a>交换机的配置</h3><blockquote>
-<p>en //进入用户模式</p>
-</blockquote>
-<blockquote>
-<p>config t   //进入配置模式</p>
-</blockquote>
-<blockquote>
-<p>vlan 10  //配置vlan</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出VLAN模式</p>
-</blockquote>
-<blockquote>
-<p>interface fa0/0 </p>
-</blockquote>
-<blockquote>
-<p>sw mode access    //设置为access端口模式</p>
-</blockquote>
-<blockquote>
-<p>sw access vlan 10      //将vlan 10 的数据配置给交换机的端口</p>
-</blockquote>
-<blockquote>
-<p>exit    //退出模式</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h6 id="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"><a href="#以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。" class="headerlink" title="以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。"></a>以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。</h6>
-          
+再见，2017！ 你好，2018！   在刚刚过去的2
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/06/2018-01-06-tools-for-jekyll/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1464,46 +1189,218 @@ url
       
         
           
-            <p>了解什么是OSPF~</p>
-<a id="more"></a>
-<h1 id="关于ospf的简单配置"><a href="#关于ospf的简单配置" class="headerlink" title="关于ospf的简单配置"></a>关于ospf的简单配置</h1><p>#</p>
-<p> 网络拓扑图如下：<br><img src="http://i.imgur.com/c11YPOz.png" alt=""></p>
-<h3 id="明白什么是ospf？"><a href="#明白什么是ospf？" class="headerlink" title="明白什么是ospf？"></a>明白什么是ospf？</h3><blockquote>
-<p>ospf是Open Shortest Path First开放式最短路径优先的简称；</p>
-</blockquote>
-<blockquote>
-<p>一种链路状态协议；</p>
-</blockquote>
-<h3 id="如何配置ospf？"><a href="#如何配置ospf？" class="headerlink" title="如何配置ospf？"></a>如何配置ospf？</h3><p><em>其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是打开路由的ospf功能；</em></p>
-<h3 id="路由器配置如下"><a href="#路由器配置如下" class="headerlink" title="路由器配置如下"></a>路由器配置如下</h3><pre><code>en  //先进入用户模式
-config t //进入配置模式
-interface gi0/0    ///进入路由端口
-ip address xxx.xxx.xxx.xxx  mask  //配置端口ip
-no shutdown  //打开端口
-exit  //退出端口
-</code></pre><h3 id="ospf的配置："><a href="#ospf的配置：" class="headerlink" title="ospf的配置："></a>ospf的配置：</h3><blockquote>
-<p>en </p>
-</blockquote>
-<blockquote>
-<p>interface loopback 1  //给路由器设置一个路由Id</p>
-</blockquote>
-<blockquote>
-<p>ip address xxx.xxx.xxx.xxx mask  //给路由器id的设置一个ip地址</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
-<blockquote>
-<p>router ospf 进程号</p>
-</blockquote>
-<blockquote>
-<p>network xxx.xxx.xxx.xxx [wildmask] area [number]</p>
-</blockquote>
-<blockquote>
-<p>exit  //退出端口</p>
-</blockquote>
+          了解什么是OSPF~
+
+关于ospf的简单配置#
+ 网络拓扑图如下：
+明白什么是ospf？
+ospf是Open Shortest Path First开放式最短路径优先的简称；
+
+
+一种链路状态协议；
+
+如何配置ospf？其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/2017-07-06简单的ospf配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+    
+<div>    
+ 
+ 
+</div>
+    
+    
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2017/07/06/2017-07-06交换机配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/06/2017-07-06交换机配置/" itemprop="url">交换机配置的打开方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T00:00:00+08:00">
+                2017-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  334
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          本次就简单谈谈交换机配置~
+
+关于交换机配置的打开方式#
+交换机 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务；
+交换机与路由器的区别
+交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/06/2017-07-06交换机配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1683,44 +1580,20 @@ exit  //退出端口
       
         
           
-            <p>总结了OCI模型参考~</p>
-<a id="more"></a>
-<h1 id="计算机网络之三"><a href="#计算机网络之三" class="headerlink" title="计算机网络之三"></a><strong>计算机网络之三</strong></h1><hr>
-<h2 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h2><p>   <strong>之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？</strong></p>
-<p>  通过下图就可以了解到TCP/IP有的协议：<img src="http://i.imgur.com/NrFf3Cs.png" alt=""></p>
-<p>   这里分别介绍一下TCP/IP协议族含有的主要协议；<br>   首先从四层传输层TCP和UDP介绍；</p>
-<blockquote>
-<p>TCP协议：一个以建立连接为传输的协议，通过三次握手建立连接，通过四次握手结束连接，具有稳定，传输安全系数高（相对UDP而言）；下图所示：<img src="http://i.imgur.com/oETi9ci.png" alt=""></p>
-</blockquote>
-<blockquote>
-<p>UDP协议：一个不以建立连接为传输的协议，主要用于实时传输中，具有占用协议资源少的优点；如下图所示：<img src="http://i.imgur.com/QiSKJvD.png" alt=""><br>因为这里是关于网络传输所以我们只两个参数，seq:收发端的序列号识别，用于告知接收方和发送方的端口号，同时识别用的；<br>ack：用于确认收到的数据报文而设立的，同时在TCP协议还有要告知进行下一次通信的信息；<br>另一个重要的就是三层的IP协议：用于网络层的传输；如图：<img src="http://i.imgur.com/t0bFRnR.png" alt=""></p>
-</blockquote>
-<p>   介绍完了这些重要的协议，暂时就不描述报文里的各个参数了。继续介绍我们的TCP/IP协议族；</p>
-<p>   自上而下的介绍，从传输层的连接涉及到的协议来介绍：</p>
-<blockquote>
-<p>TELNET:是Internet远程登陆服务的标准协议和主要方式；</p>
-</blockquote>
-<blockquote>
-<p>FTP:是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为“文传协议”。用于Internet上的控制文件的双向传输；</p>
-</blockquote>
-<blockquote>
-<p>SMTP:SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式；</p>
-</blockquote>
-<blockquote>
-<p>另一个就从UDP无连接涉及到的协议来介绍：<br>DNS：（Domain Name System，域名系统），就是一个方便人们记住IP号的协议，比如我们记住的是<a href="http://www.baidu.com而不是那一串[14.215.177.38]IP地址；" target="_blank" rel="noopener">www.baidu.com而不是那一串[14.215.177.38]IP地址；</a></p>
-</blockquote>
-<blockquote>
-<p>TFTP:（Trivial File Transfer Protocol,简单文件传输协议）是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务;</p>
-</blockquote>
-<p>   好了上面介绍的是传输层的相关协议，现在介绍的是网络层协议了，其实网络层的协议主要的就三个；<br>​    </p>
-<blockquote>
-<p>ICMP:（Internet Control Message Protocol）Internet控制报文协议,作用就是控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息;<br>ARP:ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议;<br>RARP:和上面那个协议相反，就是反地址解析协议，在现在的工程不怎么常用；</p>
-</blockquote>
-<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><blockquote>
-<p>TCP/IP协议族涉及到的协议有这些，通过图文来反复记忆这些；</p>
-</blockquote>
+          总结了OCI模型参考~
 
-          
+计算机网络之三
+TCP/IP协议族   之前总结了OCI模型参考，对于数据的传输都有了个大致的了解了，但是对于计算机网络来说，我们还要明白，在网络真正实现的是TCP/IP参考模型。那么TCP/IP协议族到底有什么协议呢？
+  通过下图就可以了解到TCP/IP有的协议：
+  
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/03/2017-04-03-计算机网络基础之三/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1900,42 +1773,18 @@ exit  //退出端口
       
         
           
-            <p>距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~</p>
-<a id="more"></a>
-<h1 id="计算机网络之二"><a href="#计算机网络之二" class="headerlink" title="计算机网络之二"></a>计算机网络之二</h1><hr>
-<p>   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。<br>   这次带来的东西就是关于计算机网络分层的东西。首先要明白一个问题，什么是OSI？？？<br>   <strong><em>OSI</em></strong>这个东东就是一个参考模型。总之关于它的来历背景都可以去问度娘，总之这个的作用就是用来解决网络之间的兼容性问题。那么具体的OSI的模型具体又是什么呢？<br>   <strong><em>OSI模型</em></strong>  就是如下这个东东。<img src="http://i.imgur.com/iy0f6eD.png" alt=""><br>   左边的就是OSI参考模型，它是一个七层的模型，分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层。其中每层都有相对应的协议，正如右边的的用到的协议框架中提到的那些HTTP,TELNET等等。现在我们来分别介绍一下各个层次的含义以及，这些对应的层次的都是怎样将一个数据传输出来的。</p>
-<p><strong>物理层</strong>  这层是面向底层传输的二进制数据，主要是面向物理硬件的传输介质比如光纤，网线等等；</p>
-<p><strong>数据链路层</strong> 这层面向的机体是交换机而言的，最主要的是识别交换机的MAC地址用；</p>
-<p><strong>网络层</strong>  这层面向的是主要硬件有路由器，分别起到路由地址的转发的作用；</p>
-<p><strong>传输层</strong>   这层的作用是收发数据用的，主要用到的两个协议TCP和UDP协议；</p>
-<p><strong>会话层</strong>   这层提供一种有效的方法，其功能是按照在应用进程之间的原则，进行数据收发，例如：选取全双工还是半双工通信；</p>
-<p><strong>表示层</strong>   这层主要是解决用户的信息的语法问题，起到对信息格式和编码起转换作用，例如一些base64以及ASCII码转换成为EBCDIC等；</p>
-<p><strong>应用层</strong>   这层是OSI模型中最高层，直接面向用户以满足不同需求的，利用网路资源，唯一向应用程序直接提供服务的层；</p>
-<p>当然这个OSI模型只是为了更好的服务于网络的各个协议而设计的，它具有的优点我就不一一介绍了。同时，在这个七层的模型，我们只重点讲解网络层和数据链路层，只在这两个层面来讨论。那么问题来了，那么多层的协议对于懒惰的程序猿而言，要实现是不是有点麻烦啊？事实回答：是的。</p>
-<p>因此程序猿们想了一个办法，其中就在各位大佬的努力下，与OSI模型对应的另一个模型就诞生了，这个是一个现实网络真正应用的模型。现在我想会不会有些晕啊。没关系我们在梳理梳理这些关系。OSI七层模型，是为了更好的管理网络协议而提出的参考模型，在网络中没有具体的应用，而与此对应的TCP/IP模型是程序猿们为了更好的实现而自己构建的模型，在网络中具体运用的模型。具有现实意义。<strong>注意，注意，注意了！</strong>这个TCP/IP模型是针对程序猿而言的。所以它简化了好多的层次。具体参考上图。</p>
-<p>那么明白了网络的各个层次，我们还是得从OSI模型来讲，讲什么呢？？</p>
-<p>讲讲数据如何是从一台PC机收发数据到另一台PC机的故事。</p>
-<p><img src="http://i.imgur.com/9Q6EC41.png" alt=""></p>
-<p>PC A 到PC B 的过程就是一个经历了层层封装的过程，首先，PC A 发了一个信息‘A君’。A君从应用层出发，然后经过传输层，这时候，A君穿上了一件外套，也就是被封装了TCP的报头，接着在向下移动，经过网络层的时候，IP大大又给他戴上了IP的报头，这时的A君中除了自己还穿上了TCP给的外套和IP的帽子，紧接着A君再向下的数据链路层，数据链路层给他穿上了裤子，这裤子包含了LLC报头和FCS的报尾部分，在数据链路层，还会给A君穿上鞋子，这鞋子带有一层MAC头和FCS的报尾，最后经过物理层的时候A君就转换成了二进制数据，这时候完成了一个自上而下的数据封装过程，最后A君就完成了一次从PC A到物理层的行走。同时，想要到达PC B，方式就和PC A 一样只是不是自上而下了，而是自下而上，最后到达了PC B。这就是A君在OSI模型里完整走的流程。</p>
-<p>  那么明白了这个模型，我们还得掌握一个TCP/IP的模型，这个模型才是我们要真正掌握的东东。</p>
-<p><img src="http://i.imgur.com/A48jccy.png" alt=""></p>
-<p>  强大的程序猿们在原来的OSI模型上又建立了一个真正的网络模型，且现在的网络传输格局都遵循这个模型里的各个协议，之后我会更详细的一一解释关于TCP/IP的协议族，当然了，关于计算机网络基础，我们主要研究的范围就是TCP/IP，当然其他也有研究的价值，只是那不在计算机网络范畴。</p>
-<p><strong>小思考&amp;小结</strong>  </p>
-<p>  这次这篇文章我们介绍了主要有三个：</p>
-<blockquote>
-<p> 1、OSI模型这个东东；回想一下OSI模型这个东西存在的目的？？</p>
-</blockquote>
-<blockquote>
-<p> 2、OSI七层模型含有哪七层？？？各个层次的作用是什么？？</p>
-</blockquote>
-<blockquote>
-<p> 3、 关于OSI模型是如何将数据封装然后传输的？？？</p>
-</blockquote>
-<blockquote>
-<p> 4、为什么会有TCP/IP模型？？？和OSI模型有什么区别？？？</p>
-</blockquote>
+          距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。以免以后的自己忘记了~
 
-          
+计算机网络之二
+   距离上次我谈到的计算机网络基础之一，貌似也过了好久，对于那些存在于脑子里好多的东西的我们都需要一个整理。当然废话少说，我们直接上干货了。   这次带
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/29/2017-03-29-计算机网络基础之二/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2115,30 +1964,24 @@ exit  //退出端口
       
         
           
-            <p>网络之间的ip如何实现之间的互联，如何快速到达目的地址，这中间路由器可谓是一个关键的的工具…………</p>
-<a id="more"></a>
-<h1 id="网络间互联的工具———路由器"><a href="#网络间互联的工具———路由器" class="headerlink" title="网络间互联的工具———路由器"></a><strong><em>网络间互联的工具———路由器</em></strong></h1><h2 id="什么是路由器？"><a href="#什么是路由器？" class="headerlink" title="什么是路由器？"></a>什么是路由器？</h2><h3 id="路由器就是连接网络的计算机设备。"><a href="#路由器就是连接网络的计算机设备。" class="headerlink" title="路由器就是连接网络的计算机设备。"></a>路由器就是连接网络的计算机设备。</h3><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><blockquote>
-<p>1.使网络中的设备相互连接，数据转发；</p>
-</blockquote>
-<blockquote>
-<p>2.路由（寻径）路由表的建立、刷新；</p>
-</blockquote>
-<blockquote>
-<p>3.交换：在不同网路之间转发IP分组数据；</p>
-</blockquote>
-<blockquote>
-<p>4.隔离广播域，指定访问规则ALC；</p>
-</blockquote>
-<blockquote>
-<p>5.异种网络互连（不同的链路层互连）；</p>
-</blockquote>
-<blockquote>
-<p>6.工作在第三层，就是网络层，依据IP来转发数据；</p>
-</blockquote>
-<h4 id="什么是路由表？"><a href="#什么是路由表？" class="headerlink" title="什么是路由表？"></a>什么是路由表？</h4><p>   逻辑上：路由表就是在进行数据转发时提供IP地址的一个表；<br>   物理上：存储于路由器上的RAM，关电擦除的一种存储方式；</p>
-<h4 id="路由表构成"><a href="#路由表构成" class="headerlink" title="路由表构成"></a>路由表构成</h4><p>路由表是由哪些元素构成的呢？<br>目的IP<br>掩码<br>下一跳<br>优先级<br>自学习方式</p>
+          网络之间的ip如何实现之间的互联，如何快速到达目的地址，这中间路由器可谓是一个关键的的工具…………
 
-          
+网络间互联的工具———路由器什么是路由器？路由器就是连接网络的计算机设备。作用
+1.使网络中的设备相互连接，数据转发；
+
+
+2.路由（寻径）路由表的建立、刷新；
+
+
+3.交换：在不同网路之间转发IP
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/02/03/2018-01-07-web-for-internet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2318,25 +2161,17 @@ exit  //退出端口
       
         
           
-            <p>用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客<code>git pull</code>下来，修改完成<code>commit</code>后，再<code>push</code>上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。</p>
-<a id="more"></a>
-<h2 id="写博客工具"><a href="#写博客工具" class="headerlink" title="写博客工具"></a>写博客工具</h2><p>有两个工具，分别是<code>jekyller</code>、<code>prose.io</code>。</p>
-<h3 id="Jekyller"><a href="#Jekyller" class="headerlink" title="Jekyller"></a>Jekyller</h3><p><code>jekyller</code>是 Chrome 上的应用，它可以管理你的所有博客，实时<code>markdown</code>渲染。</p>
-<p><img src="http://simpleyyt.qiniudn.com/15-9-21/21644919.jpg" alt="Jekyller"></p>
-<p>但是它的 UI 比较难看，而且对<code>markdown</code>的支持也不是很好。</p>
-<h3 id="Prose-io"><a href="#Prose-io" class="headerlink" title="Prose.io"></a>Prose.io</h3><p>非常好的一个工具，它的编辑器非常强大，可以上传图片、文件等，可以在<code>_config.yml</code>文件中配置<code>prose.io</code>。</p>
-<p><img src="http://simpleyyt.qiniudn.com/15-9-21/82332870.jpg" alt="Prose.io"></p>
-<p>缺点就是不支持实时预览，而且也不会自己保存。</p>
-<h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>图床的话强烈推荐<strong>七牛</strong>，其缺点就是操作不人性化，但是 chrome 上面有好多相关的插件解决这个问题，比如<a href="http://yotuku.cn/" target="_blank" rel="noopener">极简图床</a> 便是基于七牛的图床网站。</p>
-<h2 id="图表工具"><a href="#图表工具" class="headerlink" title="图表工具"></a>图表工具</h2><p>写博客难免会需要用画一些图表，有两类图表，一类是 <a href="http://yuml.me/diagram/scruffy/class/draw" target="_blank" rel="noopener">yUML</a>、<a href="http://plantuml.com/" target="_blank" rel="noopener">plantUML</a>, 另一类是 <a href="http://draw.io" target="_blank" rel="noopener">draw.io</a>。</p>
-<h3 id="yUML-和-plantUML"><a href="#yUML-和-plantUML" class="headerlink" title="yUML 和 plantUML"></a>yUML 和 plantUML</h3><p>这类图表只需要按格式输入代码，便会自动产生图表，生成图片链接，省去了上传到图床，后期也可以修改。</p>
-<p><img src="http://simpleyyt.qiniudn.com/15-9-21/46889912.jpg" alt="yUML"></p>
-<p><img src="http://simpleyyt.qiniudn.com/15-9-21/34152859.jpg" alt="plantUML"></p>
-<h3 id="draw-io"><a href="#draw-io" class="headerlink" title="draw.io"></a>draw.io</h3><p>这个是在线手动绘图的工具，chrome 应用商店里面也下载得到离线应用，绘图完成之后需要上传到图床中。</p>
-<p><img src="http://simpleyyt.qiniudn.com/15-9-21/68984484.jpg" alt="draw.io"></p>
-<p>（声明：本文摘自suanxiaoyu.github.io by suanxiaoyu）</p>
+          用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客git pull下来，修改完成commit后，再push上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。
 
-          
+写博客工具有两个工具，分别是jekyller、prose.i
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/21/2015-09-21-tools-for-jekyll/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2454,10 +2289,10 @@ exit  //退出端口
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -2465,10 +2300,10 @@ exit  //退出端口
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
