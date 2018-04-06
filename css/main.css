@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff6f;
+  background: #a7cc96;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2768,7 +2768,7 @@ body {
   font-size: 20px;
   font-style: normal;
 }
-.busuanzi_container_site_uv::after {
+.powered-by::after {
   content: "|";
   padding-left: 10px;
 }
