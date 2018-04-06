@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-ospf路由转发功能/">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
@@ -317,7 +317,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-ospf路由转发功能/" itemprop="url">ospf路由转发功能</a></h1>
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
         
 
         <div class="post-meta">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  227
+                  280
                 </span>
               
 
@@ -424,17 +424,20 @@
       
         
           
-            <p>三层交换机的ospf的简单配置。</p>
+            <p>rip实验的简单配置。</p>
 <a id="more"></a>
-<h1 id="三层交换机ospf的配置"><a href="#三层交换机ospf的配置" class="headerlink" title="三层交换机ospf的配置"></a>三层交换机ospf的配置</h1><h3 id="网络拓扑图如下："><a href="#网络拓扑图如下：" class="headerlink" title="网络拓扑图如下："></a>网络拓扑图如下：</h3><p><img src="http://i.imgur.com/xLXCgEU.png" alt=""></p>
-<p>之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。</p>
-<h3 id="路由器上的配置"><a href="#路由器上的配置" class="headerlink" title="路由器上的配置"></a>路由器上的配置</h3><p>参考之前的简单的ospf的配置，在路由上的配置差不多；</p>
-<h3 id="三层交换机的配置"><a href="#三层交换机的配置" class="headerlink" title="三层交换机的配置"></a>三层交换机的配置</h3><p>关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述；</p>
-<blockquote>
-<p>sw(config)#ip routing</p>
-</blockquote>
-<blockquote>
-<p>这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。</p>
+<h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr>
+<h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p>
+<h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统
+模拟软件：PacketTracer6
+</code></pre><hr>
+<h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p>
+<h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router rip
+
+network  net [wildmask]
+</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network
+</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote>
+<p>本次rip的实验中ping通了。</p>
 </blockquote>
 
           

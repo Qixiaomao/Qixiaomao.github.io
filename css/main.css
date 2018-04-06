@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9dbeda;
+  background: #a350ec;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2996,6 +2996,9 @@ img.img-topic {
 #lv-container {
   border-radius: 10px;
   background: rgba(255,255,255,0.5) none repeat scroll;
+}
+.footer-inner {
+  color: #adff2f;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
