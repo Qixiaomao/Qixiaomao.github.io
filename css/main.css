@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3955ff;
+  background: #0366f5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2964,6 +2964,12 @@ img:hover {
 }
 .post-toc ol {
   padding: 0px 10px 5px 10px;
+}
+#days {
+  display: block;
+  color: #07b39b;
+  font-size: 13px;
+  margin-top: 15px;
 }
 .posts-collapse {
   margin: 50px 0px;
