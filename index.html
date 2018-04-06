@@ -15,10 +15,6 @@
 
 
 
-<!-- daovoice -->
-<!--
--->
-
 
 
 
@@ -39,11 +35,6 @@
 
 
 
-
-
-
-
-  
 
 
 
@@ -126,21 +117,6 @@
     }
   };
 </script>
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-<style>
-    .pace .pace-progress {
-        background: #ff009e; /*��������ɫ*/
-        height: 3px;
-    }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*��Ӱ��ɫ*/
-    }
-    .pace .pace-activity {
-        border-top-color: #ff009e;    /*�ϱ߿���ɫ*/
-        border-left-color: #ff009e;    /*��߿���ɫ*/
-    }
-</style>
 
 
 
@@ -172,7 +148,7 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-    <a href="https://github.com/Qixiaomao" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -430,9 +406,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -450,21 +423,79 @@
 
       
         
-          <p>物联网的学生总是要接触硬件开发板的，虽然只是个小小的板子，但是还是记录下这次的折腾……</p>
           
+            <p>物联网的学生总是要接触硬件开发板的，虽然只是个小小的板子，但是还是记录下这次的折腾……</p>
+<a id="more"></a>
+<h2 id="0x01-令人头疼的板子"><a href="#0x01-令人头疼的板子" class="headerlink" title="0x01  令人头疼的板子"></a>0x01  令人头疼的板子</h2><p>   说起物联网，当然是 <del>是送快递的物流啊</del>不不不，其实你应该想到的是“万物互联”。说到物联网，当然首先要玩<del>（折腾）</del> 的就是板子了，其中就有ESP8266，这个就是板子，于是<del>谷歌</del> 了一番，发现这玩意居然不止一个版本，现在市面上主流的是12E或者12，串口版本有V2、V3的，这……明显是个大坑啊。本着折腾的心，我就买了个板子NodeMCU V2的好了，看看某个网站的官方文档的介绍:</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/esp1-1.png" alt="esp1-1"> </p>
+<p>这……大概意思就是，这个板子是一个可靠耐用可开源的物联网平台的设备。特点嘛，就是4MBflash存储，带wifi模块的设备……</p>
+<p>我的板子：<img src="http://p6akdr6oo.bkt.clouddn.com/esp122.png" alt="esp122"></p>
+<p>设备概要：</p>
+<ul>
+<li>Microcontroller: Tensilica 32-bit RISC CPU Xtensa LX106</li>
+<li>Operating Voltage: 3.3V</li>
+<li>Input Voltage: 7-12V</li>
+<li>Digital I/O Pins (DIO): 16</li>
+<li>Analog Input Pins (ADC): 1</li>
+<li>UARTs: 1</li>
+<li>SPIs: 1</li>
+<li>I2Cs: 1</li>
+<li>Flash Memory: 4 MB</li>
+<li>SRAM: 64 KB</li>
+<li>Clock Speed: 80 Mhz</li>
+<li>Wi-Fi: IEEE 802.11 b/g/n:<ul>
+<li>Integrated TR switch, balun, LNA, power amplifier and matching network</li>
+<li>WEP or WPA/WPA2 authentication, or open networks</li>
+</ul>
+</li>
+</ul>
+<p><code>这些参数懒得做翻译了，感觉都看得懂，不懂的就查词一下下~</code> </p>
+<h2 id="0x02-开发环境的介绍"><a href="#0x02-开发环境的介绍" class="headerlink" title="0x02  开发环境的介绍"></a>0x02  开发环境的介绍</h2><ul>
+<li>zerynth （官方链接：<a href="https://www.zerynth.com/）" target="_blank" rel="noopener">https://www.zerynth.com/）</a></li>
+<li>串口驱动 （自行谷歌）</li>
+<li>windows10（我的系统环境）</li>
+<li>ESP8266 - NodeMCU V2</li>
+<li>usb线</li>
+</ul>
+<h2 id="0x03-IDE的使用"><a href="#0x03-IDE的使用" class="headerlink" title="0x03  IDE的使用"></a>0x03  IDE的使用</h2><ul>
+<li>参考zerynth官方文档<ul>
+<li><a href="https://docs.zerynth.com" target="_blank" rel="noopener">https://docs.zerynth.com</a></li>
+</ul>
+</li>
+</ul>
+<p><code>不做太多介绍</code></p>
+<h2 id="0x04-Blink-和-hello-python-的例子"><a href="#0x04-Blink-和-hello-python-的例子" class="headerlink" title="0x04  Blink 和 hello python 的例子"></a>0x04  Blink 和 hello python 的例子</h2><ul>
+<li>板子结构图</li>
+<li>通过这两个示例来初步了解板子</li>
+</ul>
+<blockquote>
+<p>1   板子结构图</p>
+</blockquote>
+<p><img src="https://www.zerynth.com/wp-content/uploads/2016/09/nodemcu2-zerynth-pinout.png" alt="esp1-2"></p>
+<blockquote>
+<p>2   Blink 和 hello 示例</p>
+</blockquote>
+<p>首先是blink，这里的结构图给出了D0是LED灯，贴出示例代码：</p>
+<p><code>main.py</code>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Led Blink</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by Zerynth Team 2015 CC</span></span><br><span class="line"><span class="comment"># Authors: G. Baldi, D. Mazzei</span></span><br><span class="line"><span class="comment">###############################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># D0 to D127 represent the names of digital pins</span></span><br><span class="line"><span class="comment"># On most Arduino-like boards Pin D13 has an on-board LED connected.</span></span><br><span class="line"><span class="comment"># However Zerynth abstracts the board layout allowing to use LED0, LED1, etc as led names.</span></span><br><span class="line"><span class="comment"># In this example LED0 is used.</span></span><br><span class="line"></span><br><span class="line">pinMode(LED0,OUTPUT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop forever</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        digitalWrite(LED0, HIGH)  <span class="comment"># turn the LED ON by setting the voltage HIGH</span></span><br><span class="line">        sleep(<span class="number">3000</span>)               <span class="comment"># wait for a second</span></span><br><span class="line">        digitalWrite(LED0, LOW)   <span class="comment"># turn the LED OFF by setting the voltage LOW</span></span><br><span class="line">        sleep(<span class="number">3000</span>)               <span class="comment"># wait for a second</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>代码分析：这里很好的利用了板子上的led灯，通过while语句块执行灯的亮灭；</p>
+</blockquote>
+<blockquote>
+<p>3  hello 例子</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###############################################################################</span></span><br><span class="line"><span class="comment"># Hello Zerynth</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by Zerynth Team 2015 CC</span></span><br><span class="line"><span class="comment"># Authors: G. Baldi, D. Mazzei</span></span><br><span class="line"><span class="comment">###############################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import the streams module, it is needed to send data around</span></span><br><span class="line"><span class="keyword">import</span> streams</span><br><span class="line"></span><br><span class="line"><span class="comment"># open the default serial port, the output will be visible in the serial console</span></span><br><span class="line">streams.serial()  </span><br><span class="line"></span><br><span class="line"><span class="comment"># loop forever</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    print(<span class="string">"Hello Python!"</span>)   <span class="comment"># print automatically knows where to print!</span></span><br><span class="line">    print(<span class="string">"Hello Zerynth!"</span>)</span><br><span class="line">    sleep(<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>代码分析：这段代码就是直接的在控制台打印字符串，还有让灯延迟1秒，但是，为啥这灯一直亮着呢  :cry:</p>
+</blockquote>
+<p><code>附上一张亮灯的图</code></p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/esp123.png" alt="esp121"></p>
+<h2 id="0x05-小结"><a href="#0x05-小结" class="headerlink" title="0x05 小结"></a>0x05 小结</h2><ul>
+<li>总之呢，大概从开发环境的搭建到示例的使用，对于这个板子有了个初步的认识；</li>
+<li>其中呢，这里要说的是，在PC端连接板子的时候，需要一个串口驱动，我是自己手动安装失败，苦苦找寻了好久，如果你最后无法手动安装，那就用驱动精灵吧，我也不知道为啥，明明驱动精灵安装的驱动版本和我自己找的版本号一样，ta能装成功我却不能:cry:</li>
+</ul>
+
           
-          <div class="out-img-topic">
-            <img src=http://p6akdr6oo.bkt.clouddn.com/header2.jpg class="img-topic" />
-           </div>
-           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/02/2018-04-02-lean/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -477,19 +508,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -502,14 +522,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -638,9 +650,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -658,21 +667,17 @@
 
       
         
-          <p>我们不肯探索自己本身的价值，我们过分看重他人在自己生命里的参与。于是，孤独不再美好，失去了他人，我们惶惑不安。 –  三毛《简单》</p>
           
+            <p>我们不肯探索自己本身的价值，我们过分看重他人在自己生命里的参与。于是，孤独不再美好，失去了他人，我们惶惑不安。 –  三毛《简单》</p>
+<a id="more"></a>
+<p>   今天偶尔看到之前在读书笔记上记录三毛的一句话，想想自己从大一到到现在，自己经历过的人和事情；越来越深刻的体会到了“自己”这一独立的存在……</p>
+<p>   以前，想着怎样的一劳永逸的解决事情，总觉得这个世界是存在那些“一步登天”的解决事情的方式的，换言之，只要自己完善自己，就可以凭借着自己的能力达到自己想要的目的；退一万步来说，这事情就算不能一步登天，“总会有一步一步完成事情，从而达到自己想要的效果吧？！”这样的想法；可是，随着自己一点点的在成长，才明白一点，很多事情，在接触到“人情”这玩意之后，很多的事情就不再是之前的“线性思维”去考虑问题了，也就是说，大多数的事情，牵扯到其他人的利益，所以，想解决问题达到相应的效果就不再是一个人能够完成的事情了。从而造就了现在的社会架构。</p>
+<p>​    最近在读《国富论》，再一次认识到人是社群动物，离不开群体，或者说需要群体；小到一根针的制作细致分工，大到一个国家的建设与维持；都离不开人的分工合作，今天，借着三毛的开头，我忽然联想到我身边的朋友、同学，都在或多或少的暴露自己对于情感方面的需求，“失而不得”，似乎总在急于寻找自己的另一半，诚然，从追求的失败到得出这样的结论，会很打击人，会很难受，会很不甘……但是，处在象牙塔里的我们，我依然觉得，这些不过是成长路上需要经历的，我自己也经历过类似的伤痛，但是我最后从中抽离出来，再细细的对自己当下的经历进行一个分析；很赞同之前在公众号上看到的一句话“高中不讲心理，大学不讲政治”（ps:大意）；那么，很多人对于自己个体的认识就不够清晰，从而导致现在大学生本应该对自我进行深度挖掘或者自我探索的一个时光，却浪费在享受物质，外表，情感……带来的各种短暂获取得到的“快乐”当中，当然我这里举例子不是说，我们一定要摒弃这些，只是，结合我自身的学习经历还有接触到的现象，可以套用三毛里的一句话：“人類往往少年老成，青年迷茫，中年喜歡將別人的成就與自己相比較，因而覺得受挫，好不容易活到老年仍是一個沒有成長的笨孩子。我們一直粗糙的活著，而人的一生，便也這樣過去了。”多少能从中看到，那个时候的人们的心理状态，其实也是当下人们的心理状态，急于恋爱，急于求成，急于证明……为的就是满足内心的快感，只是，我们忽略了当下的自己，依然是一个人，一个个体。</p>
+<p>​    于是，就有好多的<code>膨胀</code>的表现，例如：谁绿了谁，xx又分了……这又反应到了社会里好多的现象；人们不再关注自己内心，自己的成长，而是更加关注别人的隐私，忽略了当下；父母太过在意工作而忽略了当下孩子的内心成长那个；学生太在意成绩，而忽略了当下的真正需求；公务员是敲门砖，党员是敲门砖……我们真正想要的又是什么呢？</p>
+<p>​     正如三毛最后在《简单》里说的：“我不求深刻，只求简单。”在现在，我就很享受当下，即使独自一个人的当下，也很享受……因为，这里，没有别人的声音，纯粹的只有自己。</p>
+<p>​      慢慢的学会去独处，慢慢的明白这个世界的常态，慢慢的知道自己最想要的是什么？我想，这些大方向的问题值得我花一辈子去思考，去寻找……</p>
+
           
-          <div class="out-img-topic">
-            <img src=http://p6akdr6oo.bkt.clouddn.com/site1.jpg class="img-topic" />
-           </div>
-           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/31/2018-03-30-life/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -685,19 +690,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -710,14 +704,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -846,9 +832,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -866,21 +849,13 @@
 
       
         
-          <p>新年伊始，静待！</p>
           
+            <p>新年伊始，静待！</p>
+<a id="more"></a>
+<h1 id="新年祝福"><a href="#新年祝福" class="headerlink" title="新年祝福"></a>新年祝福</h1><p>   一晃就到了象牙塔的第三年了，习惯瞎忙之后，就会忽略当下。在过去的一年里，专业上还是以基础为主要，在python的陪伴下，又走过了一年；绘画上，依然还是原地打转，当然，还是莫急，现在还是积累，对于排线的熟练度较之前有了些许进步；阅读上，还是以专业书籍为核心，过去读了<code>25</code> （有记录）；PS，SAI的熟练度相比去年又进步了；当然，新年伊始，还是有好多事情可以折腾的。<code>自我技能树</code> 还在一步步开发中……总之，现在人生宗旨是以“瞎折腾，搞事请”为主。最后，附上图板绘图一张233333。</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/dog.jpg" alt="柒小猫"></p>
+
           
-          <div class="out-img-topic">
-            <img src=http://p6akdr6oo.bkt.clouddn.com/header3.jpg class="img-topic" />
-           </div>
-           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/14/2018-02-14-新年祝福/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -893,19 +868,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -918,14 +882,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -1065,9 +1021,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -1085,17 +1038,67 @@
 
       
         
-          <p>对于第一次做线上题的一个小结。</p>
           
+            <p>对于第一次做线上题的一个小结。</p>
+<a id="more"></a>
+<h1 id="WHO-ARE-YOU-–writeup"><a href="#WHO-ARE-YOU-–writeup" class="headerlink" title="WHO ARE YOU?–writeup"></a>WHO ARE YOU?–writeup</h1><p>TIPS:广东强网杯线上题</p>
+<p>总结知识点：BASE64,ROT13（部分知识源自维基百科）</p>
+<h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><blockquote>
+<ul>
+<li>什么是Base64?</li>
+<li>Base64编码原理</li>
+<li>其用途</li>
+</ul>
+</blockquote>
+<ul>
+<li>什么是Base64?<ul>
+<li><strong>Base64</strong>是一种基于64个可打印字符来表示<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6" target="_blank" rel="noopener">二进制数据</a>的表示方法。（源于维基百科）</li>
+<li>说白了就是一种用64个字符表示二进制数据的方法。</li>
+</ul>
+</li>
+<li><p>Base编码原理</p>
+<p>由于 2^6^ = 64,也就是说每6个位元为一个单元，对应某个可以打印字符。3个字节有24个位元，对应4个Base64单元，也就是可以打印4个字符。通过使用包括<a href="https://zh.wikipedia.org/wiki/%E6%8B%89%E4%B8%81%E5%AD%97%E6%AF%8D" target="_blank" rel="noopener">字母</a><code>A-Z</code>、<code>a-z</code>、<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97" target="_blank" rel="noopener">数字</a><code>0-9</code>，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。若原数据的长度为3的倍数且剩下一个输入数据则最后加两个<code>=</code> ；若元数据长度只剩下一个输入数据，则加一个<code>=</code>。</p>
+</li>
+<li><p>用途</p>
+<ul>
+<li>本次题目结合主要利用在HTTP头部报文里，当然也有应用于邮件等。</li>
+<li>url运用这个编码传输长数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="ROT13"><a href="#ROT13" class="headerlink" title="ROT13"></a>ROT13</h3><blockquote>
+<ul>
+<li>ROT13是什么？</li>
+<li>原理</li>
+</ul>
+</blockquote>
+<ul>
+<li>ROT13是什么？<ul>
+<li><strong>ROT13</strong>（<strong>迴轉13位</strong>，<strong>rotate by 13 places</strong>，有時中間加了個<a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E5%AD%97%E7%AC%A6" target="_blank" rel="noopener">连字符</a>稱作<strong>ROT-13</strong>）是一種簡易的<a href="https://zh.wikipedia.org/wiki/%E6%9B%BF%E6%8D%A2%E5%BC%8F%E5%AF%86%E7%A0%81" target="_blank" rel="noopener">替換式密碼</a>。</li>
+<li>ROT13 也是過去在<a href="https://zh.wikipedia.org/wiki/%E5%8F%A4%E7%BD%97%E9%A9%AC" target="_blank" rel="noopener">古羅馬</a>開發的<a href="https://zh.wikipedia.org/wiki/%E5%87%B1%E6%92%92%E5%AF%86%E7%A2%BC" target="_blank" rel="noopener">凱撒加密</a>的一種變體。(源于维基百科)</li>
+</ul>
+</li>
+<li>原理描述<ul>
+<li>对任何字元x：$ROT$~13~($ROT$~13~($x$)) = $ROT $ ~26~ $(x)$ = $x$ .</li>
+<li>套用ROT13到一段文字上僅僅只需要檢查字元字母順序並取代它在13位之後的對應<a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E6%AF%8D%E7%B3%BB%E7%B5%B1" target="_blank" rel="noopener">字母</a>，有需要超過時則重新繞回26英文字母開頭即可<a href="https://zh.wikipedia.org/wiki/ROT13#cite_note-schneier-2" target="_blank" rel="noopener">[2]</a>。 <code>A</code>換成<code>N</code>、<code>B</code>換成<code>O</code>、依此類推到<code>M</code>換成<code>Z</code>，然後序列反轉：<code>N</code>換成<code>A</code>、<code>O</code>換成<code>B</code>、最後<code>Z</code>換成<code>M</code>。只有這些出現在<a href="https://zh.wikipedia.org/wiki/%E8%8B%B1%E6%96%87%E5%AD%97%E6%AF%8D" target="_blank" rel="noopener">英文字母</a>裡頭的字元受影響；<a href="https://zh.wikipedia.org/wiki/%E6%95%B8%E5%AD%97" target="_blank" rel="noopener">數字</a>、<a href="https://zh.wikipedia.org/wiki/%E7%AC%A6%E5%8F%B7" target="_blank" rel="noopener">符號</a>、<a href="https://zh.wikipedia.org/w/index.php?title=%E7%A9%BA%E7%99%BD%E5%AD%97%E5%85%83&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">空白字元</a>以及所有其他字元都不變。因為只有在英文字母表裡頭只有26個，並且26 = 2 × 13，ROT13函數是它自己的<a href="https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%87%BD%E6%95%B8" target="_blank" rel="noopener">逆反</a>：<a href="https://zh.wikipedia.org/wiki/ROT13#cite_note-schneier-2" target="_blank" rel="noopener">[2]</a> </li>
+</ul>
+</li>
+</ul>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>知道了上面的知识，再来看这题：<a href="http://106.75.72.168:2222/" target="_blank" rel="noopener">WHO ARE YOU</a> </p>
+<p>点进去发现：</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-1.png" alt="1-1"></p>
+<p>这时候再来看看源码，发现并没有神马提示。按照我这个小白的理解，前端没提示，多半是后台，那么考虑服务端了。于是用BP截取数据包。</p>
+<p>诺~看http头</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-2.png" alt="1-2"></p>
+<p>看到这行Cookie，觉得这里大有文章，于是就试了试将role的值进行了BASE64解码。得到了这个<code>f:5:&quot;thrfg&quot;;</code> 这个什么意思啊？也是思路停了好久，才知道这玩意可能是ROT13，好吧，线上解码</p>
+<p><code>s:5:&quot;guest&quot;;</code> 得到了这个。那么试试改成<code>admin</code> ;再逆转编码，这时候就得到了<code>f:5:&quot;nqzvag&quot;;</code></p>
+<p>再BASE64编码一次更改cookie值就可以得到源码提示了。</p>
+<p><img src="http://p6akdr6oo.bkt.clouddn.com/1-3.png" alt="1-3"></p>
+<p><strong>构造Payload</strong></p>
+<p>filename=1.php&amp;data[]=’123’</p>
+<p>之后就得到flag文件了。</p>
+
           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/04/2018-02-04-WHOAREYOU/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1108,19 +1111,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -1133,14 +1125,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -1280,9 +1264,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -1300,17 +1281,50 @@
 
       
         
-          <p>这次再次做到了一题代码审计的题目</p>
           
+            <p>这次再次做到了一题代码审计的题目</p>
+<a id="more"></a>
+<h1 id="PHP大法好正确操作方式"><a href="#PHP大法好正确操作方式" class="headerlink" title="PHP大法好正确操作方式"></a>PHP大法好正确操作方式</h1><ul>
+<li>​</li>
+</ul>
+<p>Writeup思路：</p>
+<blockquote>
+<p>1) 审题</p>
+<p>2）找到源代码</p>
+<p>3）代码分析</p>
+<p>4) 原因总结</p>
+</blockquote>
+<h2 id="1）审题"><a href="#1）审题" class="headerlink" title="1）审题"></a>1）审题</h2><p>  题目： <a href="http://ctf5.shiyanbar.com/DUTCTF/index.php" title="（题目地址）" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/DUTCTF/index.php </a></p>
+<p>  <img src="https://i.imgur.com/pXx02gD.png" alt="1-1"><br>​    </p>
+<p> 这题的提示是“注意备份文件”，有什么用呢？<br> 点开网页看到一行文字：</p>
+<p> <img src="https://i.imgur.com/3JSNggB.png" alt="1-2"></p>
+<h2 id="2）找到源代码"><a href="#2）找到源代码" class="headerlink" title="2）找到源代码"></a>2）找到源代码</h2><p>于是试着在url上加上 <strong>.txt</strong> 然后就看到一串服务器端的代码</p>
+<pre><code>&lt;?php
+if(eregi(&quot;hackerDJ&quot;,$_GET[id])) {
+  echo(&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;);
+  exit();
+}
+
+$_GET[id] = urldecode($_GET[id]);
+if($_GET[id] == &quot;hackerDJ&quot;)
+{
+  echo &quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;;
+  echo &quot;&lt;p&gt;flag: *****************} &lt;/p&gt;&quot;;
+}
+?&gt;
+
+
+&lt;br&gt;&lt;br&gt;
+Can you authenticate to this website?
+</code></pre><h2 id="3）代码分析："><a href="#3）代码分析：" class="headerlink" title="3）代码分析："></a>3）代码分析：</h2><p>  逻辑分析：这段代码的意思可以看到就是判断获得的字符串是否是hackerDJ，如果是就可以拿到flag；</p>
+<p>  细节分析：$_GET[id] = urldecode($_GET[id]);这个函数，在php文档的说明是对传递进来的参数进行一个url的解码，就是解码已经编码的函数；且官方文档的例子是string类型的；<br>  之后我在文档看到这串文字</p>
+<p>  <img src="https://i.imgur.com/qzr52LF.png" alt="1-3"></p>
+<p>  而这题里要进行的编码正好是$_GET，所以我的理解就是解码已经解码过的参数那么，对于这里要想传入正确的值，只有通过双编码才行了，于是使用bp进行二次编码，然后再放到url上构造语句：<br>  index.php?id=%25%36%38%25%36%31%25%36%33%25%36%42%25%36%35%25%37</p>
+<p>  %32%25%34%34%25%34%41(hackDJ的url双编码)</p>
+<p>  就可以拿到flag了。</p>
+<h2 id="4）原因总结"><a href="#4）原因总结" class="headerlink" title="4）原因总结"></a>4）原因总结</h2><p> 根据这题的分析，可以看到了，平时管理员们，会出现一些备份文件没有处理好的大意的地方，才会暴露了这样的问题。<strong>论养成良好的管理习惯的重要性！！！</strong></p>
+
           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/28/2018-01-28-CTF2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1323,19 +1337,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -1350,12 +1353,382 @@
   </div>
   
   
-        <span class="post-category" >
-        </span>
+  
+  </article>
+
+
+    
       
 
- 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-acl随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-acl随笔/" itemprop="url">ACL原理小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  213
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于ACL原理的一个小结。</p>
+<a id="more"></a>
+<h1 id="ACL原理"><a href="#ACL原理" class="headerlink" title="ACL原理"></a>ACL原理</h1><h3 id="ACL概念"><a href="#ACL概念" class="headerlink" title="ACL概念"></a>ACL概念</h3><p>   <strong>Access Control List</strong>  访问控制列表</p>
+<p>   简言之，就是一个为了更好的控制不断扩大的网络的规则；</p>
+<p>   eg.四个应用：ACL、DHCP、NAT、</p>
+<p>   非必需触发条件：时间或事件；</p>
+<p>   定义报文匹配规则；条件和动作（permit or deny）</p>
+<p><strong> eg.  校园网案例 </strong></p>
+<h4 id="ACL的分类"><a href="#ACL的分类" class="headerlink" title="ACL的分类"></a>ACL的分类</h4><p>标准ACL</p>
+<blockquote>
+<p><strong>源Ip地址</strong></p>
+</blockquote>
+<p>端口号（指的是目的端口）eg.http的端口80或者8080</p>
+<p><img src="http://i.imgur.com/0RYMlCd.png" alt=""></p>
+<p> <strong>现在存在的路由器大多数都配置了ACL</strong></p>
+<p> <strong>ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝；</strong></p>
+<p> <strong>考虑ACL放在In端口还是out端口；</strong></p>
+<p> <strong>ACL里还有个默认的规则，拒绝所有的端口进入。</strong></p>
+<p> <strong>扩展ACL尽量靠近源IP地址</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-路由IP的过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-路由IP的过程/" itemprop="url">IP路由过程分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  500
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>IP路由过程的简单分析。</p>
+<a id="more"></a>
+<h1 id="IP路由过程分析"><a href="#IP路由过程分析" class="headerlink" title="IP路由过程分析"></a>IP路由过程分析</h1><hr>
+<p><img src="http://i.imgur.com/v57mT6n.png" alt="图1-1"></p>
+<p><strong>  首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口<br>fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。</strong></p>
+<p><strong> 小结： </strong></p>
+<pre><code>经过这个流程的分析我发现路由器在转发数据的过程，
+和A相连的端口是路由器的其中一个端口不是路由器的本身的网络，
+另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据,
+即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。
+从而完成了从物理网卡的转移到逻辑上的数据转移。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
   
   
@@ -1484,9 +1857,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -1504,17 +1874,63 @@
 
       
         
-          <p>对于该静态路由的一个配置记录~</p>
           
+            <p>对于该静态路由的一个配置记录~</p>
+<a id="more"></a>
+<h1 id="浮动静态路由的配置实验"><a href="#浮动静态路由的配置实验" class="headerlink" title="浮动静态路由的配置实验"></a>浮动静态路由的配置实验</h1><h3 id="网络拓扑-如下："><a href="#网络拓扑-如下：" class="headerlink" title="网络拓扑 如下："></a>网络拓扑 如下：</h3><p><img src="http://i.imgur.com/57xVZ6g.png" alt=""></p>
+<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="1-了解静态路由的配置；"><a href="#1-了解静态路由的配置；" class="headerlink" title="1.了解静态路由的配置；"></a>1.了解静态路由的配置；</h3><h3 id="2-了解浮动路由的应用范围；"><a href="#2-了解浮动路由的应用范围；" class="headerlink" title="2.了解浮动路由的应用范围；"></a>2.了解浮动路由的应用范围；</h3><h3 id="3-进一步了解Ping和tracert的作用；"><a href="#3-进一步了解Ping和tracert的作用；" class="headerlink" title="3.进一步了解Ping和tracert的作用；"></a>3.进一步了解Ping和tracert的作用；</h3><h3 id="4-明白开销值在其中的作用；"><a href="#4-明白开销值在其中的作用；" class="headerlink" title="4.明白开销值在其中的作用；"></a>4.明白开销值在其中的作用；</h3><h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h3><h4 id="1-先划分不同的网段，这个拓扑中一共有6个网段；"><a href="#1-先划分不同的网段，这个拓扑中一共有6个网段；" class="headerlink" title="1.先划分不同的网段，这个拓扑中一共有6个网段；"></a>1.先划分不同的网段，这个拓扑中一共有6个网段；</h4><h4 id="2-然后分别给PC、switch、router进行配置；"><a href="#2-然后分别给PC、switch、router进行配置；" class="headerlink" title="2.然后分别给PC、switch、router进行配置；"></a>2.然后分别给PC、switch、router进行配置；</h4><h4 id="3-配置完成后，进行Ping测试；"><a href="#3-配置完成后，进行Ping测试；" class="headerlink" title="3.配置完成后，进行Ping测试；"></a>3.配置完成后，进行Ping测试；</h4><h4 id="4-之后，再进行端口的断线测试；"><a href="#4-之后，再进行端口的断线测试；" class="headerlink" title="4.之后，再进行端口的断线测试；"></a>4.之后，再进行端口的断线测试；</h4><h3 id="实验交换机的配置命令："><a href="#实验交换机的配置命令：" class="headerlink" title="实验交换机的配置命令："></a>实验交换机的配置命令：</h3><h5 id="进入交换机的用户模式"><a href="#进入交换机的用户模式" class="headerlink" title="进入交换机的用户模式"></a>进入交换机的用户模式</h5><blockquote>
+<p>en</p>
+</blockquote>
+<h5 id="进入配置模式"><a href="#进入配置模式" class="headerlink" title="进入配置模式"></a>进入配置模式</h5><blockquote>
+<p>config t</p>
+</blockquote>
+<h5 id="分配vlan-10"><a href="#分配vlan-10" class="headerlink" title="分配vlan 10"></a>分配vlan 10</h5><blockquote>
+<p>vlan 10</p>
+</blockquote>
+<h5 id="退出vlan"><a href="#退出vlan" class="headerlink" title="退出vlan"></a>退出vlan</h5><blockquote>
+<p>exit </p>
+</blockquote>
+<h5 id="重新进入vlan10"><a href="#重新进入vlan10" class="headerlink" title="重新进入vlan10"></a>重新进入vlan10</h5><blockquote>
+<p>interface vlan 10</p>
+</blockquote>
+<h5 id="给vlan进行Ip分配"><a href="#给vlan进行Ip分配" class="headerlink" title="给vlan进行Ip分配"></a>给vlan进行Ip分配</h5><blockquote>
+<p>ip address xxx.xxx.xxx(给vlan10配置Ip)</p>
+</blockquote>
+<h4 id="交换机端口设置的命令："><a href="#交换机端口设置的命令：" class="headerlink" title="交换机端口设置的命令："></a>交换机端口设置的命令：</h4><pre><code>en
+
+config t 
+
+int fa0/0
+
+sw mode access 
+
+sw access vlan 10
+
+no shutdown
+
+exit
+</code></pre><h4 id="路由器的配置命令："><a href="#路由器的配置命令：" class="headerlink" title="路由器的配置命令："></a>路由器的配置命令：</h4><pre><code>en
+
+config t
+
+ int gi0/0
+
+ ip address xxx.xxx.xxx
+
+ no shutdown
+
+
+ exit(退出该端口)
+</code></pre><p>​    </p>
+<h4 id="静态路由的配置"><a href="#静态路由的配置" class="headerlink" title="静态路由的配置"></a>静态路由的配置</h4><pre><code>ip route  [source port]  [mask]  [netgatway] [开销值]
+</code></pre><h3 id="测试环节"><a href="#测试环节" class="headerlink" title="测试环节"></a>测试环节</h3><h4 id="ping测试"><a href="#ping测试" class="headerlink" title="ping测试"></a>ping测试</h4><p><img src="http://i.imgur.com/O3oxScH.png" alt=""></p>
+<h4 id="tracert测试"><a href="#tracert测试" class="headerlink" title="tracert测试"></a>tracert测试</h4><p><img src="http://i.imgur.com/gBZ92Qv.png" alt=""></p>
+<h4 id="断线测试"><a href="#断线测试" class="headerlink" title="断线测试"></a>断线测试</h4><h5 id="就是使黄线部分的端口断开，然后测试能不能PIng通"><a href="#就是使黄线部分的端口断开，然后测试能不能PIng通" class="headerlink" title="就是使黄线部分的端口断开，然后测试能不能PIng通"></a>就是使黄线部分的端口断开，然后测试能不能PIng通</h5><h5 id="在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，"><a href="#在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，" class="headerlink" title="在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，"></a>在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，</h5><h5 id="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"><a href="#因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。" class="headerlink" title="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"></a>因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。</h5><p><img src="http://i.imgur.com/zmRkv4S.png" alt=""></p>
+<h4 id="配置过程遇到的问题"><a href="#配置过程遇到的问题" class="headerlink" title="配置过程遇到的问题"></a>配置过程遇到的问题</h4><blockquote>
+<p>1  配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。</p>
+</blockquote>
+
           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-浮动路由配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1527,19 +1943,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -1552,14 +1957,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -1580,7 +1977,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-ospf路由转发功能/">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
@@ -1599,7 +1996,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-ospf路由转发功能/" itemprop="url">ospf路由转发功能</a></h1>
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
         
 
         <div class="post-meta">
@@ -1667,7 +2064,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  227
+                  280
                 </span>
               
 
@@ -1688,9 +2085,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -1708,17 +2102,24 @@
 
       
         
-          <p>三层交换机的ospf的简单配置。</p>
           
+            <p>rip实验的简单配置。</p>
+<a id="more"></a>
+<h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr>
+<h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p>
+<h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统
+模拟软件：PacketTracer6
+</code></pre><hr>
+<h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p>
+<h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router rip
+
+network  net [wildmask]
+</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network
+</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote>
+<p>本次rip的实验中ping通了。</p>
+</blockquote>
+
           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-ospf路由转发功能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1731,19 +2132,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -1756,14 +2146,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -1903,9 +2285,6 @@
               
             </div>
           
-          
-          
-
 
           
 
@@ -1923,17 +2302,49 @@
 
       
         
-          <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
           
+            <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
+<a id="more"></a>
+<h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
+1&gt;题目url
+2&gt;初步检测
+3&gt;查看源代码
+4&gt;分析代码构造语句
+</code></pre><h3 id="gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php"><a href="#gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php" class="headerlink" title="&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php "></a>&gt;1 题目： <a href="http://ctf5.shiyanbar.com/web/more.php" title="(Once more)" target="_blank" rel="noopener"> http://ctf5.shiyanbar.com/web/more.php </a></h3><p>  首先，看看题目有什么提示，如图：</p>
+<p>  <img src="https://i.imgur.com/HzvVac9.png" alt="(代码审计)"> </p>
+<h3 id="gt-2-初步检测"><a href="#gt-2-初步检测" class="headerlink" title="&gt;2 初步检测"></a>&gt;2 初步检测</h3><p>  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；<br>  在password里输入了111来检测</p>
+<p>  <img src="https://i.imgur.com/xy2jela.png" alt="（代码审计2）">  </p>
+<p>  输入完之后</p>
+<p>  <img src="https://i.imgur.com/QRIvUrY.png" alt="（代码审计3）"></p>
+<h3 id="gt-3-查看源代码"><a href="#gt-3-查看源代码" class="headerlink" title="&gt;3 查看源代码"></a>&gt;3 查看源代码</h3><p>  这时候看到 <strong>view the source code</strong> 可以点开打开源码进行查看<br>  贴上源代码：</p>
+<pre><code>&lt;?php
+ if (isset ($_GET[&apos;password&apos;])) {
+ if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
+ {
+     echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;;
+ }
+ else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999)
+ {
+     if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE)
+     {
+         die(&apos;Flag: &apos; . $flag);
+     }
+     else
+     {
+         echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;);
+     }
+ }
+ else
+ {
+     echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
+ }
+}
+?&gt;
+</code></pre><h3 id="gt-4-分析代码构造语句"><a href="#gt-4-分析代码构造语句" class="headerlink" title="&gt;4 分析代码构造语句"></a>&gt;4 分析代码构造语句</h3><p>   首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造，<br>   3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？</p>
+<p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
+<p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
+
           
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-CTF/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1946,19 +2357,8 @@
     
 
     
-    <div>
-       
-    </div>
-    
-   
 
     <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
       
 
       
@@ -1971,422 +2371,6 @@
       
     </footer>
   </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-acl随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-acl随笔/" itemprop="url">ACL原理小结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  213
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-          
-          
-
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>对于ACL原理的一个小结。</p>
-          
-          
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-acl随笔/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-       
-    </div>
-    
-   
-
-    <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  280
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-          
-          
-
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>rip实验的简单配置。</p>
-          
-          
-           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-rip路由的配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-       
-    </div>
-    
-   
-
-    <footer class="post-footer">
-    
-    
-     <div>    
-      
-    </div>
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-        <span class="post-category" >
-        </span>
-      
-
- 
-  
   
   
   
@@ -2440,7 +2424,6 @@
               <p class="site-author-name" itemprop="name">JHeln</p>
               <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
           </div>
-
           
 <!--my custom code begin-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -2454,7 +2437,7 @@
 </script>
 <div id="mydivshow" class="mydivshow">
 <!--my custom code end-->
-          
+
           <nav class="site-state motion-element">
 
             
@@ -2472,10 +2455,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                
                   <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
-                </a>
+                
               </div>
             
 
@@ -2483,10 +2466,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
-                </a>
+                
               </div>
             
 
@@ -2533,7 +2516,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-links"></i>
-                触一触
+                Link
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -2557,42 +2540,15 @@
             </div>
           
 
-          ﻿<div id="days"></div>
-</script>
-<script language="javascript">
-function show_date_time(){
-window.setTimeout("show_date_time()", 1000);
-BirthDay=new Date("03/25/2018 15:00:00");
-today=new Date();
-timeold=(today.getTime()-BirthDay.getTime());
-sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);
-msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);
-e_hrsold=(e_daysold-daysold)*24;
-hrsold=setzero(Math.floor(e_hrsold));
-e_minsold=(e_hrsold-hrsold)*60;
-minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-seconds=setzero(Math.floor((e_minsold-minsold)*60));
-document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
-}
-function setzero(i){
-if (i<10)
-{i="0" + i};
-return i;
-}
-show_date_time();
-</script>
-
-
+          
 
         </div>
-        
+       
         <!--my custom code begin-->
         </div>
         <!--my custom code end-->
-        
+
+       
       </section>
 
       
@@ -2609,11 +2565,8 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-  
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">JHeln</span>
@@ -2622,12 +2575,7 @@ show_date_time();
 </div>
 
 
-  <div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站来访数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
-<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -2636,9 +2584,6 @@ show_date_time();
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
--->
-
-
 
 
 
@@ -2665,8 +2610,7 @@ show_date_time();
     
 
   </div>
-  <!-- ������ -->
-  
+
   
 
 <script type="text/javascript">
@@ -3119,19 +3063,5 @@ show_date_time();
 
   
 
-  <!-- �����Ч 
-<canvas class="fireworks" style="postion:fixed;left: 0;z-index: 1;pointer-events: none;"></canvas>
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-<script type="text/javascript" src="/js/src/fireworks.js"></script>
--->
-  <!-- ҳ����С���� -->
-<script type="text/javascript" src="/js/src/love.js"></script>
-  
-   <!-- ������ -->
-   <!--��ըЧ��-->
-<!-- ��� -->
-
-<!--���-->
- 
 </body>
 </html>
