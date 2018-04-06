@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2009;
+  background: #ed7428;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2767,6 +2767,10 @@ body {
   font-family: "fas fa-dove";
   font-size: 20px;
   font-style: normal;
+}
+.site-uv::after {
+  content: "|";
+  padding-left: 10px;
 }
 .content {
   border-radius: 20px;
