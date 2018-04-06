@@ -1406,669 +1406,6 @@ Can you authenticate to this website?
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-浮动路由配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-浮动路由配置/" itemprop="url">浮动静态路由的配置实验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  557
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对于该静态路由的一个配置记录~</p>
-<a id="more"></a>
-<h1 id="浮动静态路由的配置实验"><a href="#浮动静态路由的配置实验" class="headerlink" title="浮动静态路由的配置实验"></a>浮动静态路由的配置实验</h1><h3 id="网络拓扑-如下："><a href="#网络拓扑-如下：" class="headerlink" title="网络拓扑 如下："></a>网络拓扑 如下：</h3><p><img src="http://i.imgur.com/57xVZ6g.png" alt=""></p>
-<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="1-了解静态路由的配置；"><a href="#1-了解静态路由的配置；" class="headerlink" title="1.了解静态路由的配置；"></a>1.了解静态路由的配置；</h3><h3 id="2-了解浮动路由的应用范围；"><a href="#2-了解浮动路由的应用范围；" class="headerlink" title="2.了解浮动路由的应用范围；"></a>2.了解浮动路由的应用范围；</h3><h3 id="3-进一步了解Ping和tracert的作用；"><a href="#3-进一步了解Ping和tracert的作用；" class="headerlink" title="3.进一步了解Ping和tracert的作用；"></a>3.进一步了解Ping和tracert的作用；</h3><h3 id="4-明白开销值在其中的作用；"><a href="#4-明白开销值在其中的作用；" class="headerlink" title="4.明白开销值在其中的作用；"></a>4.明白开销值在其中的作用；</h3><h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h3><h4 id="1-先划分不同的网段，这个拓扑中一共有6个网段；"><a href="#1-先划分不同的网段，这个拓扑中一共有6个网段；" class="headerlink" title="1.先划分不同的网段，这个拓扑中一共有6个网段；"></a>1.先划分不同的网段，这个拓扑中一共有6个网段；</h4><h4 id="2-然后分别给PC、switch、router进行配置；"><a href="#2-然后分别给PC、switch、router进行配置；" class="headerlink" title="2.然后分别给PC、switch、router进行配置；"></a>2.然后分别给PC、switch、router进行配置；</h4><h4 id="3-配置完成后，进行Ping测试；"><a href="#3-配置完成后，进行Ping测试；" class="headerlink" title="3.配置完成后，进行Ping测试；"></a>3.配置完成后，进行Ping测试；</h4><h4 id="4-之后，再进行端口的断线测试；"><a href="#4-之后，再进行端口的断线测试；" class="headerlink" title="4.之后，再进行端口的断线测试；"></a>4.之后，再进行端口的断线测试；</h4><h3 id="实验交换机的配置命令："><a href="#实验交换机的配置命令：" class="headerlink" title="实验交换机的配置命令："></a>实验交换机的配置命令：</h3><h5 id="进入交换机的用户模式"><a href="#进入交换机的用户模式" class="headerlink" title="进入交换机的用户模式"></a>进入交换机的用户模式</h5><blockquote>
-<p>en</p>
-</blockquote>
-<h5 id="进入配置模式"><a href="#进入配置模式" class="headerlink" title="进入配置模式"></a>进入配置模式</h5><blockquote>
-<p>config t</p>
-</blockquote>
-<h5 id="分配vlan-10"><a href="#分配vlan-10" class="headerlink" title="分配vlan 10"></a>分配vlan 10</h5><blockquote>
-<p>vlan 10</p>
-</blockquote>
-<h5 id="退出vlan"><a href="#退出vlan" class="headerlink" title="退出vlan"></a>退出vlan</h5><blockquote>
-<p>exit </p>
-</blockquote>
-<h5 id="重新进入vlan10"><a href="#重新进入vlan10" class="headerlink" title="重新进入vlan10"></a>重新进入vlan10</h5><blockquote>
-<p>interface vlan 10</p>
-</blockquote>
-<h5 id="给vlan进行Ip分配"><a href="#给vlan进行Ip分配" class="headerlink" title="给vlan进行Ip分配"></a>给vlan进行Ip分配</h5><blockquote>
-<p>ip address xxx.xxx.xxx(给vlan10配置Ip)</p>
-</blockquote>
-<h4 id="交换机端口设置的命令："><a href="#交换机端口设置的命令：" class="headerlink" title="交换机端口设置的命令："></a>交换机端口设置的命令：</h4><pre><code>en
-
-config t 
-
-int fa0/0
-
-sw mode access 
-
-sw access vlan 10
-
-no shutdown
-
-exit
-</code></pre><h4 id="路由器的配置命令："><a href="#路由器的配置命令：" class="headerlink" title="路由器的配置命令："></a>路由器的配置命令：</h4><pre><code>en
-
-config t
-
- int gi0/0
-
- ip address xxx.xxx.xxx
-
- no shutdown
-
-
- exit(退出该端口)
-</code></pre><p>​    </p>
-<h4 id="静态路由的配置"><a href="#静态路由的配置" class="headerlink" title="静态路由的配置"></a>静态路由的配置</h4><pre><code>ip route  [source port]  [mask]  [netgatway] [开销值]
-</code></pre><h3 id="测试环节"><a href="#测试环节" class="headerlink" title="测试环节"></a>测试环节</h3><h4 id="ping测试"><a href="#ping测试" class="headerlink" title="ping测试"></a>ping测试</h4><p><img src="http://i.imgur.com/O3oxScH.png" alt=""></p>
-<h4 id="tracert测试"><a href="#tracert测试" class="headerlink" title="tracert测试"></a>tracert测试</h4><p><img src="http://i.imgur.com/gBZ92Qv.png" alt=""></p>
-<h4 id="断线测试"><a href="#断线测试" class="headerlink" title="断线测试"></a>断线测试</h4><h5 id="就是使黄线部分的端口断开，然后测试能不能PIng通"><a href="#就是使黄线部分的端口断开，然后测试能不能PIng通" class="headerlink" title="就是使黄线部分的端口断开，然后测试能不能PIng通"></a>就是使黄线部分的端口断开，然后测试能不能PIng通</h5><h5 id="在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，"><a href="#在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，" class="headerlink" title="在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，"></a>在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，</h5><h5 id="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"><a href="#因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。" class="headerlink" title="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"></a>因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。</h5><p><img src="http://i.imgur.com/zmRkv4S.png" alt=""></p>
-<h4 id="配置过程遇到的问题"><a href="#配置过程遇到的问题" class="headerlink" title="配置过程遇到的问题"></a>配置过程遇到的问题</h4><blockquote>
-<p>1  配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-    
-<div>    
- 
- 
-</div>
-    
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  280
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>rip实验的简单配置。</p>
-<a id="more"></a>
-<h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr>
-<h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p>
-<h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统
-模拟软件：PacketTracer6
-</code></pre><hr>
-<h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p>
-<h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router rip
-
-network  net [wildmask]
-</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network
-</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote>
-<p>本次rip的实验中ping通了。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-    
-<div>    
- 
- 
-</div>
-    
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-CTF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JHeln">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/ME2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JHeln'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-CTF/" itemprop="url">ONCE MORE的正确打开姿势</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
-                2018-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  677
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
-<a id="more"></a>
-<h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
-1&gt;题目url
-2&gt;初步检测
-3&gt;查看源代码
-4&gt;分析代码构造语句
-</code></pre><h3 id="gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php"><a href="#gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php" class="headerlink" title="&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php "></a>&gt;1 题目： <a href="http://ctf5.shiyanbar.com/web/more.php" title="(Once more)" target="_blank" rel="noopener"> http://ctf5.shiyanbar.com/web/more.php </a></h3><p>  首先，看看题目有什么提示，如图：</p>
-<p>  <img src="https://i.imgur.com/HzvVac9.png" alt="(代码审计)"> </p>
-<h3 id="gt-2-初步检测"><a href="#gt-2-初步检测" class="headerlink" title="&gt;2 初步检测"></a>&gt;2 初步检测</h3><p>  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；<br>  在password里输入了111来检测</p>
-<p>  <img src="https://i.imgur.com/xy2jela.png" alt="（代码审计2）">  </p>
-<p>  输入完之后</p>
-<p>  <img src="https://i.imgur.com/QRIvUrY.png" alt="（代码审计3）"></p>
-<h3 id="gt-3-查看源代码"><a href="#gt-3-查看源代码" class="headerlink" title="&gt;3 查看源代码"></a>&gt;3 查看源代码</h3><p>  这时候看到 <strong>view the source code</strong> 可以点开打开源码进行查看<br>  贴上源代码：</p>
-<pre><code>&lt;?php
- if (isset ($_GET[&apos;password&apos;])) {
- if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
- {
-     echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;;
- }
- else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999)
- {
-     if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE)
-     {
-         die(&apos;Flag: &apos; . $flag);
-     }
-     else
-     {
-         echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;);
-     }
- }
- else
- {
-     echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
- }
-}
-?&gt;
-</code></pre><h3 id="gt-4-分析代码构造语句"><a href="#gt-4-分析代码构造语句" class="headerlink" title="&gt;4 分析代码构造语句"></a>&gt;4 分析代码构造语句</h3><p>   首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造，<br>   3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？</p>
-<p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
-<p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-    
-<div>    
- 
- 
-</div>
-    
-    
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-acl随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2407,6 +1744,669 @@ network  net [wildmask]
 即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。
 从而完成了从物理网卡的转移到逻辑上的数据转移。
 </code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+    
+<div>    
+ 
+ 
+</div>
+    
+    
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-浮动路由配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-浮动路由配置/" itemprop="url">浮动静态路由的配置实验</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  557
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于该静态路由的一个配置记录~</p>
+<a id="more"></a>
+<h1 id="浮动静态路由的配置实验"><a href="#浮动静态路由的配置实验" class="headerlink" title="浮动静态路由的配置实验"></a>浮动静态路由的配置实验</h1><h3 id="网络拓扑-如下："><a href="#网络拓扑-如下：" class="headerlink" title="网络拓扑 如下："></a>网络拓扑 如下：</h3><p><img src="http://i.imgur.com/57xVZ6g.png" alt=""></p>
+<h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="1-了解静态路由的配置；"><a href="#1-了解静态路由的配置；" class="headerlink" title="1.了解静态路由的配置；"></a>1.了解静态路由的配置；</h3><h3 id="2-了解浮动路由的应用范围；"><a href="#2-了解浮动路由的应用范围；" class="headerlink" title="2.了解浮动路由的应用范围；"></a>2.了解浮动路由的应用范围；</h3><h3 id="3-进一步了解Ping和tracert的作用；"><a href="#3-进一步了解Ping和tracert的作用；" class="headerlink" title="3.进一步了解Ping和tracert的作用；"></a>3.进一步了解Ping和tracert的作用；</h3><h3 id="4-明白开销值在其中的作用；"><a href="#4-明白开销值在其中的作用；" class="headerlink" title="4.明白开销值在其中的作用；"></a>4.明白开销值在其中的作用；</h3><h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h3><h4 id="1-先划分不同的网段，这个拓扑中一共有6个网段；"><a href="#1-先划分不同的网段，这个拓扑中一共有6个网段；" class="headerlink" title="1.先划分不同的网段，这个拓扑中一共有6个网段；"></a>1.先划分不同的网段，这个拓扑中一共有6个网段；</h4><h4 id="2-然后分别给PC、switch、router进行配置；"><a href="#2-然后分别给PC、switch、router进行配置；" class="headerlink" title="2.然后分别给PC、switch、router进行配置；"></a>2.然后分别给PC、switch、router进行配置；</h4><h4 id="3-配置完成后，进行Ping测试；"><a href="#3-配置完成后，进行Ping测试；" class="headerlink" title="3.配置完成后，进行Ping测试；"></a>3.配置完成后，进行Ping测试；</h4><h4 id="4-之后，再进行端口的断线测试；"><a href="#4-之后，再进行端口的断线测试；" class="headerlink" title="4.之后，再进行端口的断线测试；"></a>4.之后，再进行端口的断线测试；</h4><h3 id="实验交换机的配置命令："><a href="#实验交换机的配置命令：" class="headerlink" title="实验交换机的配置命令："></a>实验交换机的配置命令：</h3><h5 id="进入交换机的用户模式"><a href="#进入交换机的用户模式" class="headerlink" title="进入交换机的用户模式"></a>进入交换机的用户模式</h5><blockquote>
+<p>en</p>
+</blockquote>
+<h5 id="进入配置模式"><a href="#进入配置模式" class="headerlink" title="进入配置模式"></a>进入配置模式</h5><blockquote>
+<p>config t</p>
+</blockquote>
+<h5 id="分配vlan-10"><a href="#分配vlan-10" class="headerlink" title="分配vlan 10"></a>分配vlan 10</h5><blockquote>
+<p>vlan 10</p>
+</blockquote>
+<h5 id="退出vlan"><a href="#退出vlan" class="headerlink" title="退出vlan"></a>退出vlan</h5><blockquote>
+<p>exit </p>
+</blockquote>
+<h5 id="重新进入vlan10"><a href="#重新进入vlan10" class="headerlink" title="重新进入vlan10"></a>重新进入vlan10</h5><blockquote>
+<p>interface vlan 10</p>
+</blockquote>
+<h5 id="给vlan进行Ip分配"><a href="#给vlan进行Ip分配" class="headerlink" title="给vlan进行Ip分配"></a>给vlan进行Ip分配</h5><blockquote>
+<p>ip address xxx.xxx.xxx(给vlan10配置Ip)</p>
+</blockquote>
+<h4 id="交换机端口设置的命令："><a href="#交换机端口设置的命令：" class="headerlink" title="交换机端口设置的命令："></a>交换机端口设置的命令：</h4><pre><code>en
+
+config t 
+
+int fa0/0
+
+sw mode access 
+
+sw access vlan 10
+
+no shutdown
+
+exit
+</code></pre><h4 id="路由器的配置命令："><a href="#路由器的配置命令：" class="headerlink" title="路由器的配置命令："></a>路由器的配置命令：</h4><pre><code>en
+
+config t
+
+ int gi0/0
+
+ ip address xxx.xxx.xxx
+
+ no shutdown
+
+
+ exit(退出该端口)
+</code></pre><p>​    </p>
+<h4 id="静态路由的配置"><a href="#静态路由的配置" class="headerlink" title="静态路由的配置"></a>静态路由的配置</h4><pre><code>ip route  [source port]  [mask]  [netgatway] [开销值]
+</code></pre><h3 id="测试环节"><a href="#测试环节" class="headerlink" title="测试环节"></a>测试环节</h3><h4 id="ping测试"><a href="#ping测试" class="headerlink" title="ping测试"></a>ping测试</h4><p><img src="http://i.imgur.com/O3oxScH.png" alt=""></p>
+<h4 id="tracert测试"><a href="#tracert测试" class="headerlink" title="tracert测试"></a>tracert测试</h4><p><img src="http://i.imgur.com/gBZ92Qv.png" alt=""></p>
+<h4 id="断线测试"><a href="#断线测试" class="headerlink" title="断线测试"></a>断线测试</h4><h5 id="就是使黄线部分的端口断开，然后测试能不能PIng通"><a href="#就是使黄线部分的端口断开，然后测试能不能PIng通" class="headerlink" title="就是使黄线部分的端口断开，然后测试能不能PIng通"></a>就是使黄线部分的端口断开，然后测试能不能PIng通</h5><h5 id="在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，"><a href="#在实验中不能ping通的，必须将78-9到78-10这段也断开，才能使备份的路由启动，" class="headerlink" title="在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，"></a>在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，</h5><h5 id="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"><a href="#因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。" class="headerlink" title="因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。"></a>因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。</h5><p><img src="http://i.imgur.com/zmRkv4S.png" alt=""></p>
+<h4 id="配置过程遇到的问题"><a href="#配置过程遇到的问题" class="headerlink" title="配置过程遇到的问题"></a>配置过程遇到的问题</h4><blockquote>
+<p>1  配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+    
+<div>    
+ 
+ 
+</div>
+    
+    
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-CTF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-CTF/" itemprop="url">ONCE MORE的正确打开姿势</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  677
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。</p>
+<a id="more"></a>
+<h1 id="ONCE-MORE-of-write-up"><a href="#ONCE-MORE-of-write-up" class="headerlink" title="ONCE MORE of write up"></a>ONCE MORE of write up</h1><pre><code>write up:
+1&gt;题目url
+2&gt;初步检测
+3&gt;查看源代码
+4&gt;分析代码构造语句
+</code></pre><h3 id="gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php"><a href="#gt-1-题目：-http-ctf5-shiyanbar-com-web-more-php" class="headerlink" title="&gt;1 题目：  http://ctf5.shiyanbar.com/web/more.php "></a>&gt;1 题目： <a href="http://ctf5.shiyanbar.com/web/more.php" title="(Once more)" target="_blank" rel="noopener"> http://ctf5.shiyanbar.com/web/more.php </a></h3><p>  首先，看看题目有什么提示，如图：</p>
+<p>  <img src="https://i.imgur.com/HzvVac9.png" alt="(代码审计)"> </p>
+<h3 id="gt-2-初步检测"><a href="#gt-2-初步检测" class="headerlink" title="&gt;2 初步检测"></a>&gt;2 初步检测</h3><p>  可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着；<br>  在password里输入了111来检测</p>
+<p>  <img src="https://i.imgur.com/xy2jela.png" alt="（代码审计2）">  </p>
+<p>  输入完之后</p>
+<p>  <img src="https://i.imgur.com/QRIvUrY.png" alt="（代码审计3）"></p>
+<h3 id="gt-3-查看源代码"><a href="#gt-3-查看源代码" class="headerlink" title="&gt;3 查看源代码"></a>&gt;3 查看源代码</h3><p>  这时候看到 <strong>view the source code</strong> 可以点开打开源码进行查看<br>  贴上源代码：</p>
+<pre><code>&lt;?php
+ if (isset ($_GET[&apos;password&apos;])) {
+ if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
+ {
+     echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;;
+ }
+ else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999)
+ {
+     if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE)
+     {
+         die(&apos;Flag: &apos; . $flag);
+     }
+     else
+     {
+         echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;);
+     }
+ }
+ else
+ {
+     echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
+ }
+}
+?&gt;
+</code></pre><h3 id="gt-4-分析代码构造语句"><a href="#gt-4-分析代码构造语句" class="headerlink" title="&gt;4 分析代码构造语句"></a>&gt;4 分析代码构造语句</h3><p>   首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造，<br>   3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？</p>
+<p>   在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-<em>” 这句语句的意思就是终止对 \</em>-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。</p>
+<p>  <strong>TIS</strong>：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+    
+<div>    
+ 
+ 
+</div>
+    
+    
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JHeln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/ME2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JHeln'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T00:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  280
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>rip实验的简单配置。</p>
+<a id="more"></a>
+<h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr>
+<h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p>
+<h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统
+模拟软件：PacketTracer6
+</code></pre><hr>
+<h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p>
+<h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router rip
+
+network  net [wildmask]
+</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network
+</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote>
+<p>本次rip的实验中ping通了。</p>
+</blockquote>
+
           
         
       
