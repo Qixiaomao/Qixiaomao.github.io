@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[象牙塔的困惑（一）]]></title>
+    <url>%2F2018%2F04%2F08%2F2018-04-08-think%2F</url>
+    <content type="text"><![CDATA[​之前再次看到了个《乔布斯传》的视频讲解，再次感叹道，作为当今大学生一员，我的身边任然充斥着“象牙塔”困惑…… 生而为人的困惑​ 之前有朋友和我讨论过，说是在思政课上和老师理论，人生的意义是什么？人为了什么而活？当时的她这么拿出来说起这个事的时候，我脑子思绪万千，想起初中的时候我也在和小伙伴讨论过这个问题。但是，很显然，依然没有答案~ ​ 后来，随着不断的接触到哲学，心理学，文学描述……结合自己为人处世所遇到的经历，虽然我至今还没有答案，但是我多少觉得我知道我该做什么了。那么，作为人类，生而独立，死的时候也是独立。那么，明显“独立”，是我们与生俱来的东西，但是，我们进入社会，进入群体的时候，就会开始不明所以，自己“存在”的价值所在。这个时候，我想就是自己迷茫的时候，其实，会迷茫是个常态，我不太明白这个“常态”带来的为什么对于我身边的大学生朋友们会伴随着恐惧，焦虑……等等负面情绪。这个时候不是应该停下来好好思考自己最想做的是什么事情么？ ​ 那么，明白了自己现在最想做的事情，之后就是为了这个想法去奋斗—-实践了；但是这步也难倒了很多人。那么总结来说，对于很多事情都是，我身边的大学生朋友都是想的大，想的宽泛，但是缺乏了对现实的理解程度，这个理解程度，说白了就是对于这个社会的现象，社会的规则我们理解多少，突然想起了一句话：“当今的年轻人，都是想的多，做的少。”这句话也在一定的角度上阐述了当今有想法的年轻人特别多，但是，能实干的却不多。当然，这里摊开来说，也有许多的话题可以讨论。我回归正题，我们处在象牙塔中，所以在所难免都会沉迷在“无忧无虑”、“美好想象”当中，殊不知，这个社会有它运行的规则，每个模块都是互相运作却也不可缺少，这对于当今，我身边的大学朋友来说，他们接触的程度少之又少，或者接触过了得过且过，又不去开发自身的价值，以及自我挖掘……于是，就会在闲暇时发呆思考生而为人的意义。然后就会陷入无限的迷茫和恐惧中，最后在拿在象牙塔里徘徊的时间作为“麻醉”自己的借口……最终，还是会陷入无限的困惑当中。于是，我们生来孤独，生来恐惧，这时候，更加的孤独无助，更加的恐惧…… ​ 这就是象牙塔的困惑吧………… ​ （关于下节，会讨论社会的结构，以此对这个现实有个概念……）]]></content>
+      <categories>
+        <category>生活</category>
+        <category>思考</category>
+      </categories>
+      <tags>
+        <tag>社会现象</tag>
+        <tag>心理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[初识ESP8266]]></title>
     <url>%2F2018%2F04%2F02%2F2018-04-02-lean%2F</url>
     <content type="text"><![CDATA[物联网的学生总是要接触硬件开发板的，虽然只是个小小的板子，但是还是记录下这次的折腾…… 0x01 令人头疼的板子 说起物联网，当然是 是送快递的物流啊不不不，其实你应该想到的是“万物互联”。说到物联网，当然首先要玩（折腾） 的就是板子了，其中就有ESP8266，这个就是板子，于是谷歌 了一番，发现这玩意居然不止一个版本，现在市面上主流的是12E或者12，串口版本有V2、V3的，这……明显是个大坑啊。本着折腾的心，我就买了个板子NodeMCU V2的好了，看看某个网站的官方文档的介绍: 这……大概意思就是，这个板子是一个可靠耐用可开源的物联网平台的设备。特点嘛，就是4MBflash存储，带wifi模块的设备…… 我的板子： 设备概要： Microcontroller: Tensilica 32-bit RISC CPU Xtensa LX106 Operating Voltage: 3.3V Input Voltage: 7-12V Digital I/O Pins (DIO): 16 Analog Input Pins (ADC): 1 UARTs: 1 SPIs: 1 I2Cs: 1 Flash Memory: 4 MB SRAM: 64 KB Clock Speed: 80 Mhz Wi-Fi: IEEE 802.11 b/g/n: Integrated TR switch, balun, LNA, power amplifier and matching network WEP or WPA/WPA2 authentication, or open networks 这些参数懒得做翻译了，感觉都看得懂，不懂的就查词一下下~ 0x02 开发环境的介绍 zerynth （官方链接：https://www.zerynth.com/） 串口驱动 （自行谷歌） windows10（我的系统环境） ESP8266 - NodeMCU V2 usb线 0x03 IDE的使用 参考zerynth官方文档 https://docs.zerynth.com 不做太多介绍 0x04 Blink 和 hello python 的例子 板子结构图 通过这两个示例来初步了解板子 1 板子结构图 2 Blink 和 hello 示例 首先是blink，这里的结构图给出了D0是LED灯，贴出示例代码： main.py 12345678910111213141516171819# Led Blink## Created by Zerynth Team 2015 CC# Authors: G. Baldi, D. Mazzei################################################################################ D0 to D127 represent the names of digital pins# On most Arduino-like boards Pin D13 has an on-board LED connected.# However Zerynth abstracts the board layout allowing to use LED0, LED1, etc as led names.# In this example LED0 is used.pinMode(LED0,OUTPUT)# loop foreverwhile True: digitalWrite(LED0, HIGH) # turn the LED ON by setting the voltage HIGH sleep(3000) # wait for a second digitalWrite(LED0, LOW) # turn the LED OFF by setting the voltage LOW sleep(3000) # wait for a second 代码分析：这里很好的利用了板子上的led灯，通过while语句块执行灯的亮灭； 3 hello 例子 123456789101112131415161718################################################################################ Hello Zerynth## Created by Zerynth Team 2015 CC# Authors: G. Baldi, D. Mazzei################################################################################ import the streams module, it is needed to send data aroundimport streams# open the default serial port, the output will be visible in the serial consolestreams.serial() # loop foreverwhile True: print("Hello Python!") # print automatically knows where to print! print("Hello Zerynth!") sleep(1000) 代码分析：这段代码就是直接的在控制台打印字符串，还有让灯延迟1秒，但是，为啥这灯一直亮着呢 :cry: 附上一张亮灯的图 0x05 小结 总之呢，大概从开发环境的搭建到示例的使用，对于这个板子有了个初步的认识； 其中呢，这里要说的是，在PC端连接板子的时候，需要一个串口驱动，我是自己手动安装失败，苦苦找寻了好久，如果你最后无法手动安装，那就用驱动精灵吧，我也不知道为啥，明明驱动精灵安装的驱动版本和我自己找的版本号一样，ta能装成功我却不能:cry:]]></content>
@@ -20,8 +33,8 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>思考</tag>
         <tag>杂感</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -74,6 +87,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
+    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
+      <categories>
+        <category>CTF</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IP路由过程分析]]></title>
     <url>%2F2018%2F01%2F27%2F2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[IP路由过程的简单分析。 IP路由过程分析 首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。 小结： 经过这个流程的分析我发现路由器在转发数据的过程， 和A相连的端口是路由器的其中一个端口不是路由器的本身的网络， 另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据, 即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。 从而完成了从物理网卡的转移到逻辑上的数据转移。]]></content>
@@ -85,15 +111,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ospf路由转发功能]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD%2F</url>
-    <content type="text"><![CDATA[三层交换机的ospf的简单配置。 三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述； sw(config)#ip routing 这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。]]></content>
+    <title><![CDATA[浮动静态路由的配置实验]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[对于该静态路由的一个配置记录~ 浮动静态路由的配置实验网络拓扑 如下： 实验目的1.了解静态路由的配置；2.了解浮动路由的应用范围；3.进一步了解Ping和tracert的作用；4.明白开销值在其中的作用；实验步骤1.先划分不同的网段，这个拓扑中一共有6个网段；2.然后分别给PC、switch、router进行配置；3.配置完成后，进行Ping测试；4.之后，再进行端口的断线测试；实验交换机的配置命令：进入交换机的用户模式 en 进入配置模式 config t 分配vlan 10 vlan 10 退出vlan exit 重新进入vlan10 interface vlan 10 给vlan进行Ip分配 ip address xxx.xxx.xxx(给vlan10配置Ip) 交换机端口设置的命令：en config t int fa0/0 sw mode access sw access vlan 10 no shutdown exit 路由器的配置命令：en config t int gi0/0 ip address xxx.xxx.xxx no shutdown exit(退出该端口) ​ 静态路由的配置ip route [source port] [mask] [netgatway] [开销值] 测试环节ping测试 tracert测试 断线测试就是使黄线部分的端口断开，然后测试能不能PIng通在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。 配置过程遇到的问题 1 配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
-        <tag>ospf</tag>
+        <tag>静态路由</tag>
       </tags>
   </entry>
   <entry>
@@ -109,28 +135,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
-    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
-      <categories>
-        <category>CTF</category>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[浮动静态路由的配置实验]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[对于该静态路由的一个配置记录~ 浮动静态路由的配置实验网络拓扑 如下： 实验目的1.了解静态路由的配置；2.了解浮动路由的应用范围；3.进一步了解Ping和tracert的作用；4.明白开销值在其中的作用；实验步骤1.先划分不同的网段，这个拓扑中一共有6个网段；2.然后分别给PC、switch、router进行配置；3.配置完成后，进行Ping测试；4.之后，再进行端口的断线测试；实验交换机的配置命令：进入交换机的用户模式 en 进入配置模式 config t 分配vlan 10 vlan 10 退出vlan exit 重新进入vlan10 interface vlan 10 给vlan进行Ip分配 ip address xxx.xxx.xxx(给vlan10配置Ip) 交换机端口设置的命令：en config t int fa0/0 sw mode access sw access vlan 10 no shutdown exit 路由器的配置命令：en config t int gi0/0 ip address xxx.xxx.xxx no shutdown exit(退出该端口) ​ 静态路由的配置ip route [source port] [mask] [netgatway] [开销值] 测试环节ping测试 tracert测试 断线测试就是使黄线部分的端口断开，然后测试能不能PIng通在实验中不能ping通的，必须将78.9到78.10这段也断开，才能使备份的路由启动，因此，在这种类似的相对复杂点的网络拓扑中，如果使用浮动路由的配置，其实作用不大。 配置过程遇到的问题 1 配置过程中遇到的一个问题就是没明白这个网络拓扑图的真正意图，以为图中的黄线部分只要断开了，那么通过浮动路由的配置就会产生浮动，然后跟踪路由发现，一直在78.9到78.10这之间跳动，后来，我试着将78.9到78.10这一网段之间也断开，然后另一段的网段就通了，其实是发生了浮动路由转移的，但是那会我还是没明白，其实这就是浮动静态路由的弊端，在类似的这些网络拓扑图中，浮动路由其实没有多大的意义。]]></content>
+    <title><![CDATA[ospf路由转发功能]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[三层交换机的ospf的简单配置。 三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述； sw(config)#ip routing 这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
-        <tag>静态路由</tag>
+        <tag>ospf</tag>
       </tags>
   </entry>
   <entry>
