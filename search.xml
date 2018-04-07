@@ -143,29 +143,6 @@
     </entry>
     
     <entry>
-      <title>rip实验的配置</title>
-      <link href="/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-      <url>/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>rip实验的简单配置。</p><a id="more"></a><h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr><h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p><h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统模拟软件：PacketTracer6</code></pre><hr><h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p><h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router ripnetwork  net [wildmask]</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote><p>本次rip的实验中ping通了。</p></blockquote>]]></content>
-      
-      <categories>
-          
-          <category> 网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 路由器 </tag>
-            
-            <tag> rip </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>IP路由过程分析</title>
       <link href="/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
       <url>/2018/01/27/2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
@@ -204,6 +181,29 @@
             <tag> 路由器 </tag>
             
             <tag> 静态路由 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>rip实验的配置</title>
+      <link href="/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+      <url>/2018/01/27/2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>rip实验的简单配置。</p><a id="more"></a><h1 id="rip实验的配置"><a href="#rip实验的配置" class="headerlink" title="rip实验的配置"></a>rip实验的配置</h1><hr><h3 id="网络拓扑图："><a href="#网络拓扑图：" class="headerlink" title="网络拓扑图："></a>网络拓扑图：</h3><p><img src="http://i.imgur.com/4VZqZdA.png" alt=""></p><h3 id="实验材料："><a href="#实验材料：" class="headerlink" title="实验材料："></a>实验材料：</h3><pre><code>系统环境：win7系统模拟软件：PacketTracer6</code></pre><hr><h4 id="什么是rip"><a href="#什么是rip" class="headerlink" title="什么是rip?"></a>什么是rip?</h4><p> <strong>rip</strong>  <strong>如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，</strong><br><strong>但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。</strong></p><h3 id="路由器关于rip的配置如下："><a href="#路由器关于rip的配置如下：" class="headerlink" title="路由器关于rip的配置如下："></a>路由器关于rip的配置如下：</h3><pre><code>router ripnetwork  net [wildmask]</code></pre><h3 id="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"><a href="#上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No" class="headerlink" title="上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No"></a>上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上No</h3><pre><code>eg. no network</code></pre><h3 id="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"><a href="#network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。" class="headerlink" title="network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。"></a>network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。</h3><h3 id="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"><a href="#其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；" class="headerlink" title="其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；"></a>其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；</h3><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><blockquote><p>本次rip的实验中ping通了。</p></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+            <tag> rip </tag>
             
         </tags>
       
