@@ -20,8 +20,8 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>思考</tag>
         <tag>杂感</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -62,18 +62,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[rip实验的配置]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-        <tag>rip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ACL原理小结]]></title>
     <url>%2F2018%2F01%2F27%2F2018-01-27-acl%E9%9A%8F%E7%AC%94%2F</url>
     <content type="text"><![CDATA[对于ACL原理的一个小结。 ACL原理ACL概念 Access Control List 访问控制列表 简言之，就是一个为了更好的控制不断扩大的网络的规则； eg.四个应用：ACL、DHCP、NAT、 非必需触发条件：时间或事件； 定义报文匹配规则；条件和动作（permit or deny） eg. 校园网案例 ACL的分类标准ACL 源Ip地址 端口号（指的是目的端口）eg.http的端口80或者8080 现在存在的路由器大多数都配置了ACL ACL的工作原理就是无限次的匹配，一直执行到最后的一条，执行每一条的规则，例如允许，拒绝； 考虑ACL放在In端口还是out端口； ACL里还有个默认的规则，拒绝所有的端口进入。 扩展ACL尽量靠近源IP地址]]></content>
@@ -83,6 +71,17 @@
       <tags>
         <tag>路由器</tag>
         <tag>ACL原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IP路由过程分析]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[IP路由过程的简单分析。 IP路由过程分析 首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。 小结： 经过这个流程的分析我发现路由器在转发数据的过程， 和A相连的端口是路由器的其中一个端口不是路由器的本身的网络， 另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据, 即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。 从而完成了从物理网卡的转移到逻辑上的数据转移。]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
       </tags>
   </entry>
   <entry>
@@ -98,14 +97,28 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IP路由过程分析]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-%E8%B7%AF%E7%94%B1IP%E7%9A%84%E8%BF%87%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[IP路由过程的简单分析。 IP路由过程分析 首先，PC A(以下简称为A)要向B发送一个数据，这时候，A的MAC地址就是图上所示，A要发的目的MAC就是B的00：20：AF：00:00:02，而源目的MAC就是A的，这时候就二层的数据链路层就把A的数据进行数据封装，然后进行传给上层的网络层的设备路由器，这时候，和A同一个网段的路由器端口fei_1/1接收到了数据，对数据进行解封，剥离掉二层数据，判断这个数据是否是给自己，如果是就再封装给上层，如果不是就根据自己的路由表进行查询，找到下一个的路由器的端口IP，若找到了路由表上的端口就转发，若不然就抛弃掉。这时候根据路由表里的信息主要有两个，一个就是连接的下一个端口就是fei_1/2,另一个就是关于A想要发送给B的数据，里面包括的目的IP和源IP都没有发生变化，于是，路由器识别到转发的下一个端口就是fei_1/2，所以这时候发给了B，而B接收到了数据就进行二层的解封，然后就识别到了这是给自己的一个数据，这就是一个经由路由IP转发的过程。 小结： 经过这个流程的分析我发现路由器在转发数据的过程， 和A相连的端口是路由器的其中一个端口不是路由器的本身的网络， 另外就是数据的转发经过了二层和三层，其中没变的就是里面的数据, 即目的IP，源IP没变，而变化的就是在MAC的变化，也就是说MAC变，IP不变。 从而完成了从物理网卡的转移到逻辑上的数据转移。]]></content>
+    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
+    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
+      <categories>
+        <category>CTF</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rip实验的配置]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
+        <tag>rip</tag>
       </tags>
   </entry>
   <entry>
@@ -118,19 +131,6 @@
       <tags>
         <tag>路由器</tag>
         <tag>ospf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[ONCE MORE的正确打开姿势]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-CTF%2F</url>
-    <content type="text"><![CDATA[作为一个代码审计方面的小白，第一次遇到这样的题目，虽然做出来了，但是还是要秉着分享的态度把这次的题目经验写出来的。 ONCE MORE of write upwrite up: 1&gt;题目url 2&gt;初步检测 3&gt;查看源代码 4&gt;分析代码构造语句 &gt;1 题目： http://ctf5.shiyanbar.com/web/more.php 首先，看看题目有什么提示，如图： &gt;2 初步检测 可以看到提示了ereg()函数有漏洞，还有就是使用科学的方法来算数；先mark着； 在password里输入了111来检测 输入完之后 &gt;3 查看源代码 这时候看到 view the source code 可以点开打开源码进行查看 贴上源代码： &lt;?php if (isset ($_GET[&apos;password&apos;])) { if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE) { echo &apos;&lt;p&gt;You password must be alphanumeric&lt;/p&gt;&apos;; } else if (strlen($_GET[&apos;password&apos;]) &lt; 8 &amp;&amp; $_GET[&apos;password&apos;] &gt; 9999999) { if (strpos ($_GET[&apos;password&apos;], &apos;*-*&apos;) !== FALSE) { die(&apos;Flag: &apos; . $flag); } else { echo(&apos;&lt;p&gt;*-* have not been found&lt;/p&gt;&apos;); } } else { echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;; } } ?&gt; &gt;4 分析代码构造语句 首先，在ereg()函数里可以看到两个条件：1.字母大小写和数字，2.须是password里的；这时候直接跳到下一个判断语句，（strlen($_GET[‘password’]）这里提示了字符长度必须小于8，且要求大于9999999（$_GET[‘password’] &gt; 9999999）那么，之前提示的是科学计算法，我们可以尝试使用。因为科学计算法里e相当于10，又要大于一定的数值，例如：1.88e3 = 1880;所以我们可以这么构造， 3e9这样可以通过了判断条件，且满足了大于9999999，但是在strpos()这个函数里我们发现这里还有个判断条件，就是 “ *-* ” ，既要满足之前的ereg()里的只带数字和大小写字母，又要满足小于8个字节的大于9999999的语句，怎么做到呢？ 在没有思路的情况下，我们在看看之前的提示，有一个就是ereg()漏洞，bing了一通之后，我发现，ereg()的漏洞可以利用%00来终结判断，从而该语句就是“3e9%00*-” 这句语句的意思就是终止对 \-* 之前的判断，我们就可以直接绕过ereg()函数对password整句的判断，从而完成了对语句的构造。 TIS：最后还有个对于小白来说的一个陷阱，就是在该页面提交的数据，因为是get方法提交的，所以前端会对其进行一个url编码，那么，该数据会被进行转义，所以，这时候我们可以不通过页面前端进行提交，可以在URL上进行编写，也可以使用bp绕过浏览器直接提交给服务端。]]></content>
-      <categories>
-        <category>CTF</category>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>writeup</tag>
       </tags>
   </entry>
   <entry>
