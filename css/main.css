@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #94e22e;
+  background: #83c132;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3056,6 +3056,11 @@ img.img-topic {
 }
 .footer-inner {
   color: #adff2f;
+}
+. fas fa-dove {
+  font-family: "fas fa-dove";
+  font-size: 20px;
+  font-style: normal;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
