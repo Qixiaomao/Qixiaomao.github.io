@@ -486,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/27/2018-01-27-路由IP的过程/" rel="next" title="IP路由过程分析">
-                <i class="fa fa-chevron-left"></i> IP路由过程分析
+              <a href="/2018/01/27/2018-01-27-浮动路由配置/" rel="next" title="浮动静态路由的配置实验">
+                <i class="fa fa-chevron-left"></i> 浮动静态路由的配置实验
               </a>
             
           </div>
@@ -602,6 +602,21 @@ var jiathis_config={
               <p class="site-author-name" itemprop="name">JHeln</p>
               <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
           </div>
+          
+          
+            <!--my custom code begin-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+            <script type="text/javascript">
+              $("#sidebar").hover(function(){
+                $("#mydivshow").velocity('stop').velocity({opacity: 1});
+              },function(){
+                $("#mydivshow").velocity('stop').velocity({opacity: 0});
+              });
+            </script>
+         
+         <div id="mydivshow" class="mydivshow">
+            <!--my custom code end-->
 
           <nav class="site-state motion-element">
 
@@ -735,8 +750,10 @@ show_date_time();
             </div>
           
 
-          
+        <!--my custom code begin-->
         </div>
+        <!--my custom code end-->  
+       
       </section>
 
       

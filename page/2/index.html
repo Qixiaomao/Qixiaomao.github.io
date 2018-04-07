@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-rip路由的配置/">
+    <link itemprop="mainEntityOfPage" href="www.jheln.ink/2018/01/27/2018-01-27-ospf路由转发功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JHeln">
@@ -317,7 +317,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/27/2018-01-27-rip路由的配置/" itemprop="url">rip实验的配置</a></h1>
+                <a class="post-title-link" href="/2018/01/27/2018-01-27-ospf路由转发功能/" itemprop="url">ospf路由转发功能</a></h1>
         
 
         <div class="post-meta">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  280
+                  227
                 </span>
               
 
@@ -423,7 +423,7 @@
 
       
         
-          <p>rip实验的简单配置。</p>
+          <p>三层交换机的ospf的简单配置。</p>
           
                      
           
@@ -432,7 +432,7 @@
           
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/2018-01-27-rip路由的配置/#more" rel="contents">
+            <a class="btn" href="/2018/01/27/2018-01-27-ospf路由转发功能/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2185,6 +2185,21 @@
               <p class="site-author-name" itemprop="name">JHeln</p>
               <p class="site-description motion-element" itemprop="description">不以无人而不芳，不因色香而自炫，君子当如兰~</p>
           </div>
+          
+          
+            <!--my custom code begin-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+            <script type="text/javascript">
+              $("#sidebar").hover(function(){
+                $("#mydivshow").velocity('stop').velocity({opacity: 1});
+              },function(){
+                $("#mydivshow").velocity('stop').velocity({opacity: 0});
+              });
+            </script>
+         
+         <div id="mydivshow" class="mydivshow">
+            <!--my custom code end-->
 
           <nav class="site-state motion-element">
 
@@ -2318,8 +2333,10 @@ show_date_time();
             </div>
           
 
-          
+        <!--my custom code begin-->
         </div>
+        <!--my custom code end-->  
+       
       </section>
 
       
