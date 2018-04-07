@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #83c132;
+  background: #1767db;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3057,7 +3057,7 @@ img.img-topic {
 .footer-inner {
   color: #adff2f;
 }
-. fas fa-dove {
+.fas fa-dove {
   font-family: "fas fa-dove";
   font-size: 20px;
   font-style: normal;
