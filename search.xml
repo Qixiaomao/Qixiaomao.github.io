@@ -171,17 +171,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[交换机配置的打开方式]]></title>
-    <url>%2F2017%2F07%2F06%2F2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[本次就简单谈谈交换机配置~ 关于交换机配置的打开方式# 交换机 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务； 交换机与路由器的区别 交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发； 交换机与路由器配置上的区别交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。交换机的配置 en //进入用户模式 config t //进入配置模式 vlan 10 //配置vlan exit //退出VLAN模式 interface fa0/0 sw mode access //设置为access端口模式 sw access vlan 10 //将vlan 10 的数据配置给交换机的端口 exit //退出模式 总结以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>交换机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[关于OSPF的简单配置]]></title>
     <url>%2F2017%2F07%2F06%2F2017-07-06%E7%AE%80%E5%8D%95%E7%9A%84ospf%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[了解什么是OSPF~ 关于ospf的简单配置# 网络拓扑图如下： 明白什么是ospf？ ospf是Open Shortest Path First开放式最短路径优先的简称； 一种链路状态协议； 如何配置ospf？其实这个协议在这个网络拓扑图中起到的作用就是向其他的路由宣告其路由表，有这些网段，因此，最关键的就是打开路由的ospf功能； 路由器配置如下en //先进入用户模式 config t //进入配置模式 interface gi0/0 ///进入路由端口 ip address xxx.xxx.xxx.xxx mask //配置端口ip no shutdown //打开端口 exit //退出端口 ospf的配置： en interface loopback 1 //给路由器设置一个路由Id ip address xxx.xxx.xxx.xxx mask //给路由器id的设置一个ip地址 exit //退出端口 router ospf 进程号 network xxx.xxx.xxx.xxx [wildmask] area [number] exit //退出端口]]></content>
@@ -191,6 +180,17 @@
       <tags>
         <tag>路由器</tag>
         <tag>ospf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[交换机配置的打开方式]]></title>
+    <url>%2F2017%2F07%2F06%2F2017-07-06%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[本次就简单谈谈交换机配置~ 关于交换机配置的打开方式# 交换机 是一个处于第二层，数据链路层的网络设备，其目的就是用于控制第一层的hub(集线器)，避免产生冲突从而更好的为高层服务； 交换机与路由器的区别 交换机不论在功能还是服务层都和路由器有很大的区别，功能上，交换机的作用就是在第二层进行数据的转发； 交换机与路由器配置上的区别交换机在IP上需要设置虚拟局域网也就是VLAN，然后配置VLAN的IP，然后让交换机的端口配置上VLAN，从而让交换机实现了端口的IP；而路由器的IP的是直接在端口上设置的。交换机的配置 en //进入用户模式 config t //进入配置模式 vlan 10 //配置vlan exit //退出VLAN模式 interface fa0/0 sw mode access //设置为access端口模式 sw access vlan 10 //将vlan 10 的数据配置给交换机的端口 exit //退出模式 总结以上就是交换机的配置，其实和路由器相比就是多了个设置vlan的模式，只要进入了这个模式其他的还是一模一样的。]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>交换机</tag>
       </tags>
   </entry>
   <entry>
