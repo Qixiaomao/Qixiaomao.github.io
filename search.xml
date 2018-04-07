@@ -20,8 +20,8 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>杂感</tag>
         <tag>思考</tag>
+        <tag>杂感</tag>
       </tags>
   </entry>
   <entry>
@@ -97,15 +97,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[rip实验的配置]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
+    <title><![CDATA[ospf路由转发功能]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[三层交换机的ospf的简单配置。 三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述； sw(config)#ip routing 这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
-        <tag>rip</tag>
+        <tag>ospf</tag>
       </tags>
   </entry>
   <entry>
@@ -122,15 +122,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ospf路由转发功能]]></title>
-    <url>%2F2018%2F01%2F27%2F2018-01-27-ospf%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD%2F</url>
-    <content type="text"><![CDATA[三层交换机的ospf的简单配置。 三层交换机ospf的配置网络拓扑图如下： 之前提到过关于ospf，是在路由器上配，这次的网络拓扑图里包含有三层交换机，顾名思义，就是在第三层的交换机，具有一定的路由转发功能；所以本次的配置关键就在于打开三层交换机的路由转发功能。 路由器上的配置参考之前的简单的ospf的配置，在路由上的配置差不多； 三层交换机的配置关于交换机的配置到时候会重新写个配置的文档，所以这里不做过多的阐述； sw(config)#ip routing 这行命令是在告诉三层交换机打开路由转发功能，重点就是这句，然后就是在这个网络拓扑图的配置了。]]></content>
+    <title><![CDATA[rip实验的配置]]></title>
+    <url>%2F2018%2F01%2F27%2F2018-01-27-rip%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[rip实验的简单配置。 rip实验的配置 网络拓扑图： 实验材料：系统环境：win7系统 模拟软件：PacketTracer6 什么是rip? rip 如图，R0只知道192.168.78.0以及另一段的192.168.78.4和它相连的两个网段，但是，对于R1,R2而言，路由器不知道这些网段的存在，因此，需要一个协议来告诉其他路由器这些网段的存在，而rip就是这个作用，将R0的路由表同时转发到其他的路由器上，这样，几个路由器都知道这些网段的存在了。 路由器关于rip的配置如下：router rip network net [wildmask] 上面的两个命令行，一个是开启rip模式，如果想要关闭就在rip前面加上Noeg. no network network的意思就是将自己的路由表告知其他的路由器，这些网段的存在。其实rip的作用就相当于一个存储命令行的云，接收后就将这些网段告知其他的路由器；实验结果： 本次rip的实验中ping通了。]]></content>
       <categories>
         <category>网络</category>
       </categories>
       <tags>
         <tag>路由器</tag>
-        <tag>ospf</tag>
+        <tag>rip</tag>
       </tags>
   </entry>
   <entry>
