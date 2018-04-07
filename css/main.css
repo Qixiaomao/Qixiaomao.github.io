@@ -1861,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cf7aff;
+  background: #ffff05;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3056,11 +3056,6 @@ img.img-topic {
 }
 .footer-inner {
   color: #adff2f;
-}
-element.style {
-  color: #1e1e1e;
-  font-size: 14px;
-  text-align: center;
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
